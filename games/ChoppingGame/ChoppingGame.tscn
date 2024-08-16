@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://de6rd5a70ycvt"]
 
-[ext_resource type="Script" path="res://games/ChoppingGame.gd" id="1_pc1qu"]
-[ext_resource type="Script" path="res://games/Knife_Folloing.gd" id="2_a15ko"]
+[ext_resource type="Script" path="res://games/ChoppingGame/ChoppingGame.gd" id="1_pc1qu"]
+[ext_resource type="Script" path="res://games/ChoppingGame/Knife_Folloing.gd" id="2_a15ko"]
 [ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="3_ydq3s"]
 
 [sub_resource type="Curve2D" id="Curve2D_yvhvg"]
