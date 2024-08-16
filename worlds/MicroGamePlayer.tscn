@@ -8,3 +8,5 @@ script = ExtResource("1_v88o7")
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="InbetweenTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
