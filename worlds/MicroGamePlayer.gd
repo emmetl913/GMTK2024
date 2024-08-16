@@ -16,7 +16,7 @@ func _process(delta):
 	pass
 
 func loadScenes():
-	gameScenes.append(preload("res://games/ChoppingGame.tscn"))
+	gameScenes.append(preload("res://games/ChoppingGame/ChoppingGame.tscn"))
 	gameScenes.append(preload("res://games/PickingGame.tscn"))
 
 func startGame(gameID: int):
