@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var knife_speed : int
+@export var sweetspot_size : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
