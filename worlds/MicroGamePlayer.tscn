@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs1arsoaxi704"]
+
+[ext_resource type="Script" path="res://worlds/MicroGamePlayer.gd" id="1_v88o7"]
+
+[node name="MicroGamePlayer" type="Node2D"]
+script = ExtResource("1_v88o7")
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="InbetweenTimer" type="Timer" parent="."]
