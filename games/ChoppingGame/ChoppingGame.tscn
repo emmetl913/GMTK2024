@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://de6rd5a70ycvt"]
+[gd_scene load_steps=9 format=3 uid="uid://de6rd5a70ycvt"]
 
 [ext_resource type="Script" path="res://games/ChoppingGame/ChoppingGame.gd" id="1_pc1qu"]
 [ext_resource type="Script" path="res://games/ChoppingGame/Knife_Folloing.gd" id="2_a15ko"]
 [ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="3_ydq3s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6kvgd"]
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_yvhvg"]
 _data = {
@@ -27,6 +30,14 @@ sweetspot_size = 32
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 320.0
 offset_bottom = 180.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 114.0
+offset_top = 10.0
+offset_right = 217.0
+offset_bottom = 33.0
+text = "LMB to CHOP"
+label_settings = SubResource("LabelSettings_6kvgd")
 
 [node name="Knife_Folloing" type="Node2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)
