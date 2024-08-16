@@ -17,7 +17,7 @@ func _process(delta):
 
 func loadScenes():
 	gameScenes.append(preload("res://games/ChoppingGame/ChoppingGame.tscn"))
-	gameScenes.append(preload("res://games/PickingGame.tscn"))
+	gameScenes.append(preload("res://games/PickingGame/PickingGame.tscn"))
 
 func startGame(gameID: int):
 	var game_inst = gameScenes[gameID].instance()
