@@ -50,4 +50,5 @@ text = "Quit
 alignment = 0
 expand_icon = true
 
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
