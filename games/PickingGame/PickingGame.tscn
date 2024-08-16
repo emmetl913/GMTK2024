@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://0u1csqhucgrx"]
 
-[ext_resource type="Script" path="res://games/PickingGame.gd" id="1_ye50i"]
+[ext_resource type="Script" path="res://games/PickingGame/PickingGame.gd" id="1_ye50i"]
 [ext_resource type="Texture2D" uid="uid://ds6acn1uvdow1" path="res://assets/PickingGame/background.png" id="2_jafae"]
 
 [node name="PickingGame" type="Node2D"]
