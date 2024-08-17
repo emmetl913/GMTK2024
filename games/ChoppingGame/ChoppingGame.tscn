@@ -28,20 +28,20 @@ knife_speed = 500
 sweetspot_size = 32
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 240.0
+offset_bottom = 160.0
 
 [node name="Label" type="Label" parent="."]
-offset_left = 114.0
+offset_left = 72.0
 offset_top = 10.0
-offset_right = 217.0
+offset_right = 175.0
 offset_bottom = 33.0
 text = "LMB to CHOP"
 label_settings = SubResource("LabelSettings_6kvgd")
 
 [node name="Knife_Folloing" type="Node2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(62, 57)
+position = Vector2(13, 53)
 script = ExtResource("2_a15ko")
 
 [node name="Path2D" type="Path2D" parent="Knife_Folloing"]
@@ -67,7 +67,7 @@ shape = SubResource("RectangleShape2D_vo8d6")
 
 [node name="Fruit" type="Area2D" parent="."]
 self_modulate = Color(0.764706, 0, 0, 1)
-position = Vector2(161, 145)
+position = Vector2(124, 136)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fruit"]
 shape = SubResource("RectangleShape2D_lhfg8")
