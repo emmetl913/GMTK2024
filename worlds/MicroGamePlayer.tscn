@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs1arsoaxi704"]
+[gd_scene load_steps=5 format=3 uid="uid://bs1arsoaxi704"]
 
 [ext_resource type="Script" path="res://worlds/MicroGamePlayer.gd" id="1_v88o7"]
+[ext_resource type="Texture2D" uid="uid://c4y7fwmphhywq" path="res://assets/Timer/stopwatch.png" id="2_auqqo"]
+[ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="3_adxpj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uacp0"]
+font = ExtResource("3_adxpj")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0, 0, 0.580392)
 
 [node name="MicroGamePlayer" type="Node2D"]
 script = ExtResource("1_v88o7")
@@ -18,10 +27,19 @@ autostart = true
 z_index = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="TimerGraphic"]
+texture_filter = 1
+position = Vector2(220, 22)
+texture = ExtResource("2_auqqo")
 
 [node name="Label" type="Label" parent="TimerGraphic"]
-offset_right = 40.0
-offset_bottom = 23.0
+texture_filter = 1
+offset_left = 214.0
+offset_top = 6.0
+offset_right = 228.0
+offset_bottom = 38.0
+pivot_offset = Vector2(6, 16)
+text = "5"
+label_settings = SubResource("LabelSettings_uacp0")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="InbetweenTimer" to="." method="_on_inbetween_timer_timeout"]

@@ -13,7 +13,7 @@ var game_inst
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadScenes()
-	$TimerGraphic/Label.visible = false
+	$TimerGraphic.visible = false
 	
 	#testing
 
@@ -36,7 +36,7 @@ func startGame(gameID: int):
 	add_child(game_inst, true)
 	
 	#Start game timer
-	$TimerGraphic/Label.visible = true
+	$TimerGraphic.visible = true
 	$GameTimer.wait_time = game_inst.getTimer(game_phase)
 	$GameTimer.start()
 
@@ -48,7 +48,7 @@ func winGame():
 		total_wins += 1
 	$InbetweenTimer.start()
 	
-	$TimerGraphic/Label.visible = false
+	$TimerGraphic.visible = false
 
 func loseGame():
 	print("Lose game in parent")
@@ -58,7 +58,7 @@ func loseGame():
 		total_losses += 1
 	$InbetweenTimer.start()
 	
-	$TimerGraphic/Label.visible = false
+	$TimerGraphic.visible = false
 
 
 func _on_game_timer_timeout():
