@@ -48,6 +48,8 @@ func loadScenes():
 	audio.append(preload("res://assets/sfx/clean.wav"))
 	gameScenes.append(preload("res://games/PullingGame/PullingGame.tscn"))
 	audio.append(preload("res://assets/sfx/pull.wav"))
+	gameScenes.append(preload("res://games/ShovelingGame/ShovelingGame.tscn"))
+	audio.append(preload("res://assets/sfx/pull.wav"))
 
 	
 
