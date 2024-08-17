@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbtp8rbua14pk"]
+
+[ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="1_4ux3x"]
+[ext_resource type="Script" path="res://games/PickingGame/BushItem.gd" id="2_jnbbf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iounw"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjexf"]
+size = Vector2(85.3333, 85.3333)
+
+[node name="Sprite2D" type="Sprite2D" groups=["BushItem"]]
+scale = Vector2(0.140625, 0.140625)
+texture = ExtResource("1_4ux3x")
+script = ExtResource("2_jnbbf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.69542e-06)
+shape = SubResource("RectangleShape2D_iounw")
+
+[node name="SpawnCollisionDetection" type="Area2D" parent="." groups=["SpawnCollider"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnCollisionDetection"]
+position = Vector2(-1.69542e-06, -1.69542e-06)
+shape = SubResource("RectangleShape2D_jjexf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="area_entered" from="SpawnCollisionDetection" to="." method="_on_spawn_collision_detection_area_entered"]

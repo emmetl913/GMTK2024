@@ -8,6 +8,8 @@ var parent
 #var timers will be the timer on the clock for each game phase
 var timers : Array[int]
 
+var directionMessage : String
+
 func set_parent(par : Node2D):
 	parent = par
 

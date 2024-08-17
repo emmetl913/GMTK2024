@@ -1,12 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://0u1csqhucgrx"]
+[gd_scene load_steps=4 format=3 uid="uid://0u1csqhucgrx"]
 
 [ext_resource type="Script" path="res://games/PickingGame/PickingGame.gd" id="1_ye50i"]
 [ext_resource type="Texture2D" uid="uid://ds6acn1uvdow1" path="res://assets/PickingGame/background.png" id="2_jafae"]
+[ext_resource type="PackedScene" uid="uid://btwduanygnii8" path="res://Utilities/CrosshairSpriteArea.tscn" id="4_1ktfw"]
 
 [node name="PickingGame" type="Node2D"]
 script = ExtResource("1_ye50i")
+spawnRange = Vector2(-100, 100)
+spawnCountRandomRange = Vector2(4, 7)
 
 [node name="Background" type="Sprite2D" parent="."]
+self_modulate = Color(0.231373, 0.705882, 0.12549, 1)
 texture_filter = 1
-position = Vector2(160, 90)
+position = Vector2(120, 80)
+scale = Vector2(0.75, 0.888889)
 texture = ExtResource("2_jafae")
+
+[node name="Cursor" parent="." instance=ExtResource("4_1ktfw")]
