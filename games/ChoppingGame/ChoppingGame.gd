@@ -8,6 +8,9 @@ var has_won : bool = false
 @onready var fruit := $Fruit
 
 func _ready():
+	#Setup timers
+	timers = [5, 4, 3, 2]
+	
 	knife.speed = knife_speed
 	$Fruit/CollisionShape2D.shape.size.x = sweetspot_size
 
