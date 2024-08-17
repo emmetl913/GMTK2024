@@ -23,7 +23,7 @@ func _process(delta):
 	if pattern.has_won and $WonTimeout.time_left == 0 and not has_won:
 		$WonTimeout.start()
 		has_won = true
-	elif pattern.has_failed and not has_lost:
+	elif pattern.has_lost and not has_lost:
 		super.onLose()
 		has_lost = true
 
