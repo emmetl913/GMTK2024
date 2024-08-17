@@ -11,6 +11,7 @@ var cook_time : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Wait.text = "Wait"
+	directionMessage = "PULL!!"
 	timers = [7, 6, 5, 4, 3, 2]
 	cook_time = randi_range(2, 6)
 	cooktime.wait_time = cook_time
