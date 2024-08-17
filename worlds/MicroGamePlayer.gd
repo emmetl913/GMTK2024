@@ -5,6 +5,7 @@ extends Node2D
 @export var first_game_index : int
 var game_inst
 @export var gameScenes : Array[Resource] = []
+@export var audio : Array[AudioStreamWAV] = []
 
 #Starts at 1, increases after each round of micro games.
 #Used to tell game scenes which sprites to draw and what difficulty to select
@@ -27,12 +28,19 @@ func updateTimer():
 
 func loadScenes():
 	gameScenes.append(preload("res://games/ChoppingGame/ChoppingGame.tscn"))
+	audio.append(preload("res://assets/sfx/chop.wav"))
 	gameScenes.append(preload("res://games/PickingGame/PickingGame.tscn"))
+	audio.append(preload("res://assets/sfx/pick.wav"))
 	gameScenes.append(preload("res://games/ChurningGame/ChurningGame.tscn"))
+	audio.append(preload("res://assets/sfx/churn.wav"))
 	gameScenes.append(preload("res://games/CrackingGame/CrackingGame.tscn"))
+	audio.append(preload("res://assets/sfx/crack.wav"))
 	gameScenes.append(preload("res://games/IcingGame/IcingGame.tscn"))
+	audio.append(preload("res://assets/sfx/ice.wav"))
 	gameScenes.append(preload("res://games/WipingGame/WipingGame.tscn"))
+	audio.append(preload("res://assets/sfx/wipe.wav"))
 	gameScenes.append(preload("res://games/CleaningGame/CleaningGame.tscn"))
+	audio.append(preload("res://assets/sfx/clean.wav"))
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()
@@ -43,13 +51,17 @@ func startGame(gameID: int):
 	$GameTimer.wait_time = game_inst.getTimer(game_phase)
 	$DirectionMessage/Label.text = game_inst.directionMessage
 	
-	play_direction_animation()
+	play_direction_animation(gameID)
 
-func play_direction_animation():
+func play_direction_animation(gameID : int):
 	$DirectionMessage.visible = true
 	
 	#pause game
 	get_tree().paused = true
+	
+	#play sound cue
+	$AudioStreamPlayer.stream = audio[gameID]
+	$AudioStreamPlayer.play()
 	
 	#play animation
 	$DirectionMessage/DirectionAnimPlayer.play("Animation")

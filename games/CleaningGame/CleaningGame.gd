@@ -13,14 +13,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$CharacterBody2D.position = get_global_mouse_position()
-	if count >= 1:
+	if count > 1:
 		$Win.stop()
 
 func _input(event):
-	if count < 1 and not has_won:
-		print("Won at cleaning")
-		$Win.start()
-		has_won = true
+	pass
 
 func _on_area_2d_body_entered(body):
 	count += 1
@@ -30,6 +27,8 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	count -= 1
 	$Label.text = "%02d" % count
+	if count <= 1 and !has_won:
+		super.onWin()
 
 
 
