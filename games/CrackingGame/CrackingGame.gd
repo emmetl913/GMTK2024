@@ -13,6 +13,7 @@ var max_cracks : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	timers = [5, 4, 3, 2]
 	first_cracks = randi_range(1,3)
 	second_cracks = randi_range(1,3)
 	third_cracks = randi_range(1,3)

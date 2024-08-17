@@ -42,17 +42,20 @@ func startGame(gameID: int):
 
 func winGame():
 	print("Win game in parent")
-	game_inst.queue_free()
-	total_wins += 1
+	$GameTimer.stop()
+	if is_instance_valid(game_inst):
+		game_inst.queue_free()
+		total_wins += 1
 	$InbetweenTimer.start()
 	
 	$TimerGraphic/Label.visible = false
 
 func loseGame():
 	print("Lose game in parent")
+	$GameTimer.stop()
 	if is_instance_valid(game_inst):
 		game_inst.queue_free()
-	total_losses += 1
+		total_losses += 1
 	$InbetweenTimer.start()
 	
 	$TimerGraphic/Label.visible = false
