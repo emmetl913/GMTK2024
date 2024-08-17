@@ -41,6 +41,8 @@ func loadScenes():
 	audio.append(preload("res://assets/sfx/wipe.wav"))
 	gameScenes.append(preload("res://games/CleaningGame/CleaningGame.tscn"))
 	audio.append(preload("res://assets/sfx/clean.wav"))
+	gameScenes.append(preload("res://games/PullingGame/PullingGame.tscn"))
+	audio.append(preload("res://assets/sfx/pull.wav"))
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()
