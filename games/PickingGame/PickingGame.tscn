@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://0u1csqhucgrx"]
+[gd_scene load_steps=4 format=3 uid="uid://0u1csqhucgrx"]
 
 [ext_resource type="Script" path="res://games/PickingGame/PickingGame.gd" id="1_ye50i"]
 [ext_resource type="Texture2D" uid="uid://ds6acn1uvdow1" path="res://assets/PickingGame/background.png" id="2_jafae"]
+[ext_resource type="PackedScene" uid="uid://bbtp8rbua14pk" path="res://games/PickingGame/BushItem.tscn" id="3_8aw2e"]
 
 [node name="PickingGame" type="Node2D"]
 script = ExtResource("1_ye50i")
@@ -10,3 +11,18 @@ script = ExtResource("1_ye50i")
 texture_filter = 1
 position = Vector2(160, 90)
 texture = ExtResource("2_jafae")
+
+[node name="Sprite2D" parent="." instance=ExtResource("3_8aw2e")]
+position = Vector2(50, 60)
+
+[node name="Sprite2D2" parent="." instance=ExtResource("3_8aw2e")]
+position = Vector2(238, 81)
+
+[node name="Sprite2D3" parent="." instance=ExtResource("3_8aw2e")]
+position = Vector2(66, 126)
+
+[node name="Sprite2D4" parent="." instance=ExtResource("3_8aw2e")]
+position = Vector2(175, 127)
+
+[node name="Sprite2D5" parent="." instance=ExtResource("3_8aw2e")]
+position = Vector2(146, 37)
