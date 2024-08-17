@@ -28,8 +28,10 @@ func _input(event):
 func setup():
 	if randi_range(0,1):
 		starting_button = true
+		$Churn.position.y = 93
 	else: 
 		false
+		$Churn.position.y = 68
 	$W.visible = starting_button
 	$S.visible = not starting_button
 
