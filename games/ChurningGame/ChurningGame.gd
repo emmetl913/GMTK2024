@@ -5,6 +5,9 @@ var starting_button : bool
 @export var win_churns : int
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Setup timers
+	timers = [5, 4, 3, 2]
+	
 	setup()
 
 func _input(event):
