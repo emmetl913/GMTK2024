@@ -69,10 +69,6 @@ offset_top = 1.0
 offset_right = 141.0
 offset_bottom = 24.0
 
-[node name="WinTimeout" type="Timer" parent="."]
-one_shot = true
-
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="WinTimeout" to="." method="_on_win_timeout_timeout"]

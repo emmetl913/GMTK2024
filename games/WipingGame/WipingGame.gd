@@ -17,6 +17,7 @@ func _process(delta):
 	if total_swipes >= swipes_to_win and not has_won:
 		print("Won in game")
 		super.onWin()
+		has_won = true
 
 func _input(event):
 	if event is InputEventMouseMotion:

@@ -3,6 +3,7 @@ extends Sprite2D
 var first_enter : bool = true
 var has_failed : bool = false
 var has_won : bool = false
+var has_lost : bool = false
 var completed : bool = false
 @export var gates : int
 @onready var gates_completed : int = 0
@@ -111,3 +112,4 @@ func _on_ninth_body_entered(body):
 
 func _on_leave_timer_timeout():
 	print("Lose Game")
+	has_lost = true
