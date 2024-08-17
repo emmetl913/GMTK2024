@@ -11,7 +11,7 @@ point_count = 5
 
 [node name="CrackingGame" type="Node2D"]
 script = ExtResource("1_s24qa")
-crack_speed = 350
+crack_speed = 400
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 320.0
@@ -43,6 +43,7 @@ offset_right = 148.0
 offset_bottom = 49.0
 
 [node name="Crack_timer" type="Timer" parent="."]
+wait_time = 1.5
 one_shot = true
 
 [connection signal="timeout" from="Crack_timer" to="." method="_on_crack_timer_timeout"]
