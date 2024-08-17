@@ -7,6 +7,9 @@ var has_lost : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timers = [5, 4, 3, 2]
+	
+	directionMessage = "ICE!!"
+	
 	setup()
 
 func setup():
