@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://eeqvrbatj6qs"]
+
+[ext_resource type="Script" path="res://games/WipingGame/WipingGame.gd" id="1_3f400"]
+
+[node name="WipingGame" type="Node2D"]
+script = ExtResource("1_3f400")
+swipes_to_win = 5
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 160.0
+color = Color(0.427451, 0.32549, 0.431373, 1)
+
+[node name="MouseDetection" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Label" type="Label" parent="."]
+offset_left = 94.0
+offset_top = 17.0
+offset_right = 134.0
+offset_bottom = 40.0
+text = "Swipe!"
+
+[connection signal="timeout" from="MouseDetection" to="." method="_on_mouse_detection_timeout"]

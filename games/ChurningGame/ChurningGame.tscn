@@ -13,29 +13,29 @@ script = ExtResource("1_lqwom")
 win_churns = 10
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 240.0
+offset_bottom = 160.0
 color = Color(0.65098, 0.427451, 0, 1)
 
 [node name="Churn" type="Sprite2D" parent="."]
-position = Vector2(160, 68)
+position = Vector2(117, 67)
 texture = SubResource("PlaceholderTexture2D_hsab7")
 
 [node name="Basin" type="Sprite2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)
-position = Vector2(160, 100)
+position = Vector2(117, 99)
 texture = SubResource("PlaceholderTexture2D_ascl0")
 
 [node name="W" type="Label" parent="."]
-offset_left = 192.0
-offset_top = 22.0
-offset_right = 232.0
-offset_bottom = 45.0
+offset_left = 149.0
+offset_top = 21.0
+offset_right = 189.0
+offset_bottom = 44.0
 text = "\"W\""
 
 [node name="S" type="Label" parent="."]
-offset_left = 195.0
-offset_top = 64.0
-offset_right = 235.0
-offset_bottom = 87.0
+offset_left = 149.0
+offset_top = 62.0
+offset_right = 189.0
+offset_bottom = 85.0
 text = "\"S\""

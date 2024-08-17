@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://7kkvev5036ny"]
+
+[ext_resource type="Script" path="res://games/IcingGame/IcingGame.gd" id="1_vc0qf"]
+[ext_resource type="PackedScene" uid="uid://kf1q8ln3swdb" path="res://games/IcingGame/Patterns/S_Pattern.tscn" id="2_4p275"]
+[ext_resource type="Texture2D" uid="uid://c65hf5vuw1pp8" path="res://assets/sprites/mouse_tracker.png" id="3_2slpm"]
+[ext_resource type="PackedScene" uid="uid://6tpodpx3ai1a" path="res://games/IcingGame/Patterns/N_Pattern.tscn" id="3_6w53s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mimnj"]
+radius = 4.0
+
+[node name="IcingGame" type="Node2D"]
+script = ExtResource("1_vc0qf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 160.0
+color = Color(0.451029, 0.6215, 0.346212, 1)
+
+[node name="SPattern" parent="." instance=ExtResource("2_4p275")]
+visible = false
+position = Vector2(120, 77)
+
+[node name="NPattern" parent="." instance=ExtResource("3_6w53s")]
+visible = false
+position = Vector2(114, 72)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["cursor"]]
+position = Vector2(-84, -50)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_2slpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_mimnj")
+
+[node name="WonTimeout" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="WonTimeout" to="." method="_on_won_timeout_timeout"]

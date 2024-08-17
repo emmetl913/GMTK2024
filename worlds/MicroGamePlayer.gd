@@ -13,7 +13,8 @@ var game_inst
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadScenes()
-	$TimerGraphic/Label.visible = false
+	$TimerGraphic.visible = false
+	$EndMessage.visible = false
 	
 	#testing
 
@@ -22,13 +23,15 @@ func _process(delta):
 	updateTimer()
 
 func updateTimer():
-	$TimerGraphic/Label.text = "%d" % ($GameTimer.time_left + 1)
+	$TimerGraphic/Label.text = "%d" % (ceil($GameTimer.time_left))
 
 func loadScenes():
 	gameScenes.append(preload("res://games/ChoppingGame/ChoppingGame.tscn"))
 	gameScenes.append(preload("res://games/PickingGame/PickingGame.tscn"))
 	gameScenes.append(preload("res://games/ChurningGame/ChurningGame.tscn"))
 	gameScenes.append(preload("res://games/CrackingGame/CrackingGame.tscn"))
+	gameScenes.append(preload("res://games/IcingGame/IcingGame.tscn"))
+	gameScenes.append(preload("res://games/WipingGame/WipingGame.tscn"))
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()
@@ -36,26 +39,42 @@ func startGame(gameID: int):
 	add_child(game_inst, true)
 	
 	#Start game timer
-	$TimerGraphic/Label.visible = true
+	$TimerGraphic.visible = true
 	$GameTimer.wait_time = game_inst.getTimer(game_phase)
 	$GameTimer.start()
 
 func winGame():
 	print("Win game in parent")
-	game_inst.queue_free()
+	$GameTimer.stop()
 	total_wins += 1
-	$InbetweenTimer.start()
 	
-	$TimerGraphic/Label.visible = false
+	play_end_text_animation("WIN!", Color(0, 0.64, 0.13))
 
 func loseGame():
 	print("Lose game in parent")
-	game_inst.queue_free()
+	$GameTimer.stop()
 	total_losses += 1
-	$InbetweenTimer.start()
 	
-	$TimerGraphic/Label.visible = false
+	play_end_text_animation("LOSE!", Color(1, 0, 0))
 
+func endGame():
+	if is_instance_valid(game_inst):
+		game_inst.queue_free()
+	$InbetweenTimer.start()
+	$TimerGraphic.visible = false
+
+func play_end_text_animation(message: String, color: Color):
+	$EndMessage/Label.text = message
+	$EndMessage/Label.label_settings.font_color = color
+	$EndMessage/MessageAnimPlayer.play("Animation")
+	$EndMessage/MessageBuffer.start()
+
+func _on_message_buffer_timeout():
+	$EndMessage.visible = true
+
+func _on_message_anim_player_animation_finished(anim_name):
+	$EndMessage.visible = false
+	endGame()
 
 func _on_game_timer_timeout():
 	print("game timer timeout")
@@ -63,3 +82,10 @@ func _on_game_timer_timeout():
 
 func _on_inbetween_timer_timeout():
 	startGame(randi_range(0, gameScenes.size()-1))
+
+
+
+
+
+
+
