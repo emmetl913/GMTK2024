@@ -32,15 +32,32 @@ func loadScenes():
 	gameScenes.append(preload("res://games/CrackingGame/CrackingGame.tscn"))
 	gameScenes.append(preload("res://games/IcingGame/IcingGame.tscn"))
 	gameScenes.append(preload("res://games/WipingGame/WipingGame.tscn"))
+	gameScenes.append(preload("res://games/CleaningGame/CleaningGame.tscn"))
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()
 	game_inst.set_parent(self)
 	add_child(game_inst, true)
 	
-	#Start game timer
 	$TimerGraphic.visible = true
 	$GameTimer.wait_time = game_inst.getTimer(game_phase)
+	$DirectionMessage/Label.text = game_inst.directionMessage
+	
+	play_direction_animation()
+
+func play_direction_animation():
+	$DirectionMessage.visible = true
+	
+	#pause game
+	get_tree().paused = true
+	
+	#play animation
+	$DirectionMessage/DirectionAnimPlayer.play("Animation")
+
+func _on_direction_anim_player_animation_finished(anim_name):
+	get_tree().paused = false
+	$DirectionMessage.visible = false
+	
 	$GameTimer.start()
 
 func winGame():
@@ -82,6 +99,7 @@ func _on_game_timer_timeout():
 
 func _on_inbetween_timer_timeout():
 	startGame(randi_range(0, gameScenes.size()-1))
+
 
 
 

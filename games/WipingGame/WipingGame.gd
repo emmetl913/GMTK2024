@@ -9,6 +9,9 @@ var has_won : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timers = [5, 4, 3, 2]
+	
+	directionMessage = "WIPE!!"
+	
 	$MouseDetection.start()
 
 
@@ -17,6 +20,7 @@ func _process(delta):
 	if total_swipes >= swipes_to_win and not has_won:
 		print("Won in game")
 		super.onWin()
+		has_won = true
 
 func _input(event):
 	if event is InputEventMouseMotion:

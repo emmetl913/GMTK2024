@@ -35,5 +35,6 @@ shape = SubResource("CircleShape2D_mimnj")
 
 [node name="WonTimeout" type="Timer" parent="."]
 wait_time = 0.5
+one_shot = true
 
 [connection signal="timeout" from="WonTimeout" to="." method="_on_won_timeout_timeout"]

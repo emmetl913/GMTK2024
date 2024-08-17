@@ -1,10 +1,15 @@
 extends Base_Game
 
 var pattern
+var has_won : bool = false
+var has_lost : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timers = [5, 4, 3, 2]
+	
+	directionMessage = "ICE!!"
+	
 	setup()
 
 func setup():
@@ -18,10 +23,12 @@ func setup():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$CharacterBody2D.position = get_global_mouse_position()
-	if pattern.has_won and $WonTimeout.time_left == 0:
+	if pattern.has_won and $WonTimeout.time_left == 0 and not has_won:
 		$WonTimeout.start()
-	elif pattern.has_failed and $WonTimeout.time_left == 0:
+		has_won = true
+	elif pattern.has_failed and not has_lost:
 		super.onLose()
+		has_lost = true
 
 
 func _on_won_timeout_timeout():

@@ -42,6 +42,9 @@ func _input(event):
 				i.successState()
 	if checkWin():
 		super.onWin()
+	
+	directionMessage = "PICK!!"
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3iw77l0gmdah"]
+
+[ext_resource type="PackedScene" uid="uid://b6k0ikqk32nsh" path="res://games/CleaningGame/Trash.tscn" id="1_a2scu"]
+[ext_resource type="Script" path="res://games/CleaningGame/CleaningGame.gd" id="1_xlvcd"]
+[ext_resource type="Texture2D" uid="uid://c65hf5vuw1pp8" path="res://assets/sprites/mouse_tracker.png" id="3_i84kp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwh6a"]
+size = Vector2(114, 113)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5unxk"]
+radius = 4.0
+
+[node name="CleaningGame" type="Node2D"]
+script = ExtResource("1_xlvcd")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 240.0
+offset_bottom = 160.0
+color = Color(1, 1, 0, 1)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(120, 76.5)
+shape = SubResource("RectangleShape2D_pwh6a")
+
+[node name="Trash_Box" type="Node2D" parent="."]
+
+[node name="Trash" parent="Trash_Box" instance=ExtResource("1_a2scu")]
+position = Vector2(90, 45)
+mass = 100.0
+gravity_scale = 0.0
+
+[node name="Trash2" parent="Trash_Box" instance=ExtResource("1_a2scu")]
+position = Vector2(150, 43)
+mass = 100.0
+gravity_scale = 0.0
+
+[node name="Trash3" parent="Trash_Box" instance=ExtResource("1_a2scu")]
+position = Vector2(152, 103)
+mass = 100.0
+gravity_scale = 0.0
+
+[node name="Trash4" parent="Trash_Box" instance=ExtResource("1_a2scu")]
+position = Vector2(89, 104)
+mass = 100.0
+gravity_scale = 0.0
+
+[node name="Trash5" parent="Trash_Box" instance=ExtResource("1_a2scu")]
+position = Vector2(121, 76)
+mass = 100.0
+gravity_scale = 0.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["cursor"]]
+position = Vector2(-84, -50)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("3_i84kp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_5unxk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 101.0
+offset_top = 1.0
+offset_right = 141.0
+offset_bottom = 24.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

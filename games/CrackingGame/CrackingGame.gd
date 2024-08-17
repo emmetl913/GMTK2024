@@ -11,10 +11,13 @@ var is_cracking : bool = false
 var total_cracks : int = 0
 var max_cracks : int
 var has_won : bool = false
+var has_lost : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timers = [5, 4, 3, 2]
+	directionMessage = "CRACK!!"
+	
 	first_cracks = randi_range(1,3)
 	second_cracks = randi_range(1,3)
 	third_cracks = randi_range(1,3)
@@ -36,6 +39,7 @@ func _process(delta):
 			egg_path.progress += crack_speed*delta
 		else:
 			print("Crack complete")
+			print("Total cracks: ", total_cracks, "   Max Cracks: ", max_cracks)
 			egg_path.progress_ratio = 0
 			is_cracking = false
 	if total_cracks > first_cracks and current_stage[0]:
@@ -46,13 +50,15 @@ func _process(delta):
 		crack_label.text = "2"
 		current_stage[1] = false
 		current_stage[2] = true
-	if total_cracks > max_cracks:
+	if total_cracks > max_cracks and not has_lost:
+		has_lost = true
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.visible = false
+		$Crack_timer.stop()
 		super.onLose()
-	if max_cracks == total_cracks:
-		if $Crack_timer.time_left == 0:
-			$Crack_timer.start()
+	if max_cracks == total_cracks and not has_won:
+		$Crack_timer.start()
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.self_modulate = Color(0,1,0)
+		has_won = true
 
 
 func _on_crack_timer_timeout():
