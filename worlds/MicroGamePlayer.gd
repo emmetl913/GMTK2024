@@ -32,6 +32,7 @@ func loadScenes():
 	gameScenes.append(preload("res://games/CrackingGame/CrackingGame.tscn"))
 	gameScenes.append(preload("res://games/IcingGame/IcingGame.tscn"))
 	gameScenes.append(preload("res://games/WipingGame/WipingGame.tscn"))
+	gameScenes.append(preload("res://games/CleaningGame/CleaningGame.tscn"))
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()

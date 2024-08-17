@@ -1,18 +1,32 @@
 extends Base_Game
 
-var count
+var count : int = 0
+var total_offscreen : int = 0
+var has_won : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	timers = [5, 4, 3, 2]
+	$Label.text = "%02d" % count
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$CharacterBody2D.position = get_global_mouse_position()
+	if count <= 1 and not has_won:
+		$WinTimeout.start()
+		has_won = true
 
 
-func _on_area_2d_area_entered(area):
-	for i in get_overlapping_areas():
-		if area.is_in_group("trash"):
-			count += 1
+func _on_area_2d_body_entered(body):
+	count += 1
+	$Label.text = "%02d" % count
+
+
+func _on_area_2d_body_exited(body):
+	count -= 1
+	$Label.text = "%02d" % count
+
+
+func _on_win_timeout_timeout():
+	super.onWin()
