@@ -9,6 +9,9 @@ var has_won : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timers = [5, 4, 3, 2]
+	
+	directionMessage = "WIPE!!"
+	
 	$MouseDetection.start()
 
 

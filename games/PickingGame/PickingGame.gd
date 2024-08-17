@@ -6,6 +6,8 @@ func _ready():
 	#Setup timers
 	timers = [5, 4, 3, 2]
 	
+	directionMessage = "PICK!!"
+	
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

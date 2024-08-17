@@ -40,6 +40,7 @@ func startGame(gameID: int):
 	
 	$TimerGraphic.visible = true
 	$GameTimer.wait_time = game_inst.getTimer(game_phase)
+	$DirectionMessage/Label.text = game_inst.directionMessage
 	
 	play_direction_animation()
 

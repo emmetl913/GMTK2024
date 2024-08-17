@@ -8,6 +8,8 @@ func _ready():
 	#Setup timers
 	timers = [5, 4, 3, 2]
 	
+	directionMessage = "CHURN!!"
+	
 	setup()
 
 func _input(event):

@@ -11,6 +11,8 @@ func _ready():
 	#Setup timers
 	timers = [5, 4, 3, 2]
 	
+	directionMessage = "CHOP!!"
+	
 	knife.speed = knife_speed
 	$Fruit/CollisionShape2D.shape.size.x = sweetspot_size
 
