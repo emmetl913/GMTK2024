@@ -24,7 +24,7 @@ size = Vector2(32, 32)
 
 [node name="ChoppingGame" type="Node2D"]
 script = ExtResource("1_pc1qu")
-knife_speed = 500
+knife_speed = 300
 sweetspot_size = 32
 
 [node name="ColorRect" type="ColorRect" parent="."]
