@@ -7,16 +7,19 @@ var bushItem = preload("res://games/PickingGame/BushItem.tscn")
 
 var centerScreenOffset = Vector2(120,80)
 var all_bad = true
+var has_won = false
 #TODO:
 	#if picking game has all bad berries wait timer to win
 func _ready():
+	#GameSetup
+	directionMessage = "PICK!!"
+	timers = [5, 4, 3, 2]
 
 	for i in randi_range(spawnCountRandomRange.x,spawnCountRandomRange.y):
 		var newItem = bushItem.instantiate()
 		newItem.position =Vector2(centerScreenOffset.x + randf_range(spawnRange.x,spawnRange.y), centerScreenOffset.y +  + randf_range(spawnRange.x,spawnRange.y)/2)
 		add_child(newItem)
-	#Setup timers
-	timers = [5, 4, 3, 2]
+
 	for i in get_children():
 		if i.is_in_group("BushItem"):
 			bushItems.append(i)
@@ -40,11 +43,11 @@ func _input(event):
 				super.onLose()
 			if i.isInRange() and i.is_good:
 				i.successState()
-	if checkWin():
+	if checkWin() and !has_won:
 		super.onWin()
+		has_won = true
 	
-	directionMessage = "PICK!!"
-	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

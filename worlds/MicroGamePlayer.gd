@@ -26,6 +26,7 @@ func updateTimer():
 	$TimerGraphic/Label.text = "%d" % (ceil($GameTimer.time_left))
 
 func loadScenes():
+	gameScenes.append(preload("res://games/ShavingGame/ShavingGame.tscn"))
 	gameScenes.append(preload("res://games/ChoppingGame/ChoppingGame.tscn"))
 	gameScenes.append(preload("res://games/PickingGame/PickingGame.tscn"))
 	gameScenes.append(preload("res://games/ChurningGame/ChurningGame.tscn"))
@@ -33,6 +34,8 @@ func loadScenes():
 	gameScenes.append(preload("res://games/IcingGame/IcingGame.tscn"))
 	gameScenes.append(preload("res://games/WipingGame/WipingGame.tscn"))
 	gameScenes.append(preload("res://games/CleaningGame/CleaningGame.tscn"))
+
+	
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()
