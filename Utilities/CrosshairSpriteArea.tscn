@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://btwduanygnii8"]
+[gd_scene load_steps=3 format=3 uid="uid://btwduanygnii8"]
 
-[node name="CrosshairSpriteArea" type="Node"]
+[ext_resource type="Texture2D" uid="uid://qu1cvk8cgrdc" path="res://assets/Cursor.png" id="1_b2eom"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsrbm"]
+size = Vector2(5, 5)
+
+[node name="CrosshairSpriteArea" type="Node" groups=["Cursor"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_b2eom")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.5, -2.5)
+shape = SubResource("RectangleShape2D_xsrbm")
