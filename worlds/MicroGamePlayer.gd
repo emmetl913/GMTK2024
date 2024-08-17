@@ -31,6 +31,7 @@ func updateTimer():
 
 func loadScenes():
 	gameScenes.append(preload("res://games/ShavingGame/ShavingGame.tscn"))
+	audio.append(preload("res://assets/sfx/chop.wav"))
 	gameScenes.append(preload("res://games/ChoppingGame/ChoppingGame.tscn"))
 	audio.append(preload("res://assets/sfx/chop.wav"))
 	gameScenes.append(preload("res://games/PickingGame/PickingGame.tscn"))
