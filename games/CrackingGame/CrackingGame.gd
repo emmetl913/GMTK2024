@@ -10,6 +10,7 @@ var current_stage : Array[bool] = [true, false, false, false]
 var is_cracking : bool = false
 var total_cracks : int = 0
 var max_cracks : int
+var has_won : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +31,7 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if is_cracking:
-		print(egg_path.progress_ratio)
+		#print(egg_path.progress_ratio)
 		if egg_path.progress_ratio < 1:
 			egg_path.progress += crack_speed*delta
 		else:
@@ -49,7 +50,6 @@ func _process(delta):
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.visible = false
 		super.onLose()
 	if max_cracks == total_cracks:
-		print("Won in game")
 		if $Crack_timer.time_left == 0:
 			$Crack_timer.start()
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.self_modulate = Color(0,1,0)
