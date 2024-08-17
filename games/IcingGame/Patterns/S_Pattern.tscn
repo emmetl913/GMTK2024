@@ -1,0 +1,172 @@
+[gd_scene load_steps=5 format=3 uid="uid://kf1q8ln3swdb"]
+
+[ext_resource type="Texture2D" uid="uid://dav1foy134tsg" path="res://assets/sprites/S_pattern.png" id="1_2g7ob"]
+[ext_resource type="Script" path="res://games/IcingGame/Patterns/pattern.gd" id="2_n8mwo"]
+[ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="3_6m2ld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgynf"]
+size = Vector2(7, 28.747)
+
+[node name="SPattern" type="Sprite2D"]
+texture = ExtResource("1_2g7ob")
+script = ExtResource("2_n8mwo")
+gates = 9
+
+[node name="ProgressDetectors" type="Node2D" parent="."]
+
+[node name="First" type="Area2D" parent="ProgressDetectors"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/First"]
+position = Vector2(30, -39)
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/First"]
+visible = false
+position = Vector2(37, -39)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Second" type="Area2D" parent="ProgressDetectors"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Second"]
+position = Vector2(0, -39)
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Second"]
+visible = false
+position = Vector2(1, -39)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Third" type="Area2D" parent="ProgressDetectors"]
+position = Vector2(-3, 0)
+rotation = -0.0135629
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Third"]
+position = Vector2(-37.4676, -39.5118)
+rotation = -0.316807
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Third"]
+visible = false
+position = Vector2(-33.4815, -38.4576)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Fourth" type="Area2D" parent="ProgressDetectors"]
+position = Vector2(-3, 0)
+rotation = 0.295242
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Fourth"]
+position = Vector2(-31.4883, 6.4409)
+rotation = -0.316807
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Fourth"]
+visible = false
+position = Vector2(-31.1135, 4.23647)
+rotation = -0.288941
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Fifth" type="Area2D" parent="ProgressDetectors"]
+position = Vector2(-3, 0)
+rotation = 0.295242
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Fifth"]
+position = Vector2(5.44941, -2.70256)
+rotation = -0.316807
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Fifth"]
+visible = false
+position = Vector2(8.11246, -7.69337)
+rotation = -0.303565
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Sixth" type="Area2D" parent="ProgressDetectors"]
+position = Vector2(-3, 0)
+rotation = 0.295242
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Sixth"]
+position = Vector2(38.9907, -13.2559)
+rotation = 0.149534
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Sixth"]
+visible = false
+position = Vector2(42.471, -15.0072)
+rotation = -0.289073
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Seventh" type="Area2D" parent="ProgressDetectors"]
+position = Vector2(-3, 0)
+rotation = 0.279831
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Seventh"]
+position = Vector2(45.3712, 27.54)
+rotation = -0.287867
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Seventh"]
+visible = false
+position = Vector2(46.4648, 24.1043)
+rotation = -0.257713
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Eighth" type="Area2D" parent="ProgressDetectors"]
+position = Vector2(-3, 0)
+rotation = 0.279831
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Eighth"]
+position = Vector2(15.3009, 35.1409)
+rotation = -0.287867
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Eighth"]
+visible = false
+position = Vector2(14.7485, 33.2187)
+rotation = -0.259757
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Ninth" type="Area2D" parent="ProgressDetectors"]
+position = Vector2(-3, 0)
+rotation = 0.279831
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ProgressDetectors/Ninth"]
+position = Vector2(-13.1235, 41.2283)
+rotation = -0.287867
+shape = SubResource("RectangleShape2D_sgynf")
+
+[node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Ninth"]
+visible = false
+position = Vector2(-18.8901, 42.8855)
+rotation = -0.282692
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6m2ld")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(51, -28, 59, -40, 49, -51, -50, -51, -59, -43, -63, -25, -64, -6, -57, 6, -42, 9, -8, 10, 32, 10, 34, 26, -55, 23, -63, 33, -60, 42, -54, 47, 2, 48, 48, 51, 60, 42, 61, 23, 57, 0, 52, -12, 42, -15, 22, -14, -5, -13, -29, -16, -39, -16, -38, -26)
+
+[node name="LeaveTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="ProgressDetectors/First" to="." method="_on_first_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Second" to="." method="_on_second_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Third" to="." method="_on_third_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Fourth" to="." method="_on_fourth_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Fifth" to="." method="_on_fifth_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Sixth" to="." method="_on_sixth_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Seventh" to="." method="_on_seventh_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Eighth" to="." method="_on_eighth_body_entered"]
+[connection signal="body_entered" from="ProgressDetectors/Ninth" to="." method="_on_ninth_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="LeaveTimer" to="." method="_on_leave_timer_timeout"]
