@@ -11,6 +11,8 @@ var game_inst
 #Used to tell game scenes which sprites to draw and what difficulty to select
 @export var game_phase : int
 
+var current_game_id : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadScenes()
@@ -61,7 +63,7 @@ func startGame(gameID: int):
 	#play transition
 	$Transition/TransitionAnimPlayer.play("Enter_Game")
 
-	play_direction_animation(gameID)
+	current_game_id = gameID
 
 func play_direction_animation(gameID : int):
 	#play sound cue
@@ -140,7 +142,7 @@ func _on_transition_anim_player_animation_finished(anim_name):
 	elif (anim_name == "Exit_Cutscene"):
 		startGame(randi_range(0, gameScenes.size()-1))
 	elif (anim_name == "Enter_Game"):
-		play_direction_animation()
+		play_direction_animation(current_game_id)
 	elif (anim_name == "Exit_Game"):
 		endGame()
 

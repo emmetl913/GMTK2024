@@ -148,21 +148,6 @@ _data = {
 "RESET": SubResource("Animation_bu6ka")
 }
 
-[sub_resource type="Animation" id="Animation_5trlk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(380, 80)]
-}
-
 [sub_resource type="Animation" id="Animation_wvviw"]
 resource_name = "Enter_Cutscene"
 length = 0.3
@@ -179,8 +164,8 @@ tracks/0/keys = {
 "values": [Vector2(120, 80), Vector2(-140, 80)]
 }
 
-[sub_resource type="Animation" id="Animation_g3x75"]
-resource_name = "Exit_Game"
+[sub_resource type="Animation" id="Animation_dnfud"]
+resource_name = "Enter_Game"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -192,7 +177,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(380, 80), Vector2(120, 80)]
+"values": [Vector2(120, 80), Vector2(380, 80)]
 }
 
 [sub_resource type="Animation" id="Animation_1l1qo"]
@@ -211,8 +196,8 @@ tracks/0/keys = {
 "values": [Vector2(-140, 80), Vector2(120, 80)]
 }
 
-[sub_resource type="Animation" id="Animation_dnfud"]
-resource_name = "Enter_Game"
+[sub_resource type="Animation" id="Animation_g3x75"]
+resource_name = "Exit_Game"
 length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -224,7 +209,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(120, 80), Vector2(380, 80)]
+"values": [Vector2(380, 80), Vector2(120, 80)]
+}
+
+[sub_resource type="Animation" id="Animation_5trlk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(380, 80)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tm8xd"]
@@ -322,6 +322,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="Transition" type="Node2D" parent="."]
 process_mode = 3
 z_index = 20
