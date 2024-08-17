@@ -26,8 +26,11 @@ offset_left = 44.0
 offset_top = 7.0
 offset_right = 206.0
 offset_bottom = 35.0
-text = "Placeholder Title"
+text = "The Robot Who 
+Baked The World"
 label_settings = SubResource("LabelSettings_q24b8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
