@@ -20,9 +20,10 @@ func setUpCake():
 	#Add new cake layer to array
 	if (microGamePlayer.recentGameWon):
 		var randIndex = randi_range(0, 2)
+		randIndex = (GlobalVars.game_stage * 3) + randIndex
 		microGamePlayer.cake_layers.append(randIndex)
 	else:
-		microGamePlayer.cake_layers.append(3)
+		microGamePlayer.cake_layers.append(12)
 	
 	#Move background down depending on number of cake layers
 	$Background.position.y = -160 + (6 * microGamePlayer.cake_layers.size())
@@ -30,9 +31,7 @@ func setUpCake():
 	#Instantiate cake layers
 	var newestCakeLayer
 	var bottomLayerY = $Background.position.y + 275
-	print(microGamePlayer.cake_layers)
 	for i in microGamePlayer.cake_layers.size():
-		print(i)
 		newestCakeLayer = microGamePlayer.cakeLayerScene.instantiate()
 		newestCakeLayer.setCutscene(self)
 		
