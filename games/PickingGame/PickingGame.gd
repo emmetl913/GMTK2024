@@ -4,6 +4,7 @@ var bushItems: Array[Node2D]
 var bushItem = preload("res://games/PickingGame/BushItem.tscn")
 @export var spawnRange: Vector2
 @export var spawnCountRandomRange: Vector2
+@onready var sprites : Array[CompressedTexture2D]
 
 var centerScreenOffset = Vector2(120,80)
 var all_bad = true
@@ -15,7 +16,7 @@ func _ready():
 		var newItem = bushItem.instantiate()
 		newItem.position =Vector2(centerScreenOffset.x + randf_range(spawnRange.x,spawnRange.y), centerScreenOffset.y +  + randf_range(spawnRange.x,spawnRange.y)/2)
 		add_child(newItem)
-	
+	setupSprites()
 	#Setup timers
 	timers = [5, 4, 3, 2]
 	directionMessage = "PICK!!"
@@ -25,9 +26,18 @@ func _ready():
 			bushItems.append(i)
 	for i in bushItems:
 		if i.is_good:
+			i.texture = sprites[0]
 			all_bad = false
+		else:
+			i.texture = sprites[1]
 	if all_bad:
 		bushItems[0].setGood()
+
+func setupSprites():
+	if GlobalVars.game_stage == 0:
+		sprites.append(load("res://assets/sprites/strawberry.png"))
+		sprites.append(load("res://assets/sprites/strawberrybad.png"))
+
 func _input(event):
 	if event.is_action_pressed("LMB"):
 		#Check to see if any thing is under mouse

@@ -42,7 +42,6 @@ texture = ExtResource("2_3wtw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D/Area2D"]
 position = Vector2(-3.02298, 1.25)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4d8f8")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Shaveables"]

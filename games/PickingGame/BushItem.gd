@@ -14,10 +14,10 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("Cursor"):
 		in_range = true
 func setBad():
-	self_modulate = Color.DARK_RED
+	#self_modulate = Color.DARK_RED
 	is_good = false
 func setGood():
-	self_modulate = Color.WHITE
+	#self_modulate = Color.WHITE
 	is_good = true
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("Cursor"):

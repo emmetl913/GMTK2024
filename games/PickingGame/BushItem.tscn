@@ -4,26 +4,29 @@
 [ext_resource type="Script" path="res://games/PickingGame/BushItem.gd" id="2_jnbbf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iounw"]
-size = Vector2(128, 128)
+size = Vector2(76, 76)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjexf"]
 size = Vector2(85.3333, 85.3333)
 
 [node name="Sprite2D" type="Sprite2D" groups=["BushItem"]]
-scale = Vector2(0.140625, 0.140625)
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_4ux3x")
 script = ExtResource("2_jnbbf")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 1.69542e-06)
+position = Vector2(0, -4)
+scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_iounw")
 
 [node name="SpawnCollisionDetection" type="Area2D" parent="." groups=["SpawnCollider"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnCollisionDetection"]
 position = Vector2(-1.69542e-06, -1.69542e-06)
+scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_jjexf")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
