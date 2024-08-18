@@ -5,7 +5,7 @@ var total_swipes : int = 0
 @onready var mouse_prop = InputEventMouseMotion
 var curr_vel = Vector2(0,0)
 var has_won : bool = false
-@export var cursorrag: Texture2D
+@onready var cursorrag = load("res://assets/sprites/rag.png")
 var prev_mouse_pos: Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +13,6 @@ func _ready():
 	timers = [5, 4, 3, 2]
 	prev_mouse_pos = get_global_mouse_position()
 	directionMessage = "WIPE!!"
-	$Cursor.texture = cursorrag
 	$MouseDetection.start()
 
 func getPlateDirtiness():
