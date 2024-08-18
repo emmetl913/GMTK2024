@@ -33,7 +33,7 @@ func _input(event):
 		$Churn.position.y = 78
 		$W.visible = not $W.visible
 		$S.visible = not $S.visible
-	elif event.is_action_pressed("S") and not $S.visible:
+	elif event.is_action_pressed("S") and not $S.visible and not has_won:
 		super.onLose()
 	if total_churns >= win_churns and not has_won:
 		super.onWin()
