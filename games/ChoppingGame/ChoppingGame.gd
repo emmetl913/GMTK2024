@@ -20,7 +20,9 @@ func _ready():
 func setupSprites():
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/knife.png"))
+		sprites.append(load("res://assets/sprites/strawberry.png"))
 	$Knife_Folloing/Path2D/PathFollow2D/Knife/Knife.texture = sprites[0]
+	$Fruit/Sprite2D.texture = sprites[1]
 
 func _input(event):
 	if event.is_action_pressed("LMB"):

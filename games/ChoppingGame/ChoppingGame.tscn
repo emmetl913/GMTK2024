@@ -69,7 +69,6 @@ shape = SubResource("RectangleShape2D_lhfg8")
 debug_color = Color(0.186082, 0.588666, 0.706743, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fruit"]
-scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_ydq3s")
 
 [connection signal="area_entered" from="Fruit" to="." method="_on_fruit_area_entered"]
