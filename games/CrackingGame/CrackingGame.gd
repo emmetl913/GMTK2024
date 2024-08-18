@@ -12,18 +12,26 @@ var total_cracks : int = 0
 var max_cracks : int
 var has_won : bool = false
 var has_lost : bool = false
+@onready var sprites : Array[CompressedTexture2D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timers = [5, 4, 3, 2]
 	directionMessage = "CRACK!!"
-	
+	setupSprites()
+	$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[0]
 	first_cracks = randi_range(1,3)
 	second_cracks = randi_range(1,3)
 	third_cracks = randi_range(1,3)
 	max_cracks = first_cracks + second_cracks + third_cracks
 	crack_label.text = "0"
 	print("First cracks: ", first_cracks, "   Second cracks: ", second_cracks, "   Third cracks: ", third_cracks)
+
+func setupSprites():
+	if GlobalVars.game_stage == 0:
+		sprites.append(load("res://assets/sprites/egg_whole.png"))
+		sprites.append(load("res://assets/sprites/egg_crackedalil.png"))
+		sprites.append(load("res://assets/sprites/egg_cracked.png"))
 
 func _input(event):
 	if event.is_action_pressed("LMB"):
@@ -46,10 +54,12 @@ func _process(delta):
 		crack_label.text = "1"
 		current_stage[0] = false
 		current_stage[1] = true
+		$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[1]
 	elif total_cracks > second_cracks+first_cracks and current_stage[1]:
 		crack_label.text = "2"
 		current_stage[1] = false
 		current_stage[2] = true
+		$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[2]
 	if total_cracks > max_cracks and not has_lost:
 		has_lost = true
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.visible = false

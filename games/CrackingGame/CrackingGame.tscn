@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dirx1pwsdxbkp"]
+[gd_scene load_steps=6 format=3 uid="uid://dirx1pwsdxbkp"]
 
 [ext_resource type="Script" path="res://games/CrackingGame/CrackingGame.gd" id="1_s24qa"]
-[ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="2_ikun7"]
+[ext_resource type="Texture2D" uid="uid://ba6l33kci3dfy" path="res://assets/sprites/bakery1.png" id="2_7xtao"]
+[ext_resource type="Texture2D" uid="uid://bekvl7nc0ujko" path="res://assets/sprites/egg_whole.png" id="2_tk385"]
+[ext_resource type="Texture2D" uid="uid://f363qkofjdrr" path="res://assets/sprites/table_temp.png" id="3_qng3m"]
 
 [sub_resource type="Curve2D" id="Curve2D_iq5qu"]
 _data = {
@@ -13,10 +15,10 @@ point_count = 5
 script = ExtResource("1_s24qa")
 crack_speed = 400
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 offset_right = 240.0
 offset_bottom = 160.0
-color = Color(0.65098, 0.427451, 0.92549, 1)
+texture = ExtResource("2_7xtao")
 
 [node name="EggStuff" type="Node2D" parent="."]
 
@@ -32,9 +34,16 @@ rotates = false
 loop = false
 
 [node name="Sprite2D" type="Sprite2D" parent="EggStuff/Path2D/PathFollow2D"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_ikun7")
+texture_filter = 1
+texture = ExtResource("2_tk385")
+flip_h = true
 flip_v = true
+
+[node name="Table" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-11, 103)
+scale = Vector2(2, 2)
+texture = ExtResource("3_qng3m")
 
 [node name="Cracks" type="Label" parent="."]
 offset_left = 108.0

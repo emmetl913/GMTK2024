@@ -16,4 +16,10 @@ func _on_exit_pressed():
 
 
 func _on_start_pressed():
+	GlobalVars.is_endless = false
+	get_tree().change_scene_to_file("res://worlds/MicroGamePlayer.tscn")
+
+
+func _on_endless_pressed():
+	GlobalVars.is_endless = true
 	get_tree().change_scene_to_file("res://worlds/MicroGamePlayer.tscn")

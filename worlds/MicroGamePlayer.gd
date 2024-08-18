@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var game_ind : int = 0
 @export var total_losses : int
 @export var total_wins : int
 @export var first_game_index : int
@@ -15,6 +16,7 @@ var current_game_id : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GlobalVars.game_stage = 0
 	loadScenes()
 	$TimerGraphic.visible = false
 	$EndMessage.visible = false
@@ -49,9 +51,9 @@ func loadScenes():
 	gameScenes.append(preload("res://games/PullingGame/PullingGame.tscn"))
 	audio.append(preload("res://assets/sfx/pull.wav"))
 	gameScenes.append(preload("res://games/ShovelingGame/ShovelingGame.tscn"))
-	audio.append(preload("res://assets/sfx/pull.wav"))
-
-	
+	audio.append(preload("res://assets/sfx/shovel.wav"))
+	gameScenes.append(preload("res://games/SeasoningGame/SeasoningGame.tscn"))
+	audio.append(preload("res://assets/sfx/season.wav"))
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()
@@ -146,7 +148,14 @@ func _on_transition_anim_player_animation_finished(anim_name):
 	if (anim_name == "Enter_Cutscene"):
 		cutscene()
 	elif (anim_name == "Exit_Cutscene"):
-		startGame(randi_range(0, gameScenes.size()-1))
+		if GlobalVars.is_endless:
+			startGame(randi_range(0, gameScenes.size()-1))
+		elif not GlobalVars.is_endless:
+			if game_ind < gameScenes.size()-1:
+				game_ind += 1
+			elif game_ind == gameScenes.size()-1:
+				game_ind = 0
+			startGame(game_ind)
 	elif (anim_name == "Enter_Game"):
 		play_direction_animation(current_game_id)
 	elif (anim_name == "Exit_Game"):

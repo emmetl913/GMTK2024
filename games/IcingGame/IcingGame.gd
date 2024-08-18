@@ -24,9 +24,9 @@ func setup():
 func _process(delta):
 	$CharacterBody2D.position = get_global_mouse_position()
 	if pattern.has_won and $WonTimeout.time_left == 0 and not has_won:
-		$WonTimeout.start()
+		super.onWin()
 		has_won = true
-	elif pattern.has_lost and not has_lost:
+	elif pattern.has_lost and not has_lost and not has_won:
 		super.onLose()
 		has_lost = true
 
