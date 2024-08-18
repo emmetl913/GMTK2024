@@ -11,9 +11,18 @@ var game_inst
 @export var cutsceneScene : Resource
 var cutsceneInst
 
+@onready var cakeLayerScene = preload("res://worlds/cake_piece.tscn")
+#var cakeLayerScene: Resource
+
 #Starts at 1, increases after each round of micro games.
 #Used to tell game scenes which sprites to draw and what difficulty to select
 @export var game_phase : int
+
+#Saved persistently in MGM
+@export var cake_layers : Array[int]
+#Used to tell cutscene which type of cake layer to add
+#bool true=win, false=loss
+var recentGameWon
 
 var current_game_id : int
 
@@ -25,7 +34,7 @@ func _ready():
 	$EndMessage.visible = false
 	
 	#testing
-	cutscene()
+	enter_cutscene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -58,7 +67,7 @@ func loadScenes():
 	gameScenes.append(preload("res://games/SeasoningGame/SeasoningGame.tscn"))
 	audio.append(preload("res://assets/sfx/season.wav"))
 	
-	#Cutscene Scene
+	#Cutscene Scenes
 	cutsceneScene = preload("res://worlds/cutscene.tscn")
 
 func startGame(gameID: int):
@@ -97,6 +106,7 @@ func winGame():
 	print("Win game in parent")
 	$GameTimer.stop()
 	total_wins += 1
+	recentGameWon = true
 	
 	play_end_text_animation("WIN!", Color(0, 0.64, 0.13))
 	$MessageTimer.start()
@@ -105,6 +115,7 @@ func loseGame():
 	print("Lose game in parent")
 	$GameTimer.stop()
 	total_losses += 1
+	recentGameWon = false
 	
 	play_end_text_animation("LOSE!", Color(1, 0, 0))
 	$MessageTimer.start()
@@ -139,19 +150,19 @@ func _on_game_timer_timeout():
 	loseGame()
 
 func cutscene():
-	$InbetweenTimer.start()
+	pass#$InbetweenTimer.start()
 
 func _on_inbetween_timer_timeout():
 	exit_cutscene()
 
 func enter_cutscene():
 	cutsceneInst = cutsceneScene.instantiate()
+	cutsceneInst.setMicroGamePlayer(self)
 	add_child(cutsceneInst, true)
 	
 	$Transition/TransitionAnimPlayer.play("Enter_Cutscene")
 
 func exit_cutscene():
-	
 	$Transition/TransitionAnimPlayer.play("Exit_Cutscene")
 
 func _on_transition_anim_player_animation_finished(anim_name):
