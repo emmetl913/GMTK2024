@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://o7p2flp7fgen"]
+[gd_scene load_steps=3 format=3 uid="uid://o7p2flp7fgen"]
 
 [ext_resource type="Script" path="res://games/ChurningGame/ChurningGame.gd" id="1_lqwom"]
+[ext_resource type="AudioStream" uid="uid://dhl7jje60ing1" path="res://assets/sfx/churningsfx.wav" id="2_lsy3r"]
 
 [node name="ChurningGame" type="Node2D"]
 script = ExtResource("1_lqwom")
@@ -32,3 +33,6 @@ offset_top = 62.0
 offset_right = 189.0
 offset_bottom = 85.0
 text = "\"S\""
+
+[node name="ChurnSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lsy3r")

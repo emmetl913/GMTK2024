@@ -74,7 +74,6 @@ offset = Vector2(0, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D2/Area2D"]
 position = Vector2(-4.2775, 127.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6shsi")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Shaveables"]
@@ -89,7 +88,6 @@ offset = Vector2(0, 128)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D3/Area2D"]
 position = Vector2(-8.91251, 125)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bikhb")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Shaveables"]

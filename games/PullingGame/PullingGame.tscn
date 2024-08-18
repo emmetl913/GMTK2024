@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi5omij45ephh"]
+[gd_scene load_steps=5 format=3 uid="uid://bi5omij45ephh"]
 
 [ext_resource type="Script" path="res://games/PullingGame/PullingGame.gd" id="1_b61dt"]
 [ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="2_gsxm8"]
+[ext_resource type="AudioStream" uid="uid://b3crum6sgus1f" path="res://assets/sfx/ding.mp3" id="3_1t8p3"]
+[ext_resource type="AudioStream" uid="uid://1sn4hndiessg" path="res://assets/sfx/ticking.mp3" id="4_jbp77"]
 
 [node name="PullingGame" type="Node2D"]
 script = ExtResource("1_b61dt")
@@ -27,6 +29,13 @@ offset_left = 94.0
 offset_top = 8.0
 offset_right = 134.0
 offset_bottom = 31.0
+
+[node name="OvenTimerSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_1t8p3")
+
+[node name="TickingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jbp77")
+autoplay = true
 
 [connection signal="timeout" from="CookTime" to="." method="_on_cook_time_timeout"]
 [connection signal="timeout" from="GrabWindow" to="." method="_on_grab_window_timeout"]

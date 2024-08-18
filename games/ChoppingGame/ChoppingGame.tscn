@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://de6rd5a70ycvt"]
+[gd_scene load_steps=10 format=3 uid="uid://de6rd5a70ycvt"]
 
 [ext_resource type="Script" path="res://games/ChoppingGame/ChoppingGame.gd" id="1_pc1qu"]
 [ext_resource type="Script" path="res://games/ChoppingGame/Knife_Folloing.gd" id="2_a15ko"]
 [ext_resource type="Texture2D" uid="uid://7vxtfx2q57xo" path="res://assets/sprites/knife.png" id="3_n5vpd"]
 [ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="3_ydq3s"]
+[ext_resource type="AudioStream" uid="uid://k7erolpsoo4m" path="res://assets/sfx/sliceSFX.mp3" id="5_vy72j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6kvgd"]
 font_color = Color(0, 0, 0, 1)
@@ -72,6 +73,9 @@ debug_color = Color(0.186082, 0.588666, 0.706743, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fruit"]
 texture = ExtResource("3_ydq3s")
+
+[node name="SliceSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vy72j")
 
 [connection signal="area_entered" from="Fruit" to="." method="_on_fruit_area_entered"]
 [connection signal="body_entered" from="Fruit" to="." method="_on_fruit_body_entered"]

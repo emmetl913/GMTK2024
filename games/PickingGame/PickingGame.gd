@@ -45,6 +45,7 @@ func _input(event):
 		for i in bushItems:
 			if i.isInRange():
 				any_in_range = true
+				$grabSFX.play()
 
 		for i in bushItems:
 			if !i.is_good and i.isInRange():

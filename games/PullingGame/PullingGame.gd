@@ -25,7 +25,9 @@ func _input(event):
 
 
 func _on_cook_time_timeout():
+	$TickingSFX.stop()
 	$Cake.visible = true
+	$OvenTimerSFX.play()
 	$Wait.text = "Pull!!!!"
 	grabwindow.start()
 

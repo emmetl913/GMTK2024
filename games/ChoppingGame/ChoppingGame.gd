@@ -42,6 +42,7 @@ func set_parent(par : Node2D):
 
 func _on_fruit_body_entered(body):
 	if not has_won:
+		$SliceSFX.play()
 		has_won = true
 		has_lost = true
 		super.onWin()

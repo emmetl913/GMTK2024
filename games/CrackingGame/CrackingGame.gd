@@ -40,6 +40,7 @@ func _input(event):
 		is_cracking = true
 		print("Start cracking")
 		total_cracks+= 1
+		$CrackSFX.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
