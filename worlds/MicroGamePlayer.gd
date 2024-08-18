@@ -185,6 +185,7 @@ func _on_transition_anim_player_animation_finished(anim_name):
 				game_ind += 1
 			elif game_ind == gameScenes.size()-1:
 				game_ind = 0
+				GlobalVars.game_stage += 1
 			startGame(game_ind)
 	elif (anim_name == "Enter_Game"):
 		play_direction_animation(current_game_id)
