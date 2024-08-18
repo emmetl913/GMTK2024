@@ -8,6 +8,9 @@ var game_inst
 @export var gameScenes : Array[Resource] = []
 @export var audio : Array[AudioStreamWAV] = []
 
+@export var cutsceneScene : Resource
+var cutsceneInst
+
 #Starts at 1, increases after each round of micro games.
 #Used to tell game scenes which sprites to draw and what difficulty to select
 @export var game_phase : int
@@ -54,6 +57,9 @@ func loadScenes():
 	audio.append(preload("res://assets/sfx/shovel.wav"))
 	gameScenes.append(preload("res://games/SeasoningGame/SeasoningGame.tscn"))
 	audio.append(preload("res://assets/sfx/season.wav"))
+	
+	#Cutscene Scene
+	cutsceneScene = preload("res://worlds/cutscene.tscn")
 
 func startGame(gameID: int):
 	game_inst = gameScenes[gameID].instantiate()
@@ -139,15 +145,24 @@ func _on_inbetween_timer_timeout():
 	exit_cutscene()
 
 func enter_cutscene():
+	cutsceneInst = cutsceneScene.instantiate()
+	add_child(cutsceneInst, true)
+	
 	$Transition/TransitionAnimPlayer.play("Enter_Cutscene")
 
 func exit_cutscene():
+	
 	$Transition/TransitionAnimPlayer.play("Exit_Cutscene")
 
 func _on_transition_anim_player_animation_finished(anim_name):
 	if (anim_name == "Enter_Cutscene"):
 		cutscene()
 	elif (anim_name == "Exit_Cutscene"):
+		#remove cutscene inst
+		if is_instance_valid(cutsceneInst):
+			cutsceneInst.queue_free()
+		
+		#Start new game
 		if GlobalVars.is_endless:
 			startGame(randi_range(0, gameScenes.size()-1))
 		elif not GlobalVars.is_endless:
@@ -160,12 +175,3 @@ func _on_transition_anim_player_animation_finished(anim_name):
 		play_direction_animation(current_game_id)
 	elif (anim_name == "Exit_Game"):
 		endGame()
-
-
-
-
-
-
-
-
-
