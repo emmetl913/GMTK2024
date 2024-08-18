@@ -6,7 +6,6 @@ var current_stage : Array[bool] = [true, false, false, false]
 @export var third_cracks : int
 @export var crack_speed : int
 @onready var egg_path = $EggStuff/Path2D/PathFollow2D
-@onready var crack_label = $Cracks
 var is_cracking : bool = false
 var total_cracks : int = 0
 var max_cracks : int
@@ -26,7 +25,6 @@ func _ready():
 	second_cracks = randi_range(1,3)
 	third_cracks = randi_range(1,3)
 	max_cracks = first_cracks + second_cracks + third_cracks
-	crack_label.text = "0"
 	print("First cracks: ", first_cracks, "   Second cracks: ", second_cracks, "   Third cracks: ", third_cracks)
 
 func setupSprites():
@@ -54,12 +52,12 @@ func _process(delta):
 			egg_path.progress_ratio = 0
 			is_cracking = false
 	if total_cracks > first_cracks and current_stage[0]:
-		crack_label.text = "1"
+
 		current_stage[0] = false
 		current_stage[1] = true
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[1]
 	elif total_cracks > second_cracks+first_cracks and current_stage[1]:
-		crack_label.text = "2"
+
 		current_stage[1] = false
 		current_stage[2] = true
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[2]
