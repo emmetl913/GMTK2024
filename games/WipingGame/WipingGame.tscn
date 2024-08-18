@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://eeqvrbatj6qs"]
+[gd_scene load_steps=5 format=3 uid="uid://eeqvrbatj6qs"]
 
 [ext_resource type="Script" path="res://games/WipingGame/WipingGame.gd" id="1_3f400"]
+[ext_resource type="Texture2D" uid="uid://cggeljklmrqkg" path="res://assets/sprites/plate.png" id="2_iupkl"]
+[ext_resource type="Texture2D" uid="uid://r8gr748k5isu" path="res://assets/sprites/dirt1.png" id="3_j70br"]
+[ext_resource type="AudioStream" uid="uid://cm2vwmdc3gna5" path="res://assets/sfx/rubbingSFX.wav" id="4_7iw0v"]
 
 [node name="WipingGame" type="Node2D"]
 script = ExtResource("1_3f400")
@@ -14,11 +17,17 @@ color = Color(0.427451, 0.32549, 0.431373, 1)
 [node name="MouseDetection" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Label" type="Label" parent="."]
-offset_left = 94.0
-offset_top = 17.0
-offset_right = 134.0
-offset_bottom = 40.0
-text = "Swipe!"
+[node name="Plate" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(120, 96)
+texture = ExtResource("2_iupkl")
+
+[node name="Dirtiness" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(123, 92)
+texture = ExtResource("3_j70br")
+
+[node name="rubbingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7iw0v")
 
 [connection signal="timeout" from="MouseDetection" to="." method="_on_mouse_detection_timeout"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bi5omij45ephh"]
+[gd_scene load_steps=6 format=3 uid="uid://bi5omij45ephh"]
 
 [ext_resource type="Script" path="res://games/PullingGame/PullingGame.gd" id="1_b61dt"]
-[ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="2_gsxm8"]
+[ext_resource type="Texture2D" uid="uid://c0np4jcyfv6xu" path="res://assets/sprites/robitclosed.png" id="2_11sv5"]
 [ext_resource type="AudioStream" uid="uid://b3crum6sgus1f" path="res://assets/sfx/ding.mp3" id="3_1t8p3"]
+[ext_resource type="Texture2D" uid="uid://y6gmogvaysia" path="res://assets/sprites/lilcake.png" id="3_5knak"]
 [ext_resource type="AudioStream" uid="uid://1sn4hndiessg" path="res://assets/sfx/ticking.mp3" id="4_jbp77"]
 
 [node name="PullingGame" type="Node2D"]
@@ -14,21 +15,28 @@ offset_right = 240.0
 offset_bottom = 160.0
 color = Color(0.497474, 0.497474, 0.497474, 1)
 
+[node name="Robit" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(124, 64)
+texture = ExtResource("2_11sv5")
+
 [node name="Cake" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(121, 76)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("2_gsxm8")
+texture_filter = 1
+position = Vector2(121, 86)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5knak")
 
 [node name="CookTime" type="Timer" parent="."]
 
 [node name="GrabWindow" type="Timer" parent="."]
 
 [node name="Wait" type="Label" parent="."]
-offset_left = 94.0
-offset_top = 8.0
-offset_right = 134.0
-offset_bottom = 31.0
+texture_filter = 1
+offset_left = 104.0
+offset_top = -1.0
+offset_right = 144.0
+offset_bottom = 22.0
 
 [node name="OvenTimerSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_1t8p3")

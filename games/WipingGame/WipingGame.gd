@@ -14,9 +14,23 @@ func _ready():
 	
 	$MouseDetection.start()
 
+func getPlateDirtiness():
+	if total_swipes == 0:
+		$Dirtiness.texture = load("res://assets/sprites/dirt1.png")
+	elif total_swipes == 1:
+		$Dirtiness.texture = load("res://assets/sprites/dirt2.png")
+	elif total_swipes == 2:
+		$Dirtiness.texture = load("res://assets/sprites/dirt3.png")
+	elif total_swipes == 3:
+		$Dirtiness.texture = load("res://assets/sprites/dirt4.png")
+	elif total_swipes == 4:
+		$Dirtiness.texture = load("res://assets/sprites/dirt5.png")
+	elif total_swipes == 5:
+		$Dirtiness.texture = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	getPlateDirtiness()
 	if total_swipes >= swipes_to_win and not has_won:
 		print("Won in game")
 		super.onWin()
@@ -29,3 +43,4 @@ func _input(event):
 func _on_mouse_detection_timeout():
 	if curr_vel.x > 5 or curr_vel.y > 5:
 		total_swipes += 1
+		$rubbingSFX.play()

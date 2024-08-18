@@ -46,12 +46,6 @@ position = Vector2(-11, 103)
 scale = Vector2(2, 2)
 texture = ExtResource("3_qng3m")
 
-[node name="Cracks" type="Label" parent="."]
-offset_left = 108.0
-offset_top = 26.0
-offset_right = 148.0
-offset_bottom = 49.0
-
 [node name="Crack_timer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bosvy015it6d1"]
+[gd_scene load_steps=13 format=3 uid="uid://bosvy015it6d1"]
 
 [ext_resource type="Script" path="res://games/ShavingGame/ShavingGame.gd" id="1_gp8yt"]
 [ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="2_3wtw8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1y3u3n1tlwp8" path="res://assets/sprites/red_arrow.png" id="3_5nhdf"]
 [ext_resource type="Texture2D" uid="uid://b5bonvydbnml8" path="res://assets/sprites/grater.png" id="3_oroo7"]
 [ext_resource type="Texture2D" uid="uid://dsgrlpe4p5roc" path="res://assets/sprites/CoconutSide.png" id="3_w1wnh"]
+[ext_resource type="AudioStream" uid="uid://k7erolpsoo4m" path="res://assets/sfx/sliceSFX.mp3" id="7_pf5el"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d8f8"]
 size = Vector2(87.5, 50)
@@ -117,6 +118,9 @@ shape = SubResource("RectangleShape2D_uovx5")
 
 [node name="ShaveCD" type="Timer" parent="."]
 one_shot = true
+
+[node name="ShaveSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_pf5el")
 
 [connection signal="area_entered" from="Shaveables/Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Shaver/ShaveArea" to="." method="_on_shave_area_area_entered"]
