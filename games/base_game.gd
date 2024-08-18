@@ -10,6 +10,7 @@ var timers : Array[int]
 
 var directionMessage : String
 
+
 func set_parent(par : Node2D):
 	parent = par
 
