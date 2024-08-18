@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var game_ind : int = 0
+@onready var game_ind : int = -1
 @export var total_losses : int
 @export var total_wins : int
 @export var first_game_index : int

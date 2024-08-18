@@ -5,6 +5,7 @@ extends Base_Game
 var dir: float = 1.0
 @export var speed: float
 @export var shaver_speed: float
+@onready var sprites : Array[CompressedTexture2D]
 
 var move_shaver = false
 var is_shaver_down = false
@@ -18,10 +19,24 @@ var has_result = false
 func _ready():
 	#GameSetup
 	timers = [5, 4, 3, 2]
+	setupSprites()
 	directionMessage = "SHAVE!!"
 	if randi_range(1,2) == 1:
-		num_to_shave = 3
-		addExtraShaveable()
+		num_to_shave = 2
+		#addExtraShaveable()
+
+func setupSprites():
+	if GlobalVars.game_stage == 0:
+		sprites.append(load("res://assets/sprites/coconut.png"))
+		sprites.append(load("res://assets/sprites/red_arrow.png"))
+		sprites.append(load("res://assets/sprites/grater.png"))
+	$Shaveables/Sprite2D.texture = sprites[0]
+	$Shaveables/Sprite2D2.texture = sprites[1]
+	$Shaveables/Sprite2D3.texture = sprites[1]
+	$Shaver.texture = sprites[2]
+	#$Shaveables/Sprite2D3.texture = sprites[1]
+
+
 func addExtraShaveable():
 	$Shaveables/Sprite2D4/Area2D/CollisionShape2D.disabled = false
 	$Shaveables/Sprite2D4.visible = true

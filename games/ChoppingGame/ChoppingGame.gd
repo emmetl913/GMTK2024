@@ -7,15 +7,20 @@ var has_lost : bool = false
 @export var sweetspot_size : int
 @onready var knife := $Knife_Folloing
 @onready var fruit := $Fruit
+@onready var sprites : Array[CompressedTexture2D]
 
 func _ready():
 	#Setup timers
 	timers = [5, 4, 3, 2]
-	
 	directionMessage = "CHOP!!"
-	
+	setupSprites()
 	knife.speed = knife_speed
 	$Fruit/CollisionShape2D.shape.size.x = sweetspot_size
+
+func setupSprites():
+	if GlobalVars.game_stage == 0:
+		sprites.append(load("res://assets/sprites/knife.png"))
+	$Knife_Folloing/Path2D/PathFollow2D/Knife/Knife.texture = sprites[0]
 
 func _input(event):
 	if event.is_action_pressed("LMB"):
