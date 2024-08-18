@@ -5,13 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://b5bonvydbnml8" path="res://assets/sprites/grater.png" id="3_oroo7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d8f8"]
-size = Vector2(111.742, 122.5)
+size = Vector2(103.371, 122.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6shsi"]
-size = Vector2(91.7446, 126.482)
+size = Vector2(129.939, 126.482)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bikhb"]
-size = Vector2(121.905, 128)
+size = Vector2(146.286, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv2fg"]
 size = Vector2(131.064, 126.482)
@@ -41,7 +41,8 @@ texture = ExtResource("2_3wtw8")
 [node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D" groups=["ShaveLose"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D/Area2D"]
-position = Vector2(1.16251, 1.25)
+position = Vector2(-3.02298, 1.25)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_4d8f8")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Shaveables"]
@@ -53,7 +54,7 @@ offset = Vector2(0, 128)
 [node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D2" groups=["CleanShave"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D2/Area2D"]
-position = Vector2(-18.1277, -0.75885)
+position = Vector2(-29.0511, -2.56001)
 shape = SubResource("RectangleShape2D_6shsi")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Shaveables"]
@@ -65,7 +66,7 @@ offset = Vector2(0, 128)
 [node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D3" groups=["CleanShave"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D3/Area2D"]
-position = Vector2(-3.04761, 0)
+position = Vector2(39.619, -2.56003)
 shape = SubResource("RectangleShape2D_bikhb")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Shaveables"]

@@ -33,23 +33,23 @@ func arrays_have_same_content(array1, array2):
 	return true
 
 func _on_red_pressed():
-	guess[guess_index] = $PatternInit/Red
 	if guess_index < 4:
+		guess[guess_index] = $PatternInit/Red
 		guess_index += 1 
 
 func _on_blue_pressed():
-	guess[guess_index] = $PatternInit/Blue
 	if guess_index < 4:
+		guess[guess_index] = $PatternInit/Blue
 		guess_index += 1 
 
 func _on_green_pressed():
-	guess[guess_index] = $PatternInit/Green
 	if guess_index < 4:
+		guess[guess_index] = $PatternInit/Green
 		guess_index += 1 
 
 func _on_purple_pressed():
-	guess[guess_index] = $PatternInit/Purple
 	if guess_index < 4:
+		guess[guess_index] = $PatternInit/Purple
 		guess_index += 1 
 
 

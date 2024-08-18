@@ -18,6 +18,8 @@ var has_lost : bool = false
 func _ready():
 	timers = [5, 4, 3, 2]
 	directionMessage = "CRACK!!"
+	if randi_range(0,100) == 99:
+		$ColorRect.texture = load("res://assets/sprites/walta.png")
 	setupSprites()
 	$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[0]
 	first_cracks = randi_range(1,3)

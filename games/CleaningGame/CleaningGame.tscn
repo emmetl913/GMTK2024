@@ -27,6 +27,7 @@ position = Vector2(120, 76.5)
 shape = SubResource("RectangleShape2D_pwh6a")
 
 [node name="Trash_Box" type="Node2D" parent="."]
+visible = false
 
 [node name="Trash" parent="Trash_Box" instance=ExtResource("1_a2scu")]
 position = Vector2(90, 45)
