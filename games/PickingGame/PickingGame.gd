@@ -12,6 +12,7 @@ var has_won = false
 #TODO:
 	#if picking game has all bad berries wait timer to win
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	for i in randi_range(spawnCountRandomRange.x,spawnCountRandomRange.y):
 		var newItem = bushItem.instantiate()
 		newItem.position =Vector2(centerScreenOffset.x + randf_range(spawnRange.x,spawnRange.y), centerScreenOffset.y +  + randf_range(spawnRange.x,spawnRange.y)/2)

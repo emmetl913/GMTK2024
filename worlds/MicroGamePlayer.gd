@@ -66,6 +66,7 @@ func loadScenes():
 	audio.append(preload("res://assets/sfx/shovel.wav"))
 	gameScenes.append(preload("res://games/SeasoningGame/SeasoningGame.tscn"))
 	audio.append(preload("res://assets/sfx/season.wav"))
+	#If we add more games add them below pls
 	
 	#Cutscene Scenes
 	cutsceneScene = preload("res://worlds/cutscene.tscn")
@@ -75,6 +76,9 @@ func startGame(gameID: int):
 	game_inst.set_parent(self)
 	add_child(game_inst, true)
 	
+	#Set cursor back to visible unless game is pick or wipe or ICING
+	if gameID != 2 and gameID != 5  and gameID != 6:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$TimerGraphic.visible = true
 	$GameTimer.wait_time = game_inst.getTimer(game_phase)
 	$DirectionMessage/Label.text = game_inst.directionMessage
