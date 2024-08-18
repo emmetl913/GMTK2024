@@ -1,9 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://hnyitvrj83gq"]
+[gd_scene load_steps=13 format=3 uid="uid://hnyitvrj83gq"]
 
 [ext_resource type="Script" path="res://menus/MainMenu.gd" id="1_lkndu"]
+[ext_resource type="Texture2D" uid="uid://du4fqqhmsfg1f" path="res://Buttons/StoryMode.png" id="2_i81ld"]
+[ext_resource type="Shader" path="res://menus/scroll.gdshader" id="2_kn8lr"]
+[ext_resource type="Texture2D" uid="uid://btaqgsbdclha1" path="res://Buttons/StoryModeHover.png" id="3_b663y"]
+[ext_resource type="Texture2D" uid="uid://d385km5yb0xmj" path="res://assets/sprites/background_overlay.png" id="3_fyv25"]
+[ext_resource type="Texture2D" uid="uid://b8wy7sp3lj35x" path="res://Buttons/EndlessButtong.png" id="4_iuh0j"]
+[ext_resource type="Texture2D" uid="uid://bgou3jrrgo0pd" path="res://assets/sprites/TitleText.png" id="4_x2ou7"]
+[ext_resource type="Texture2D" uid="uid://bknwjg18aondi" path="res://Buttons/EndlessButtonHover.png" id="5_aa7uy"]
+[ext_resource type="Texture2D" uid="uid://b334s1qjpx7gq" path="res://Buttons/Quitbutton.png" id="6_sh78s"]
+[ext_resource type="Texture2D" uid="uid://b4ra04citd15y" path="res://Buttons/QuitbuttonHover.png" id="7_f1gjk"]
+[ext_resource type="AudioStream" uid="uid://cdmtpmso18cgh" path="res://assets/music/FlyingThroughSpace.wav" id="11_bck32"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_q24b8"]
-font_size = 20
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqxsr"]
+shader = ExtResource("2_kn8lr")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,45 +28,63 @@ script = ExtResource("1_lkndu")
 layout_mode = 0
 offset_right = 240.0
 offset_bottom = 160.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0.133333, 1)
 
-[node name="Label" type="Label" parent="."]
+[node name="Stars" type="TextureRect" parent="."]
+texture_filter = 1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_aqxsr")
 layout_mode = 1
-offset_left = 44.0
-offset_top = -2.0
-offset_right = 209.0
-offset_bottom = 57.0
-text = "The Robot Who 
-Baked The World"
-label_settings = SubResource("LabelSettings_q24b8")
-horizontal_alignment = 1
-vertical_alignment = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_fyv25")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Title" type="TextureRect" parent="."]
+texture_filter = 1
 layout_mode = 0
-offset_left = 71.0
-offset_top = 57.0
-offset_right = 186.0
-offset_bottom = 158.0
-alignment = 1
+offset_left = 37.0
+offset_top = 8.0
+offset_right = 197.0
+offset_bottom = 72.0
+texture = ExtResource("4_x2ou7")
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
-text = "Story Mode
-"
-expand_icon = true
+offset_left = 17.0
+offset_top = 66.0
+offset_right = 113.0
+offset_bottom = 98.0
+texture_normal = ExtResource("2_i81ld")
+texture_hover = ExtResource("3_b663y")
 
-[node name="Endless" type="Button" parent="VBoxContainer"]
+[node name="Endless" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
-text = "Endless Mode"
-expand_icon = true
+offset_left = 126.0
+offset_top = 66.0
+offset_right = 222.0
+offset_bottom = 98.0
+texture_normal = ExtResource("4_iuh0j")
+texture_hover = ExtResource("5_aa7uy")
 
-[node name="Exit" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="TextureButton" parent="."]
+texture_filter = 1
 layout_mode = 2
-text = "Quit
-"
-expand_icon = true
+offset_left = 74.0
+offset_top = 101.0
+offset_right = 189.0
+offset_bottom = 133.0
+texture_normal = ExtResource("6_sh78s")
+texture_hover = ExtResource("7_f1gjk")
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Endless" to="." method="_on_endless_pressed"]
-[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_bck32")
+autoplay = true
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Endless" to="." method="_on_endless_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

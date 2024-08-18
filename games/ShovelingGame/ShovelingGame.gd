@@ -11,11 +11,17 @@ var total_cycles : int
 func _ready():
 	timers = [6,5,4,3,2]
 	directionMessage = "Shovel!!"
+	setupSprites()
 	cycleslabel.text = "Shovels left: %01d" % cycles_to_win
 	cycles_to_win = randi_range(4, 6)
 	$Shovel.position = Vector2i(80,90)
 	$W.visible = true
 	pass # Replace with function body.
+
+func setupSprites():
+	if GlobalVars.game_stage == 0:
+		pass
+	$Shovel.texture = load("res://assets/sprites/shovel.png")
 
 func _input(event):
 	if event.is_action_pressed("A"):
@@ -28,6 +34,7 @@ func _input(event):
 			$Shovel.position = Vector2i(80,90)
 		else:
 			pass
+		$Shovel.rotate(4.71239)
 	elif event.is_action_pressed("W"):
 		if shovel_pos[0] and $W.visible:
 			$D.visible = true
@@ -43,6 +50,7 @@ func _input(event):
 			$Shovel.position = Vector2i(114,50)
 		else:
 			pass
+		$Shovel.rotation_degrees = rad_to_deg(PI)
 	elif event.is_action_pressed("D"):
 		if shovel_pos[1] and $D.visible:
 			$W.visible = true
@@ -52,6 +60,7 @@ func _input(event):
 			$Shovel.position = Vector2i(152,90)
 		else:
 			pass
+		$Shovel.rotate(PI/2)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
