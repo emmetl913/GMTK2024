@@ -5,6 +5,7 @@ extends Base_Game
 var dir: float = 1.0
 @export var speed: float
 @export var shaver_speed: float
+@export var drop_speed:float 
 @onready var sprites : Array[CompressedTexture2D]
 
 var move_shaver = false
@@ -13,13 +14,16 @@ var is_shaver_down = false
 var shaver_dir: float = 1.0
 
 var shave_count: int = 0
-var num_to_shave = 2
-
+var num_to_shave =2
+var can_shave = true
 var has_result = false
+
+var drop_left = false
+var drop_right = false
 func _ready():
 	#GameSetup
 	timers = [5, 4, 3, 2]
-	setupSprites()
+	#setupSprites()
 	directionMessage = "SHAVE!!"
 	if randi_range(1,2) == 1:
 		num_to_shave = 2
@@ -47,6 +51,10 @@ func addExtraShaveable():
 		#Right position
 		$Shaveables/Sprite2D4.position.x = 115
 func _process(delta):
+	if drop_left:
+		$Shaveables/Sprite2D2.position.y += drop_speed * delta
+	if drop_right:
+		$Shaveables/Sprite2D3.position.y += drop_speed * delta
 	if $Shaveables.position.x > max_right:
 		dir = -1.0
 	elif $Shaveables.position.x < max_left:
@@ -62,7 +70,7 @@ func _input(event):
 	if event.is_action_pressed("LMB"):
 		if !move_shaver:
 			slideShaver()
-		
+
 func slideShaver():
 	move_shaver = true
 	is_shaver_down = !is_shaver_down
@@ -80,9 +88,18 @@ func _on_shave_area_area_entered(area):
 		area.get_parent().self_modulate = Color.DARK_RED
 		super.onLose()
 		has_result = true
-	elif area.is_in_group("CleanShave") and !has_result:
+	elif area.is_in_group("CleanShave") and !has_result and can_shave:
 		shave_count += 1
-		area.get_parent().queue_free()
+		can_shave = false
+		$ShaveCD.start(.3)
+		if area.is_in_group("Left"):
+			drop_left = true
+		else:
+			drop_right = true
 		if shave_count == num_to_shave:
 			super.onWin()
 			has_result = true
+
+
+func _on_shave_cd_timeout():
+	can_shave = true

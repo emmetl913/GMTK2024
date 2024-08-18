@@ -71,7 +71,7 @@ func loadScenes():
 	cutsceneScene = preload("res://worlds/cutscene.tscn")
 
 func startGame(gameID: int):
-	game_inst = gameScenes[gameID].instantiate()
+	game_inst = gameScenes[0].instantiate()
 	game_inst.set_parent(self)
 	add_child(game_inst, true)
 	
