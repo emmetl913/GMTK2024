@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb5gy0jvalbfh"]
+[gd_scene load_steps=16 format=3 uid="uid://bb5gy0jvalbfh"]
 
 [ext_resource type="Texture2D" uid="uid://3ytpl1ycf06v" path="res://assets/CakeCutscene/background.png" id="1_1dxeq"]
 [ext_resource type="Script" path="res://worlds/cutscene.gd" id="1_ihsrs"]
@@ -6,10 +6,19 @@
 [ext_resource type="Texture2D" uid="uid://18bl4wogh07d" path="res://assets/CakeCutscene/Cake Layers/Phase 1/layer_2.png" id="3_vwytj"]
 [ext_resource type="Texture2D" uid="uid://wbf86e5wmeok" path="res://assets/CakeCutscene/Cake Layers/Phase 1/layer_3.png" id="4_x7gh1"]
 [ext_resource type="Texture2D" uid="uid://b3tmo7cps8qf3" path="res://assets/CakeCutscene/Cake Layers/Phase 1/layer_burnt.png" id="5_svmir"]
+[ext_resource type="Texture2D" uid="uid://c0nt0gm0klhg0" path="res://assets/CakeCutscene/Cake Layers/Phase 2/layer_1.png" id="6_qvmf2"]
+[ext_resource type="Texture2D" uid="uid://cwtii5pdl3h7b" path="res://assets/CakeCutscene/Cake Layers/Phase 2/layer_2.png" id="7_2cilt"]
+[ext_resource type="Texture2D" uid="uid://kw7ookotkx7t" path="res://assets/CakeCutscene/Cake Layers/Phase 2/layer_3.png" id="8_5mbhp"]
+[ext_resource type="Texture2D" uid="uid://cv0vdkg2jvvg1" path="res://assets/CakeCutscene/Cake Layers/Phase 3/layer_1.png" id="9_y00ck"]
+[ext_resource type="Texture2D" uid="uid://d1kwpurejgger" path="res://assets/CakeCutscene/Cake Layers/Phase 3/layer_2.png" id="10_nn3dd"]
+[ext_resource type="Texture2D" uid="uid://bi88hdlbk8s7j" path="res://assets/CakeCutscene/Cake Layers/Phase 3/layer_3.png" id="11_aj5hf"]
+[ext_resource type="Texture2D" uid="uid://bvsm8ofsw0y8l" path="res://assets/CakeCutscene/Cake Layers/Phase 4/layer_1.png" id="12_fk624"]
+[ext_resource type="Texture2D" uid="uid://7r8havjhgn3j" path="res://assets/CakeCutscene/Cake Layers/Phase 4/layer_2.png" id="13_qli21"]
+[ext_resource type="Texture2D" uid="uid://c5n6xiho15qje" path="res://assets/CakeCutscene/Cake Layers/Phase 4/layer_3.png" id="14_dhdpl"]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_ihsrs")
-phase_1_textures = Array[Texture2D]([ExtResource("2_fa8nq"), ExtResource("3_vwytj"), ExtResource("4_x7gh1"), ExtResource("5_svmir")])
+phase_1_textures = Array[Texture2D]([ExtResource("2_fa8nq"), ExtResource("3_vwytj"), ExtResource("4_x7gh1"), ExtResource("6_qvmf2"), ExtResource("7_2cilt"), ExtResource("8_5mbhp"), ExtResource("9_y00ck"), ExtResource("10_nn3dd"), ExtResource("11_aj5hf"), ExtResource("12_fk624"), ExtResource("13_qli21"), ExtResource("14_dhdpl"), ExtResource("5_svmir")])
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1

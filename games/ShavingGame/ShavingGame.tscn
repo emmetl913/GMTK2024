@@ -1,23 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://bosvy015it6d1"]
+[gd_scene load_steps=12 format=3 uid="uid://bosvy015it6d1"]
 
 [ext_resource type="Script" path="res://games/ShavingGame/ShavingGame.gd" id="1_gp8yt"]
 [ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="2_3wtw8"]
+[ext_resource type="Texture2D" uid="uid://bftpvk6gphlc1" path="res://assets/sprites/coconutNoSides.png" id="2_6xu5g"]
+[ext_resource type="Texture2D" uid="uid://c1y3u3n1tlwp8" path="res://assets/sprites/red_arrow.png" id="3_5nhdf"]
 [ext_resource type="Texture2D" uid="uid://b5bonvydbnml8" path="res://assets/sprites/grater.png" id="3_oroo7"]
+[ext_resource type="Texture2D" uid="uid://dsgrlpe4p5roc" path="res://assets/sprites/CoconutSide.png" id="3_w1wnh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d8f8"]
-size = Vector2(103.371, 122.5)
+size = Vector2(87.5, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6shsi"]
-size = Vector2(129.939, 126.482)
+size = Vector2(32.5, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bikhb"]
-size = Vector2(146.286, 128)
+size = Vector2(42.5, 85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cv2fg"]
 size = Vector2(131.064, 126.482)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uovx5"]
-size = Vector2(40, 60)
+size = Vector2(38, 58.54)
 
 [node name="ShavingGame" type="Node2D"]
 script = ExtResource("1_gp8yt")
@@ -25,8 +28,10 @@ max_right = 200.0
 max_left = 20.0
 speed = 120.0
 shaver_speed = 600.0
+drop_speed = 500.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+texture_filter = 1
 offset_right = 240.0
 offset_bottom = 159.0
 color = Color(0.607843, 0.509804, 0.623529, 1)
@@ -36,36 +41,55 @@ position = Vector2(40.535, 75)
 scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" type="Sprite2D" parent="Shaveables"]
-texture = ExtResource("2_3wtw8")
+texture_filter = 1
+texture = ExtResource("2_6xu5g")
 
 [node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D" groups=["ShaveLose"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D/Area2D"]
-position = Vector2(-3.02298, 1.25)
+position = Vector2(-0.0874863, -2.5)
+scale = Vector2(0.999999, 0.999999)
 shape = SubResource("RectangleShape2D_4d8f8")
 
+[node name="Sprite2D" type="Sprite2D" parent="Shaveables/Sprite2D"]
+texture_filter = 1
+position = Vector2(-66.337, 95)
+scale = Vector2(0.289063, 0.552734)
+texture = ExtResource("3_5nhdf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Shaveables/Sprite2D"]
+texture_filter = 1
+position = Vector2(63.6625, 95)
+scale = Vector2(0.289063, 0.552734)
+texture = ExtResource("3_5nhdf")
+
 [node name="Sprite2D2" type="Sprite2D" parent="Shaveables"]
-position = Vector2(-71.922, 1.25)
-scale = Vector2(0.410156, 0.488281)
-texture = ExtResource("2_3wtw8")
+self_modulate = Color(0.580822, 0.738951, 0.896427, 1)
+texture_filter = 1
+position = Vector2(-55.445, -128)
+texture = ExtResource("3_w1wnh")
 offset = Vector2(0, 128)
 
-[node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D2" groups=["CleanShave"]]
+[node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D2" groups=["CleanShave", "Left"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D2/Area2D"]
-position = Vector2(-29.0511, -2.56001)
+position = Vector2(-4.2775, 127.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_6shsi")
 
 [node name="Sprite2D3" type="Sprite2D" parent="Shaveables"]
-position = Vector2(64.9125, 1.25001)
-scale = Vector2(0.410156, 0.488281)
-texture = ExtResource("2_3wtw8")
+self_modulate = Color(0.580822, 0.738951, 0.896427, 1)
+texture_filter = 1
+position = Vector2(56, -125.72)
+scale = Vector2(-1, 0.986298)
+texture = ExtResource("3_w1wnh")
 offset = Vector2(0, 128)
 
-[node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D3" groups=["CleanShave"]]
+[node name="Area2D" type="Area2D" parent="Shaveables/Sprite2D3" groups=["CleanShave", "Right"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaveables/Sprite2D3/Area2D"]
-position = Vector2(39.619, -2.56003)
+position = Vector2(-8.91251, 125)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_bikhb")
 
 [node name="Sprite2D4" type="Sprite2D" parent="Shaveables"]
@@ -90,8 +114,12 @@ texture = ExtResource("3_oroo7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shaver/ShaveArea"]
 texture_filter = 1
-position = Vector2(-4, 8.92)
+position = Vector2(-3, 8.19)
 shape = SubResource("RectangleShape2D_uovx5")
+
+[node name="ShaveCD" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="Shaveables/Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Shaver/ShaveArea" to="." method="_on_shave_area_area_entered"]
+[connection signal="timeout" from="ShaveCD" to="." method="_on_shave_cd_timeout"]
