@@ -16,6 +16,10 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/slime.png"))
 		sprites.append(load("res://assets/sprites/rollingpin.png"))
 		sprites.append(load("res://assets/sprites/eggshells.png"))
+	if GlobalVars.game_stage == 1:
+		sprites.append(load("res://assets/sprites/treeclean.png"))
+		sprites.append(load("res://assets/sprites/treeclean.png"))
+		sprites.append(load("res://assets/sprites/treeclean.png"))
 	$Trash_Box/Trash/Sprite2D.texture = sprites[0]
 	$Trash_Box/Trash2/Sprite2D.texture = sprites[2]
 	$Trash_Box/Trash3/Sprite2D.texture = sprites[2]

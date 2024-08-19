@@ -19,7 +19,6 @@ func _ready():
 	directionMessage = "CRACK!!"
 	if randi_range(0,100) == 99:
 		$ColorRect.texture = load("res://assets/sprites/walta.png")
-	GlobalVars.game_stage = 1
 	setupSprites()
 	$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[0]
 	first_cracks = randi_range(1,3)

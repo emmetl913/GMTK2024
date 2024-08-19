@@ -6,11 +6,12 @@ var has_lost : bool = false
 @export var cycles_to_win : int
 var total_cycles : int
 @onready var cycleslabel = $Cycles_Label
-
+@onready var sprites : Array[CompressedTexture2D]
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	timers = [6,5,4,3,2]
 	directionMessage = "Shovel!!"
+	GlobalVars.game_stage = 1
 	setupSprites()
 	cycleslabel.text = "Shovels left: %01d" % cycles_to_win
 	cycles_to_win = randi_range(4, 6)
@@ -20,8 +21,14 @@ func _ready():
 
 func setupSprites():
 	if GlobalVars.game_stage == 0:
-		pass
-	$Shovel.texture = load("res://assets/sprites/shovel.png")
+		sprites.append(load("res://assets/sprites/shovel.png"))
+		sprites.append(load("res://assets/sprites/coal.png"))
+	if GlobalVars.game_stage == 1:
+		sprites.append(load("res://assets/sprites/shovel.png"))
+		sprites.append(load("res://assets/sprites/gas.png"))
+	$Shovel.texture = sprites[0]
+	$Coal_Left.texture = sprites[1]
+	$Coal_Right.texture = sprites[1]
 
 func _input(event):
 	if event.is_action_pressed("A"):

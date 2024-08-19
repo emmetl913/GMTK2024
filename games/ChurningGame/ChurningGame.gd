@@ -4,6 +4,7 @@ var starting_button : bool
 @export var total_churns : int
 @export var win_churns : int
 var has_won : bool = false
+var has_lost : bool = false
 @onready var sprites : Array[CompressedTexture2D]
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,8 +35,9 @@ func _input(event):
 		$W.visible = not $W.visible
 		$S.visible = not $S.visible
 		$ChurnSFX.play()
-	elif event.is_action_pressed("S") and not $S.visible and not has_won:
+	elif event.is_action_pressed("S") and not $S.visible and not has_won and not has_lost:
 		super.onLose()
+		has_lost = true
 	if total_churns >= win_churns and not has_won:
 		super.onWin()
 		has_won = true

@@ -20,7 +20,7 @@ offset_bottom = 160.0
 color = Color(1, 1, 0, 1)
 
 [node name="Plate" type="Sprite2D" parent="."]
-texture_filter = 2
+texture_filter = 1
 position = Vector2(119, 75)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("2_msf8c")

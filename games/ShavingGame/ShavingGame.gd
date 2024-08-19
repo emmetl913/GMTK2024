@@ -23,7 +23,6 @@ var drop_right = false
 func _ready():
 	#GameSetup
 	timers = [5, 4, 3, 2]
-	GlobalVars.game_stage = 1
 	setupSprites()
 	directionMessage = "SHAVE!!"
 	if randi_range(1,2) == 1:
@@ -31,23 +30,33 @@ func _ready():
 		#addExtraShaveable()
 
 func setupSprites():
+	print("Game Stage: ", GlobalVars.game_stage)
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/coconutNoSides.png"))
+		sprites.append(load("res://assets/sprites/CoconutSide.png"))
 		sprites.append(load("res://assets/sprites/CoconutSide.png"))
 		sprites.append(load("res://assets/sprites/red_arrow.png"))
 		sprites.append(load("res://assets/sprites/grater.png"))
 	elif GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/treenosides.png"))
 		sprites.append(load("res://assets/sprites/treeside.png"))
+		sprites.append(load("res://assets/sprites/treeside.png"))
 		sprites.append(load("res://assets/sprites/red_arrow.png"))
 		sprites.append(load("res://assets/sprites/chainsaw.png"))
+	elif GlobalVars.game_stage == 2:
+		$ColorRect.color = Color(0, 0, 0)
+		sprites.append(load("res://assets/sprites/earthnosides.png"))
+		sprites.append(load("res://assets/sprites/earthsideleft.png"))
+		sprites.append(load("res://assets/sprites/earthsideright.png"))
+		sprites.append(load("res://assets/sprites/red_arrow.png"))
+		sprites.append(load("res://assets/sprites/knife.png"))
+		$Shaveables/Sprite2D3.flip_h = true
 	$Shaveables/Sprite2D.texture = sprites[0]
-	$Shaveables/Sprite2D/Sprite2D.texture = sprites[2]
-	$Shaveables/Sprite2D/Sprite2D2.texture = sprites[2]
+	$Shaveables/Sprite2D/Sprite2D.texture = sprites[3]
+	$Shaveables/Sprite2D/Sprite2D2.texture = sprites[3]
 	$Shaveables/Sprite2D2.texture = sprites[1]
-	$Shaveables/Sprite2D3.texture = sprites[1]
-	$Shaver.texture = sprites[3]
-	#$Shaveables/Sprite2D3.texture = sprites[1]
+	$Shaveables/Sprite2D3.texture = sprites[2]
+	$Shaver.texture = sprites[4]
 
 
 func addExtraShaveable():

@@ -24,6 +24,9 @@ func setupSprites():
 	elif GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/rustyknife.png"))
 		sprites.append(load("res://assets/sprites/car.png"))
+	elif GlobalVars.game_stage == 2:
+		sprites.append(load("res://assets/sprites/rustyknife.png"))
+		sprites.append(load("res://assets/sprites/mountain.png"))
 	$Knife_Folloing/Path2D/PathFollow2D/Knife/Knife.texture = sprites[0]
 	$Fruit/Sprite2D.texture = sprites[1]
 
