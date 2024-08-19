@@ -149,6 +149,7 @@ color = Color(1, 1, 0.701961, 1)
 [node name="ColorRect" type="ColorRect" parent="Objective"]
 anchors_preset = -1
 anchor_top = 5.0
+anchor_bottom = 5.0
 offset_left = -80.0
 offset_top = 38.0
 offset_right = -12.0

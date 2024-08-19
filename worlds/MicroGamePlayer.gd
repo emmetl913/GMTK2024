@@ -171,6 +171,7 @@ func win():
 
 func showCinematic():
 	$LivesDisplay.visible = false
+	$Transition.visible = false
 	
 	print("cinematic time")
 	
@@ -183,6 +184,7 @@ func showCinematic():
 
 func endCinematic():
 	$LivesDisplay.visible = true
+	$Transition.visible = true
 	
 	if is_instance_valid(cinematicInst):
 		cinematicInst.queue_free()
