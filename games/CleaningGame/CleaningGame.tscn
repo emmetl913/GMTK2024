@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b6k0ikqk32nsh" path="res://games/CleaningGame/Trash.tscn" id="1_a2scu"]
 [ext_resource type="Script" path="res://games/CleaningGame/CleaningGame.gd" id="1_xlvcd"]
 [ext_resource type="Texture2D" uid="uid://cggeljklmrqkg" path="res://assets/sprites/plate.png" id="2_msf8c"]
-[ext_resource type="Texture2D" uid="uid://c65hf5vuw1pp8" path="res://assets/sprites/mouse_tracker.png" id="3_i84kp"]
+[ext_resource type="Texture2D" uid="uid://c2kvv23u2rdbq" path="res://assets/sprites/rag.png" id="4_642l1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwh6a"]
 size = Vector2(114, 113)
@@ -62,10 +62,11 @@ gravity_scale = 0.0
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["cursor"]]
 position = Vector2(-84, -50)
+scale = Vector2(0.5, 0.5)
 collision_layer = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("3_i84kp")
+texture = ExtResource("4_642l1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("CircleShape2D_5unxk")

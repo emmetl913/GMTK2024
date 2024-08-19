@@ -19,6 +19,7 @@ func _ready():
 	directionMessage = "CRACK!!"
 	if randi_range(0,100) == 99:
 		$ColorRect.texture = load("res://assets/sprites/walta.png")
+	GlobalVars.game_stage = 1
 	setupSprites()
 	$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[0]
 	first_cracks = randi_range(1,3)
@@ -32,6 +33,10 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/egg_whole.png"))
 		sprites.append(load("res://assets/sprites/egg_crackedalil.png"))
 		sprites.append(load("res://assets/sprites/egg_cracked.png"))
+	elif GlobalVars.game_stage == 1:
+		sprites.append(load("res://assets/sprites/helicopter1.png"))
+		sprites.append(load("res://assets/sprites/helicopter2.png"))
+		sprites.append(load("res://assets/sprites/helicopter3.png"))
 
 func _input(event):
 	if event.is_action_pressed("LMB"):
