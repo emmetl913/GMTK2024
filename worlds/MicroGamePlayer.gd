@@ -148,12 +148,20 @@ func endGame():
 	if (lives == 0):
 		lose()
 	
+	#if total rounds completed = 33, win game
+	if (total_wins + total_losses >= 33):
+		win()
+	
 	enter_cutscene()
 
 #When player has officially lost the game, takes them to the lose screen
 func lose():
 	#Changes scene to lose screen
 	get_tree().change_scene_to_file("res://menus/lose_screen.tscn")
+
+func win():
+	#Changes scene to win screen
+	get_tree().change_scene_to_file("res://worlds/RobotBakesTheEarth.tscn")
 
 func play_end_text_animation(message: String, color: Color):
 	$EndMessage/Label.text = message
