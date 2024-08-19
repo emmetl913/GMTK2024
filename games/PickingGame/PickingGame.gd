@@ -52,10 +52,12 @@ func _input(event):
 			if !i.is_good and i.isInRange():
 				for j in bushItems:
 					j.self_modulate = Color.DARK_RED
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 				super.onLose()
 			if i.isInRange() and i.is_good:
 				i.successState()
 	if checkWin() and !has_won:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		super.onWin()
 		has_won = true
 	
