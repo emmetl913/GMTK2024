@@ -3,6 +3,8 @@ extends Base_Game
 var starting_button : bool
 @export var total_churns : int
 @export var win_churns : int
+var churn_top : int
+var churn_bottom : int
 var has_won : bool = false
 var has_lost : bool = false
 @onready var sprites : Array[CompressedTexture2D]
@@ -19,21 +21,38 @@ func setupSprites():
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/churn_basin.png"))
 		sprites.append(load("res://assets/sprites/churn_stick.png"))
+		sprites.append(load("res://assets/sprites/car.png"))
+		sprites.append(load("res://assets/sprites/carcrushed.png"))
+		$Subject.visible = false
+		churn_top = 64
+		churn_bottom = 78
+	elif GlobalVars.game_stage == 1:
+		sprites.append(load("res://assets/sprites/carpressbottom.png"))
+		sprites.append(load("res://assets/sprites/carpresstop.png"))
+		sprites.append(load("res://assets/sprites/car.png"))
+		sprites.append(load("res://assets/sprites/carcrushed.png"))
+		$Subject.visible = true
+		churn_top = 58
+		churn_bottom = 92
+		$Churn.z_index += 2
 	$Basin.texture = sprites[0]
 	$Churn.texture = sprites[1]
+	$Subject.texture = sprites[2]
 
 func _input(event):
 	if event.is_action_pressed("W") and $W.visible and not has_won:
-		$Churn.position.y = 64
+		$Churn.position.y = churn_top
 		$W.visible = not $W.visible
 		$S.visible = not $S.visible
+		$Subject.texture = sprites[2]
 		total_churns += 1
 	elif event.is_action_pressed("W") and not $W.visible and not has_won:
 		super.onLose()
 	if event.is_action_pressed("S") and $S.visible:
-		$Churn.position.y = 78
+		$Churn.position.y = churn_bottom
 		$W.visible = not $W.visible
 		$S.visible = not $S.visible
+		$Subject.texture = sprites[3]
 		$ChurnSFX.play()
 	elif event.is_action_pressed("S") and not $S.visible and not has_won and not has_lost:
 		super.onLose()
@@ -46,10 +65,10 @@ func _input(event):
 func setup():
 	if randi_range(0,1):
 		starting_button = true
-		$Churn.position.y = 78
+		$Churn.position.y = churn_bottom
 	else: 
 		false
-		$Churn.position.y = 64
+		$Churn.position.y = churn_top
 	$W.visible = starting_button
 	$S.visible = not starting_button
 
