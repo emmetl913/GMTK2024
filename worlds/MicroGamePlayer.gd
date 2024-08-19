@@ -177,6 +177,7 @@ func showCinematic():
 	#load cinematic
 	cinematicInst = cinematicScene.instantiate()
 	cinematicInst.setParent(self)
+	cinematicInst.setObjectiveSprite(preload("res://assets/sprites/chainsaw.png"))
 	add_child(cinematicInst, true)
 	
 	cinematicInst.playAnimation()

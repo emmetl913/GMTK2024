@@ -16,5 +16,8 @@ func playAnimation():
 func _process(delta):
 	pass
 
+func setObjectiveSprite(tex: Texture2D):
+	$Objective.texture = tex
+
 func _on_animation_player_animation_finished(anim_name):
 	parent.endCinematic()
