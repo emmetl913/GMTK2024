@@ -30,6 +30,9 @@ var lives : int
 
 var current_game_id : int
 
+@onready var cinematicScene = preload("res://worlds/cinematic.tscn")
+var cinematicInst
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVars.game_stage = 0
@@ -39,8 +42,7 @@ func _ready():
 	
 	lives = 3
 	
-	#testing
-	enter_cutscene()
+	showCinematic()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -168,8 +170,22 @@ func win():
 	get_tree().change_scene_to_file("res://worlds/RobotBakesTheEarth.tscn")
 
 func showCinematic():
-	#Loads cinematic scene -- figure it out tomorrow!!
+	$LivesDisplay.visible = false
+	
 	print("cinematic time")
+	
+	#load cinematic
+	cinematicInst = cinematicScene.instantiate()
+	cinematicInst.setParent(self)
+	add_child(cinematicInst, true)
+	
+	cinematicInst.playAnimation()
+
+func endCinematic():
+	$LivesDisplay.visible = true
+	
+	if is_instance_valid(cinematicInst):
+		cinematicInst.queue_free()
 	enter_cutscene()
 
 func play_end_text_animation(message: String, color: Color):
