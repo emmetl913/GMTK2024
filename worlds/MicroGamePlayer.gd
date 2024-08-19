@@ -152,7 +152,11 @@ func endGame():
 	if (total_wins + total_losses >= 33):
 		win()
 	
-	enter_cutscene()
+	#if rounds completed is a multiple of 11, show cinematic
+	if ((total_wins + total_losses) % 11 == 0):
+		showCinematic()
+	else:
+		enter_cutscene()
 
 #When player has officially lost the game, takes them to the lose screen
 func lose():
@@ -162,6 +166,11 @@ func lose():
 func win():
 	#Changes scene to win screen
 	get_tree().change_scene_to_file("res://worlds/RobotBakesTheEarth.tscn")
+
+func showCinematic():
+	#Loads cinematic scene -- figure it out tomorrow!!
+	print("cinematic time")
+	enter_cutscene()
 
 func play_end_text_animation(message: String, color: Color):
 	$EndMessage/Label.text = message
