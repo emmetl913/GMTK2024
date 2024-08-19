@@ -9,12 +9,20 @@ var completed : bool = false
 @onready var gates_completed : int = 0
 @onready var gates_passed : Array[bool] = [false, false, false, false, false, false, false, false, false]
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
+func setTextures(spot_texture : CompressedTexture2D):
+	$ProgressDetectors/First/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Second/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Third/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Fourth/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Fifth/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Sixth/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Seventh/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Eighth/Sprite2D.texture = spot_texture
+	$ProgressDetectors/Ninth/Sprite2D.texture = spot_texture
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not first_enter and  gates_completed == gates and not has_won:
 		print("Won in game")
