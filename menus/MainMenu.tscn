@@ -31,6 +31,7 @@ offset_bottom = 160.0
 color = Color(0, 0, 0.133333, 1)
 
 [node name="Stars" type="TextureRect" parent="."]
+z_index = 1
 texture_filter = 1
 texture_repeat = 2
 material = SubResource("ShaderMaterial_aqxsr")
@@ -43,6 +44,7 @@ grow_vertical = 2
 texture = ExtResource("3_fyv25")
 
 [node name="Title" type="TextureRect" parent="."]
+z_index = 1
 texture_filter = 1
 layout_mode = 0
 offset_left = 37.0
@@ -52,6 +54,7 @@ offset_bottom = 72.0
 texture = ExtResource("4_x2ou7")
 
 [node name="Start" type="TextureButton" parent="."]
+z_index = 1
 texture_filter = 1
 layout_mode = 2
 offset_left = 17.0
@@ -62,6 +65,7 @@ texture_normal = ExtResource("2_i81ld")
 texture_hover = ExtResource("3_b663y")
 
 [node name="Endless" type="TextureButton" parent="."]
+z_index = 1
 texture_filter = 1
 layout_mode = 2
 offset_left = 126.0
@@ -72,6 +76,7 @@ texture_normal = ExtResource("4_iuh0j")
 texture_hover = ExtResource("5_aa7uy")
 
 [node name="Exit" type="TextureButton" parent="."]
+z_index = 1
 texture_filter = 1
 layout_mode = 2
 offset_left = 74.0

@@ -80,6 +80,7 @@ func loadScenes():
 	cutsceneScene = preload("res://worlds/cutscene.tscn")
 
 func startGame(gameID: int):
+
 	game_inst = gameScenes[gameID].instantiate()
 	game_inst.set_parent(self)
 	add_child(game_inst, true)
@@ -167,6 +168,9 @@ func lose():
 
 func win():
 	#Changes scene to win screen
+	if !GlobalVars.is_endless:
+		SaveData.beat_story_mode = true
+		SaveData.save(0)
 	get_tree().change_scene_to_file("res://worlds/RobotBakesTheEarth.tscn")
 
 func showCinematic():
@@ -246,3 +250,7 @@ func _on_transition_anim_player_animation_finished(anim_name):
 		play_direction_animation(current_game_id)
 	elif (anim_name == "Exit_Game"):
 		endGame()
+
+func _input(event):
+	if event.is_action_pressed("test"):
+		win()

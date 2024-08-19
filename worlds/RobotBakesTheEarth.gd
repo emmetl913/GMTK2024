@@ -2,17 +2,17 @@ extends Node2D
 
 var dont_repeat = false
 @onready var has_exploded : bool = false
-
+var menu_mode = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+	menu_mode = false
 	$YouWinText.visible = false
 	$MainMenuButton.visible = false
 	
 	$AnimatedSprite2D.play("Booom")
 
 func _on_animated_sprite_2d_animation_finished():
-	if !dont_repeat: 
+	if !dont_repeat and !menu_mode: 
 		$AnimationPlayer.play("ShowYouWin")
 		$YouWinText.visible = true
 	$PlayShootingStar.start(randf_range(0,10))
@@ -31,6 +31,7 @@ func _on_main_menu_button_pressed():
 
 func _on_play_shooting_star_timeout():
 	$AnimatedSprite2D.play("ShootingStar")
+	$AudioSteams/ShootingStar.play()
 	
 func _on_animated_sprite_2d_frame_changed():
 	if $AnimatedSprite2D.frame % 2 == 1 and $AnimatedSprite2D.frame != 1 and not has_exploded:

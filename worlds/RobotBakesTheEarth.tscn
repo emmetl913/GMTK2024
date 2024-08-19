@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://b6xf7rk80et8e"]
+[gd_scene load_steps=71 format=3 uid="uid://b6xf7rk80et8e"]
 
 [ext_resource type="Script" path="res://worlds/RobotBakesTheEarth.gd" id="1_h4upm"]
 [ext_resource type="Texture2D" uid="uid://cdg24ctuaatee" path="res://assets/sprites/aminationamons/RobotMakingTheEarthCakedUp.png" id="1_nch18"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b2lsv6idyjl6c" path="res://assets/sfx/finalwin.wav" id="8_2xbta"]
 [ext_resource type="AudioStream" uid="uid://gtx2yxeo80u" path="res://assets/sfx/explosion.wav" id="8_v7awv"]
 [ext_resource type="AudioStream" uid="uid://dge0d07a5dkfq" path="res://assets/sfx/shortcircuit.wav" id="9_weohd"]
+[ext_resource type="AudioStream" uid="uid://bfrk5valqoa8r" path="res://assets/sfx/shootingstar.wav" id="12_bp6fo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lkd3t"]
 atlas = ExtResource("1_nch18")
@@ -585,6 +586,7 @@ libraries = {
 
 [node name="PlayShootingStar" type="Timer" parent="."]
 one_shot = true
+
 [node name="AudioSteams" type="Node" parent="."]
 
 [node name="Laughing" type="AudioStreamPlayer" parent="AudioSteams"]
@@ -602,6 +604,10 @@ stream = ExtResource("8_v7awv")
 [node name="ShortCircuit" type="AudioStreamPlayer" parent="AudioSteams"]
 stream = ExtResource("9_weohd")
 volume_db = -5.0
+
+[node name="ShootingStar" type="AudioStreamPlayer" parent="AudioSteams"]
+stream = ExtResource("12_bp6fo")
+volume_db = 2.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
