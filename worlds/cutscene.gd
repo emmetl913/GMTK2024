@@ -6,7 +6,10 @@ var microGamePlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Hoverpad.visible = false
+	
 	setUpCake()
+	setUpRobot()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -45,6 +48,19 @@ func setUpCake():
 	
 	#Animate newest cake layer
 	newestCakeLayer.playAnimation()
+
+func setUpRobot():
+	var total_rounds_played = microGamePlayer.total_wins + microGamePlayer.total_losses
+	if (total_rounds_played < 11):
+		$Robot.play("happyRobot")
+		$Robot.position.y = $Background.position.y + 270
+	else:
+		$Robot.position.y = 59
+		$Hoverpad.visible = true
+		if (total_rounds_played < 22):
+			$Robot.play("happyRobot")
+		else:
+			$Robot.play("sadRobot")
 
 func setMicroGamePlayer(mgp: Node2D):
 	microGamePlayer = mgp

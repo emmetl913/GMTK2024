@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bb5gy0jvalbfh"]
+[gd_scene load_steps=32 format=3 uid="uid://bb5gy0jvalbfh"]
 
 [ext_resource type="Texture2D" uid="uid://3ytpl1ycf06v" path="res://assets/CakeCutscene/background.png" id="1_1dxeq"]
 [ext_resource type="Script" path="res://worlds/cutscene.gd" id="1_ihsrs"]
@@ -15,6 +15,107 @@
 [ext_resource type="Texture2D" uid="uid://bvsm8ofsw0y8l" path="res://assets/CakeCutscene/Cake Layers/Phase 4/layer_1.png" id="12_fk624"]
 [ext_resource type="Texture2D" uid="uid://7r8havjhgn3j" path="res://assets/CakeCutscene/Cake Layers/Phase 4/layer_2.png" id="13_qli21"]
 [ext_resource type="Texture2D" uid="uid://c5n6xiho15qje" path="res://assets/CakeCutscene/Cake Layers/Phase 4/layer_3.png" id="14_dhdpl"]
+[ext_resource type="Texture2D" uid="uid://cr8qb3ypi56b4" path="res://assets/CakeCutscene/robot_mixing_sheet.png" id="16_hj1aq"]
+[ext_resource type="Texture2D" uid="uid://1hrmegxi8k0v" path="res://assets/CakeCutscene/sad_robot_mixing_sheet.png" id="17_owo3d"]
+[ext_resource type="Texture2D" uid="uid://dva1a8c1jenjy" path="res://assets/CakeCutscene/robot_hoverpad.png" id="18_gdnxj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8drhp"]
+atlas = ExtResource("16_hj1aq")
+region = Rect2(0, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flgm1"]
+atlas = ExtResource("16_hj1aq")
+region = Rect2(64, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qv77p"]
+atlas = ExtResource("16_hj1aq")
+region = Rect2(128, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlpjq"]
+atlas = ExtResource("16_hj1aq")
+region = Rect2(192, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh60r"]
+atlas = ExtResource("17_owo3d")
+region = Rect2(0, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x67v"]
+atlas = ExtResource("17_owo3d")
+region = Rect2(64, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5m4q0"]
+atlas = ExtResource("17_owo3d")
+region = Rect2(128, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4unl"]
+atlas = ExtResource("17_owo3d")
+region = Rect2(192, 0, 64, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08imj"]
+atlas = ExtResource("17_owo3d")
+region = Rect2(256, 0, 64, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51pwf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8drhp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flgm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qv77p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlpjq")
+}],
+"loop": true,
+"name": &"happyRobot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dh60r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x67v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5m4q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4unl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08imj")
+}],
+"loop": true,
+"name": &"sadRobot",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm43e"]
+atlas = ExtResource("18_gdnxj")
+region = Rect2(0, 0, 70, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5nup"]
+atlas = ExtResource("18_gdnxj")
+region = Rect2(70, 0, 70, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jx74w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm43e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5nup")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Cutscene" type="Node2D"]
 script = ExtResource("1_ihsrs")
@@ -28,5 +129,19 @@ texture = ExtResource("1_1dxeq")
 [node name="Buffer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Robot" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(48, 59)
+sprite_frames = SubResource("SpriteFrames_51pwf")
+animation = &"happyRobot"
+frame_progress = 0.960193
+
+[node name="Hoverpad" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(47, 119)
+sprite_frames = SubResource("SpriteFrames_jx74w")
+animation = &"idle"
+frame_progress = 0.634564
 
 [connection signal="timeout" from="Buffer" to="." method="_on_buffer_timeout"]
