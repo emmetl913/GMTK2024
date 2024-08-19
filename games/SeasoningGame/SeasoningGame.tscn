@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bly1agwtbo417"]
+[gd_scene load_steps=10 format=3 uid="uid://bly1agwtbo417"]
 
 [ext_resource type="Script" path="res://games/SeasoningGame/SeasoningGame.gd" id="1_qy71w"]
 [ext_resource type="Texture2D" uid="uid://603ks0ip2pjq" path="res://assets/sprites/saltshaker.png" id="2_kcs3p"]
 [ext_resource type="Texture2D" uid="uid://fcvsge8eycqn" path="res://assets/sprites/pepshaker.png" id="3_ett2r"]
 [ext_resource type="Texture2D" uid="uid://bib0xhteecdac" path="res://assets/sprites/pinkshaker.png" id="4_6jbry"]
 [ext_resource type="Texture2D" uid="uid://c4sfoqxie0nk5" path="res://assets/sprites/brownshaker.png" id="5_03brf"]
+[ext_resource type="AudioStream" uid="uid://d511gedrw567" path="res://assets/sfx/redtone.wav" id="6_i6mvc"]
+[ext_resource type="AudioStream" uid="uid://cun5y2mntfqpl" path="res://assets/sfx/bluetone.wav" id="7_ixx3i"]
+[ext_resource type="AudioStream" uid="uid://d0pvt8cnt7l7r" path="res://assets/sfx/greentone.wav" id="8_ufygo"]
+[ext_resource type="AudioStream" uid="uid://eyelpptwegti" path="res://assets/sfx/purptone.wav" id="9_wjha1"]
 
 [node name="SeasoningGame" type="Node2D"]
 script = ExtResource("1_qy71w")
@@ -78,6 +82,24 @@ texture_normal = ExtResource("5_03brf")
 [node name="DisplayTimer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Node" type="Node" parent="."]
+
+[node name="Red" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("6_i6mvc")
+max_polyphony = 8
+
+[node name="Blue" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("7_ixx3i")
+max_polyphony = 8
+
+[node name="Green" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("8_ufygo")
+max_polyphony = 8
+
+[node name="Purp" type="AudioStreamPlayer" parent="Node"]
+stream = ExtResource("9_wjha1")
+max_polyphony = 8
 
 [connection signal="pressed" from="PatternDisplay/Red" to="." method="_on_red_pressed"]
 [connection signal="pressed" from="PatternDisplay/Blue" to="." method="_on_blue_pressed"]
