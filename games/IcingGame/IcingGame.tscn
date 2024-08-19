@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://7kkvev5036ny"]
+[gd_scene load_steps=7 format=3 uid="uid://7kkvev5036ny"]
 
 [ext_resource type="Script" path="res://games/IcingGame/IcingGame.gd" id="1_vc0qf"]
 [ext_resource type="PackedScene" uid="uid://kf1q8ln3swdb" path="res://games/IcingGame/Patterns/S_Pattern.tscn" id="2_4p275"]
 [ext_resource type="PackedScene" uid="uid://6tpodpx3ai1a" path="res://games/IcingGame/Patterns/N_Pattern.tscn" id="3_6w53s"]
 [ext_resource type="Texture2D" uid="uid://dpv45fkc2aka5" path="res://assets/sprites/icing_pipe.png" id="4_m4gvy"]
+[ext_resource type="Texture2D" uid="uid://ch747ufimwy2r" path="res://assets/sprites/treeclean.png" id="5_j3ihs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mimnj"]
 radius = 4.0
@@ -38,5 +39,51 @@ shape = SubResource("CircleShape2D_mimnj")
 [node name="WonTimeout" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="Trees" type="Node2D" parent="."]
+
+[node name="Tree" type="Sprite2D" parent="Trees"]
+position = Vector2(28, 26)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree2" type="Sprite2D" parent="Trees"]
+position = Vector2(20, 67)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree3" type="Sprite2D" parent="Trees"]
+position = Vector2(102, -3)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree4" type="Sprite2D" parent="Trees"]
+position = Vector2(203, 28)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree5" type="Sprite2D" parent="Trees"]
+position = Vector2(201, 76)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree6" type="Sprite2D" parent="Trees"]
+position = Vector2(166, -3)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree7" type="Sprite2D" parent="Trees"]
+position = Vector2(56, 82)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree8" type="Sprite2D" parent="Trees"]
+position = Vector2(31, 118)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree9" type="Sprite2D" parent="Trees"]
+position = Vector2(75, 130)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree10" type="Sprite2D" parent="Trees"]
+position = Vector2(137, 131)
+texture = ExtResource("5_j3ihs")
+
+[node name="Tree11" type="Sprite2D" parent="Trees"]
+position = Vector2(203, 128)
+texture = ExtResource("5_j3ihs")
 
 [connection signal="timeout" from="WonTimeout" to="." method="_on_won_timeout_timeout"]

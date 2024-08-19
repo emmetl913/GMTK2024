@@ -38,6 +38,9 @@ func setupSprites():
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/strawberry.png"))
 		sprites.append(load("res://assets/sprites/strawberrybad.png"))
+	if GlobalVars.game_stage == 1:
+		sprites.append(load("res://assets/sprites/helicopter1.png"))
+		sprites.append(load("res://assets/sprites/helicopter3.png"))
 
 func _input(event):
 	if event.is_action_pressed("LMB"):

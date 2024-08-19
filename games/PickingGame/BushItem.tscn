@@ -10,7 +10,7 @@ size = Vector2(76, 76)
 size = Vector2(85.3333, 85.3333)
 
 [node name="Sprite2D" type="Sprite2D" groups=["BushItem"]]
-texture_filter = 1
+texture_filter = 2
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_4ux3x")
 script = ExtResource("2_jnbbf")
