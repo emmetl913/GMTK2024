@@ -9,7 +9,6 @@ func _ready():
 	timers = [5, 4, 3, 2]
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	directionMessage = "ICE!!"
-	GlobalVars.game_stage = 2
 	setupSprites()
 	setup()
 
