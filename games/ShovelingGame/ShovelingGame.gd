@@ -26,6 +26,7 @@ func setupSprites():
 func _input(event):
 	if event.is_action_pressed("A"):
 		if shovel_pos[1] and $A.visible:
+			$shovelingSFX.play()
 			$W.visible = true
 			$A.visible = false
 			shovel_pos[0] = true
@@ -50,9 +51,11 @@ func _input(event):
 			$Shovel.position = Vector2i(114,50)
 		else:
 			pass
+		$fireSFX.play()
 		$Shovel.rotation_degrees = rad_to_deg(PI)
 	elif event.is_action_pressed("D"):
 		if shovel_pos[1] and $D.visible:
+			$shovelingSFX.play()
 			$W.visible = true
 			$D.visible = false
 			shovel_pos[2] = true

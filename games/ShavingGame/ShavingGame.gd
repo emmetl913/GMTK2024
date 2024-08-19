@@ -94,8 +94,10 @@ func _on_shave_area_area_entered(area):
 		$ShaveCD.start(.3)
 		if area.is_in_group("Left"):
 			drop_left = true
+			$ShaveSFX.play()
 		else:
 			drop_right = true
+			$ShaveSFX.play()
 		if shave_count == num_to_shave:
 			super.onWin()
 			has_result = true

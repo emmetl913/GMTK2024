@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dub5kupsresd5"]
+[gd_scene load_steps=7 format=3 uid="uid://dub5kupsresd5"]
 
 [ext_resource type="Script" path="res://games/ShovelingGame/ShovelingGame.gd" id="1_fdsqn"]
 [ext_resource type="Texture2D" uid="uid://cp7hhlfddrv3k" path="res://assets/sprites/shovel.png" id="2_mrsnu"]
 [ext_resource type="Texture2D" uid="uid://c61nx5e7lfbcx" path="res://assets/sprites/coal.png" id="3_sgodn"]
 [ext_resource type="Texture2D" uid="uid://bchy32lfi1sbr" path="res://assets/sprites/robit.png" id="4_j6fjg"]
+[ext_resource type="AudioStream" uid="uid://dg8nljehghjnt" path="res://assets/sfx/shovelingSFX.wav" id="5_stpg4"]
+[ext_resource type="AudioStream" uid="uid://cjvl84oy8suc7" path="res://assets/sfx/fireflareSFX.wav" id="6_2mche"]
 
 [node name="ShovelingGame" type="Node2D"]
 script = ExtResource("1_fdsqn")
@@ -64,3 +66,9 @@ texture = ExtResource("3_sgodn")
 [node name="Robit" type="Sprite2D" parent="."]
 position = Vector2(116, -4)
 texture = ExtResource("4_j6fjg")
+
+[node name="shovelingSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_stpg4")
+
+[node name="fireSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_2mche")

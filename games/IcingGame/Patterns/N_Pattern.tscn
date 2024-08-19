@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://caxg30ileg2sg" path="res://assets/sprites/N_Patttern.png" id="1_lq1ua"]
 [ext_resource type="Script" path="res://games/IcingGame/Patterns/pattern.gd" id="2_03ka7"]
-[ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="3_82ctk"]
+[ext_resource type="Texture2D" uid="uid://cby3yrkynfbsg" path="res://assets/sprites/icingspot.png" id="3_mhxdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8fysc"]
 size = Vector2(7, 41.7533)
@@ -26,8 +26,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 [node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/First"]
 visible = false
 position = Vector2(-41, 7)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Second" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(2, 0)
@@ -40,8 +39,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 [node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Second"]
 visible = false
 position = Vector2(-14, -9)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Third" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(-3, -3.72529e-09)
@@ -55,8 +53,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 [node name="Sprite2D" type="Sprite2D" parent="ProgressDetectors/Third"]
 visible = false
 position = Vector2(-36.5121, 37.5083)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Fourth" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(-3, 0)
@@ -71,8 +68,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 visible = false
 position = Vector2(-42.8805, -17.2702)
 rotation = -0.288941
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Fifth" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(-5, 2)
@@ -87,8 +83,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 visible = false
 position = Vector2(18.0498, 11.2341)
 rotation = -0.303565
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Sixth" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(-4, 1)
@@ -103,8 +98,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 visible = false
 position = Vector2(38.8021, 27.9176)
 rotation = -0.289073
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Seventh" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(-2, 0)
@@ -119,8 +113,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 visible = false
 position = Vector2(36.3336, -43.7364)
 rotation = -0.257713
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Eighth" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(-2, -2)
@@ -135,8 +128,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 visible = false
 position = Vector2(44.067, -16.8255)
 rotation = -0.259757
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Ninth" type="Area2D" parent="ProgressDetectors"]
 position = Vector2(-3, 0)
@@ -151,8 +143,7 @@ shape = SubResource("RectangleShape2D_8fysc")
 visible = false
 position = Vector2(52.6179, 5.68855)
 rotation = -0.282692
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_82ctk")
+texture = ExtResource("3_mhxdu")
 
 [node name="Area2D" type="Area2D" parent="."]
 

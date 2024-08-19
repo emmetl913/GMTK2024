@@ -13,10 +13,17 @@ func _ready():
 	$Wait.text = "Wait"
 	directionMessage = "PULL!!"
 	timers = [7, 6, 5, 4, 3, 2]
+	setupSprites()
 	cook_time = randi_range(2, 6)
 	cooktime.wait_time = cook_time
 	grabwindow.wait_time = grab_time
 	cooktime.start()
+
+func setupSprites():
+	if GlobalVars.game_stage == 0:
+		$Cake.texture = load("res://assets/sprites/lilcake.png")
+	elif GlobalVars.game_stage == 1:
+		$Cake.texture = load("res://assets/sprites/coal.png")
 
 func _input(event):
 	if event.is_action_pressed("LMB") and grabwindow.time_left > 0:
@@ -25,7 +32,10 @@ func _input(event):
 
 
 func _on_cook_time_timeout():
+	$TickingSFX.stop()
+	$Robit.texture = load("res://assets/sprites/robitopen.png")
 	$Cake.visible = true
+	$OvenTimerSFX.play()
 	$Wait.text = "Pull!!!!"
 	grabwindow.start()
 
