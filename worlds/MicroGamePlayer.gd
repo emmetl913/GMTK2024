@@ -24,6 +24,10 @@ var cutsceneInst
 #bool true=win, false=loss
 var recentGameWon
 
+#Fields for Lives
+var lives : int
+@export var livesDisplaySprites : Array[Texture2D]
+
 var current_game_id : int
 
 # Called when the node enters the scene tree for the first time.
@@ -32,6 +36,8 @@ func _ready():
 	loadScenes()
 	$TimerGraphic.visible = false
 	$EndMessage.visible = false
+	
+	lives = 3
 	
 	#testing
 	enter_cutscene()
@@ -119,22 +125,35 @@ func loseGame():
 	print("Lose game in parent")
 	$GameTimer.stop()
 	total_losses += 1
+	lives -= 1
+	update_lives()
 	recentGameWon = false
 	
 	play_end_text_animation("LOSE!", Color(1, 0, 0))
 	$MessageTimer.start()
 
+#updates lives display
+func update_lives():
+	$LivesDisplay/Sprite2D.texture = livesDisplaySprites[lives]
+
 func _on_message_timer_timeout():
 	$Transition/TransitionAnimPlayer.play("Exit_Game")
-
-
 
 func endGame():
 	if is_instance_valid(game_inst):
 		game_inst.queue_free()
 	$TimerGraphic.visible = false
 	
+	#if lives = 0, lose game
+	if (lives == 0):
+		lose()
+	
 	enter_cutscene()
+
+#When player has officially lost the game, takes them to the lose screen
+func lose():
+	print("lose")
+	pass
 
 func play_end_text_animation(message: String, color: Color):
 	$EndMessage/Label.text = message
