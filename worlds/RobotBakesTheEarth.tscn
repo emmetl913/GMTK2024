@@ -1,7 +1,8 @@
-[gd_scene load_steps=59 format=3 uid="uid://b6xf7rk80et8e"]
+[gd_scene load_steps=65 format=3 uid="uid://b6xf7rk80et8e"]
 
 [ext_resource type="Script" path="res://worlds/RobotBakesTheEarth.gd" id="1_h4upm"]
 [ext_resource type="Texture2D" uid="uid://cdg24ctuaatee" path="res://assets/sprites/aminationamons/RobotMakingTheEarthCakedUp.png" id="1_nch18"]
+[ext_resource type="Texture2D" uid="uid://ctwsypxr5tajm" path="res://assets/sprites/aminationamons/ShootingStarWinScreenSheet.png" id="3_ybdtb"]
 [ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="3_yw7ub"]
 [ext_resource type="Texture2D" uid="uid://cqv3kfbev5jxk" path="res://assets/Lose Screen/main_menu_button_idle.png" id="4_okbpu"]
 [ext_resource type="Texture2D" uid="uid://d3tw021wkjmh6" path="res://assets/Lose Screen/main_menu_button_hover.png" id="5_m2031"]
@@ -178,17 +179,37 @@ region = Rect2(9840, 0, 240, 160)
 atlas = ExtResource("1_nch18")
 region = Rect2(10080, 0, 240, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mkgpx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x50i"]
 atlas = ExtResource("1_nch18")
-region = Rect2(10320, 0, 240, 160)
+region = Rect2(9840, 0, 240, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cmjfq"]
-atlas = ExtResource("1_nch18")
-region = Rect2(10560, 0, 240, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgss5"]
+atlas = ExtResource("3_ybdtb")
+region = Rect2(0, 0, 240, 160)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pksii"]
-atlas = ExtResource("1_nch18")
-region = Rect2(10800, 0, 240, 160)
+[sub_resource type="AtlasTexture" id="AtlasTexture_8we6b"]
+atlas = ExtResource("3_ybdtb")
+region = Rect2(240, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kqcj"]
+atlas = ExtResource("3_ybdtb")
+region = Rect2(480, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7584"]
+atlas = ExtResource("3_ybdtb")
+region = Rect2(720, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wpmt"]
+atlas = ExtResource("3_ybdtb")
+region = Rect2(960, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o75w1"]
+atlas = ExtResource("3_ybdtb")
+region = Rect2(1200, 0, 240, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2ndr"]
+atlas = ExtResource("3_ybdtb")
+region = Rect2(1440, 0, 240, 160)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_p7iff"]
 animations = [{
@@ -321,18 +342,43 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y1imv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mkgpx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cmjfq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pksii")
 }],
 "loop": false,
 "name": &"Booom",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x50i")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgss5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8we6b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kqcj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7584")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wpmt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o75w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2ndr")
+}],
+"loop": false,
+"name": &"ShootingStar",
 "speed": 5.0
 }]
 
@@ -490,7 +536,8 @@ script = ExtResource("1_h4upm")
 texture_filter = 1
 position = Vector2(120, 80)
 sprite_frames = SubResource("SpriteFrames_p7iff")
-animation = &"Booom"
+animation = &"ShootingStar"
+autoplay = "Booom"
 
 [node name="YouWinText" type="Label" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -531,6 +578,10 @@ libraries = {
 "": SubResource("AnimationLibrary_u83ph")
 }
 
+[node name="PlayShootingStar" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="PlayShootingStar" to="." method="_on_play_shooting_star_timeout"]
