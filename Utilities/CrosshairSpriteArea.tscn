@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Utilities/CrosshairSpriteArea.gd" id="2_tlj0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xsrbm"]
-size = Vector2(4, 4)
+size = Vector2(7, 8)
 
 [node name="Cursor" type="Sprite2D" groups=["Cursor"]]
 z_index = 3

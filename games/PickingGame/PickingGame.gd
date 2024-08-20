@@ -26,16 +26,22 @@ func _ready():
 		if i.is_in_group("BushItem"):
 			bushItems.append(i)
 	for i in bushItems:
+		if GlobalVars.game_stage == 1:
+			i.set_collision_shape(Vector2(256,96))
+			i.set_spawncollision_shape(Vector2(240,146))
+		elif GlobalVars.game_stage == 2:
+			i.set_collision_shape(Vector2(120,136))
+			i.set_spawncollision_shape(Vector2(120,136))
 		if i.is_good:
 			i.texture = sprites[0]
-			if GlobalVars.game_stage == 2:
-				i.scale = Vector2(1,1)
+			#if GlobalVars.game_stage == 2:
+				#i.scale = Vector2(1,1)
 			all_bad = false
 		else:
 			i.texture = sprites[1]
 	if all_bad:
 		bushItems[0].setGood()
-
+		bushItems[0].texture = sprites[0]
 func setupSprites():
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/strawberry.png"))
@@ -43,6 +49,7 @@ func setupSprites():
 	if GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/helicopter1.png"))
 		sprites.append(load("res://assets/sprites/helicopter3.png"))
+		$Background.self_modulate = Color.DARK_SEA_GREEN
 	if GlobalVars.game_stage == 2:
 		sprites.append(load("res://assets/sprites/island2.png"))
 		sprites.append(null)

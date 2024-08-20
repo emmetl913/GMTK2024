@@ -1,31 +1,31 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbtp8rbua14pk"]
 
-[ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="1_4ux3x"]
+[ext_resource type="Texture2D" uid="uid://dew6tfjxj4563" path="res://assets/sprites/island2.png" id="1_ghocr"]
 [ext_resource type="Script" path="res://games/PickingGame/BushItem.gd" id="2_jnbbf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iounw"]
-size = Vector2(76, 76)
+size = Vector2(120, 136)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjexf"]
-size = Vector2(85.3333, 85.3333)
+size = Vector2(120, 136)
 
 [node name="Sprite2D" type="Sprite2D" groups=["BushItem"]]
-texture_filter = 2
+texture_filter = 1
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_4ux3x")
+texture = ExtResource("1_ghocr")
 script = ExtResource("2_jnbbf")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -4)
+position = Vector2(-1, -1)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_iounw")
 
 [node name="SpawnCollisionDetection" type="Area2D" parent="." groups=["SpawnCollider"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpawnCollisionDetection"]
-position = Vector2(-1.69542e-06, -1.69542e-06)
+position = Vector2(-1, -1)
 scale = Vector2(0.25, 0.25)
 shape = SubResource("RectangleShape2D_jjexf")
 
