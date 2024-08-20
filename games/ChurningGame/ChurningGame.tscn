@@ -30,6 +30,7 @@ position = Vector2(117, 99)
 texture = ExtResource("3_ay02x")
 
 [node name="W" type="Label" parent="."]
+z_index = 4
 offset_left = 149.0
 offset_top = 21.0
 offset_right = 189.0
@@ -37,6 +38,7 @@ offset_bottom = 44.0
 text = "\"W\""
 
 [node name="S" type="Label" parent="."]
+z_index = 4
 offset_left = 149.0
 offset_top = 62.0
 offset_right = 189.0

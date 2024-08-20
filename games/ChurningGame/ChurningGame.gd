@@ -35,6 +35,16 @@ func setupSprites():
 		churn_top = 58
 		churn_bottom = 92
 		$Churn.z_index += 2
+	elif GlobalVars.game_stage == 2:
+		sprites.append(load("res://assets/sprites/carpressbottom.png"))
+		sprites.append(load("res://assets/sprites/carpresstop.png"))
+		sprites.append(load("res://assets/sprites/mountain.png"))
+		sprites.append(load("res://assets/sprites/mountainsmushed.png"))
+		$Subject.visible = true
+		$Subject.position.y = 30
+		churn_top = 0
+		churn_bottom = 92
+		$Churn.z_index += 2
 	$Basin.texture = sprites[0]
 	$Churn.texture = sprites[1]
 	$Subject.texture = sprites[2]
