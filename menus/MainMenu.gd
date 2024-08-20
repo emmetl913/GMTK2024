@@ -4,6 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SaveData.load_data()
+	$AnimationPlayerFirst.play("fade_to_normal")
 	if SaveData.beat_story_mode:
 		$ColorRect.visible = false
 		var robobakebg = preload("res://worlds/RobotBakesTheEarth.tscn").instantiate()
@@ -39,3 +40,7 @@ func _on_start_pressed():
 func _on_endless_pressed():
 	GlobalVars.is_endless = true
 	get_tree().change_scene_to_file("res://worlds/MicroGamePlayer.tscn")
+
+
+func _on_animation_player_first_animation_finished(anim_name):
+	$FadeFirst.visible = false

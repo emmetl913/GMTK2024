@@ -1,19 +1,22 @@
-[gd_scene load_steps=21 format=3 uid="uid://hnyitvrj83gq"]
+[gd_scene load_steps=18 format=3 uid="uid://ko2tbdkb1eiu"]
 
-[ext_resource type="Script" path="res://menus/MainMenu.gd" id="1_lkndu"]
-[ext_resource type="Texture2D" uid="uid://du4fqqhmsfg1f" path="res://Buttons/StoryMode.png" id="2_i81ld"]
-[ext_resource type="Shader" path="res://menus/scroll.gdshader" id="2_kn8lr"]
-[ext_resource type="Texture2D" uid="uid://btaqgsbdclha1" path="res://Buttons/StoryModeHover.png" id="3_b663y"]
-[ext_resource type="Texture2D" uid="uid://d385km5yb0xmj" path="res://assets/sprites/background_overlay.png" id="3_fyv25"]
-[ext_resource type="Texture2D" uid="uid://b8wy7sp3lj35x" path="res://Buttons/EndlessButtong.png" id="4_iuh0j"]
-[ext_resource type="Texture2D" uid="uid://bgou3jrrgo0pd" path="res://assets/sprites/TitleText.png" id="4_x2ou7"]
-[ext_resource type="Texture2D" uid="uid://bknwjg18aondi" path="res://Buttons/EndlessButtonHover.png" id="5_aa7uy"]
-[ext_resource type="Texture2D" uid="uid://b334s1qjpx7gq" path="res://Buttons/Quitbutton.png" id="6_sh78s"]
-[ext_resource type="Texture2D" uid="uid://b4ra04citd15y" path="res://Buttons/QuitbuttonHover.png" id="7_f1gjk"]
-[ext_resource type="AudioStream" uid="uid://cdmtpmso18cgh" path="res://assets/music/FlyingThroughSpace.wav" id="11_bck32"]
+[ext_resource type="Script" path="res://worlds/instruction_screen.gd" id="1_hyd6e"]
+[ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="2_ftmw7"]
+[ext_resource type="Texture2D" uid="uid://cds8q1otyhfc6" path="res://assets/sprites/left_click.png" id="3_lcx0e"]
+[ext_resource type="Texture2D" uid="uid://cxqow1rfa87ij" path="res://assets/sprites/wasd.png" id="4_af0v8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_aqxsr"]
-shader = ExtResource("2_kn8lr")
+[sub_resource type="LabelSettings" id="LabelSettings_htdsn"]
+font = ExtResource("2_ftmw7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_42dcr"]
+font = ExtResource("2_ftmw7")
+
+[sub_resource type="LabelSettings" id="LabelSettings_nf2c2"]
+font = ExtResource("2_ftmw7")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8jygy"]
+font = ExtResource("2_ftmw7")
 
 [sub_resource type="Animation" id="Animation_h1geo"]
 resource_name = "fade_to_normal"
@@ -155,85 +158,151 @@ _data = {
 "fade_to_normal3": SubResource("Animation_unb1w")
 }
 
-[node name="MainMenu" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_lywxl"]
+font = ExtResource("2_ftmw7")
+
+[node name="InstructionScreen" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_lkndu")
+anchors_preset = 0
+script = ExtResource("1_hyd6e")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 240.0
-offset_bottom = 160.0
-color = Color(0, 0, 0.133333, 1)
-
-[node name="Stars" type="TextureRect" parent="."]
-z_index = 1
-texture_filter = 1
-texture_repeat = 2
-material = SubResource("ShaderMaterial_aqxsr")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_fyv25")
-
-[node name="Title" type="TextureRect" parent="."]
-z_index = 1
-texture_filter = 1
-layout_mode = 0
-offset_left = 37.0
-offset_top = 8.0
-offset_right = 197.0
-offset_bottom = 72.0
-texture = ExtResource("4_x2ou7")
-
-[node name="Start" type="TextureButton" parent="."]
-z_index = 1
-texture_filter = 1
-layout_mode = 2
-offset_left = 17.0
-offset_top = 66.0
-offset_right = 113.0
-offset_bottom = 98.0
-texture_normal = ExtResource("2_i81ld")
-texture_hover = ExtResource("3_b663y")
-
-[node name="Endless" type="TextureButton" parent="."]
-z_index = 1
-texture_filter = 1
-layout_mode = 2
-offset_left = 126.0
-offset_top = 66.0
-offset_right = 222.0
-offset_bottom = 98.0
-texture_normal = ExtResource("4_iuh0j")
-texture_hover = ExtResource("5_aa7uy")
-
-[node name="Exit" type="TextureButton" parent="."]
-z_index = 1
-texture_filter = 1
-layout_mode = 2
-offset_left = 74.0
-offset_top = 101.0
-offset_right = 189.0
-offset_bottom = 133.0
-texture_normal = ExtResource("6_sh78s")
-texture_hover = ExtResource("7_f1gjk")
-
-[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_bck32")
-autoplay = true
-
-[node name="FadeFirst" type="ColorRect" parent="."]
-z_index = 1
 offset_right = 240.0
 offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LabelFirst" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="LabelFirst"]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 108.0
+offset_top = 8.0
+offset_right = 148.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hi!"
+label_settings = SubResource("LabelSettings_htdsn")
+
+[node name="LabelSecond" type="Node2D" parent="."]
+position = Vector2(13, -3)
+
+[node name="Label2" type="Label" parent="LabelSecond"]
+texture_filter = 1
+offset_left = 57.0
+offset_top = 44.0
+offset_right = 162.0
+offset_bottom = 67.0
+text = "The robot uses "
+label_settings = SubResource("LabelSettings_42dcr")
+
+[node name="Sprite2D" type="Sprite2D" parent="LabelSecond"]
+texture_filter = 1
+position = Vector2(61, 69)
+texture = ExtResource("3_lcx0e")
+centered = false
+
+[node name="Label3" type="Label" parent="LabelSecond"]
+texture_filter = 1
+offset_left = 92.0
+offset_top = 73.0
+offset_right = 120.0
+offset_bottom = 96.0
+text = "and"
+label_settings = SubResource("LabelSettings_42dcr")
+
+[node name="Sprite2D2" type="Sprite2D" parent="LabelSecond"]
+texture_filter = 1
+position = Vector2(123, 67)
+texture = ExtResource("4_af0v8")
+centered = false
+
+[node name="Label4" type="Label" parent="LabelSecond"]
+texture_filter = 1
+offset_left = 142.0
+offset_top = 67.0
+offset_right = 170.0
+offset_bottom = 90.0
+text = "W"
+label_settings = SubResource("LabelSettings_nf2c2")
+
+[node name="Label5" type="Label" parent="LabelSecond"]
+texture_filter = 1
+offset_left = 126.0
+offset_top = 83.0
+offset_right = 154.0
+offset_bottom = 106.0
+text = "A"
+label_settings = SubResource("LabelSettings_nf2c2")
+
+[node name="Label6" type="Label" parent="LabelSecond"]
+texture_filter = 1
+offset_left = 144.0
+offset_top = 83.0
+offset_right = 172.0
+offset_bottom = 106.0
+text = "S"
+label_settings = SubResource("LabelSettings_nf2c2")
+
+[node name="Label7" type="Label" parent="LabelSecond"]
+texture_filter = 1
+offset_left = 159.0
+offset_top = 83.0
+offset_right = 187.0
+offset_bottom = 106.0
+text = "D"
+label_settings = SubResource("LabelSettings_nf2c2")
+
+[node name="Label8" type="Label" parent="LabelSecond"]
+texture_filter = 1
+offset_left = 47.0
+offset_top = 101.0
+offset_right = 170.0
+offset_bottom = 124.0
+text = "for all his recipies!"
+label_settings = SubResource("LabelSettings_42dcr")
+
+[node name="LabelThird" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="LabelThird"]
+texture_filter = 1
+offset_left = 98.0
+offset_top = 127.0
+offset_right = 146.0
+offset_bottom = 150.0
+text = "Enjoy :)"
+label_settings = SubResource("LabelSettings_8jygy")
+
+[node name="FadeFirst" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+
+[node name="FadeSecond" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 35.0
+offset_right = 239.0
+offset_bottom = 122.0
+color = Color(0, 0, 0, 1)
+
+[node name="FadeThird" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = 122.0
+offset_right = 240.0
+offset_bottom = 154.0
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayerFirst" type="AnimationPlayer" parent="."]
@@ -241,7 +310,18 @@ libraries = {
 "": SubResource("AnimationLibrary_k5bt6")
 }
 
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Endless" to="." method="_on_endless_pressed"]
-[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.0
+offset_top = 145.0
+offset_right = 131.0
+offset_bottom = 168.0
+text = "Press \"LMB\" to skip"
+label_settings = SubResource("LabelSettings_lywxl")
+
 [connection signal="animation_finished" from="AnimationPlayerFirst" to="." method="_on_animation_player_first_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
