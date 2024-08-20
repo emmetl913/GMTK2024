@@ -3,12 +3,13 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
+	SaveData.load_data()
+	if SaveData.best_streak > 0:
+		$Streak.text = "Best Streak: " + str(SaveData.best_streak)
 	$FadeIn.visible = true
 	$GameOverText.visible = false
 	$MainMenuButton.visible = false
 	$Robot.visible = false
-	
 	$AnimationPlayer.play("FadeIn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

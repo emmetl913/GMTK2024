@@ -20,9 +20,12 @@ func _ready():
 		robobakebg.get_node("MainMenuButton").queue_free()
 		var stuffs = robobakebg.get_children()
 		$Stars.visible = false
+		$Streak.text = "Best Streak: " + str(SaveData.best_streak)
 		#for i in stuffs:
 #			if i.z_order:
 	#			i.z_order = -1
+	if SaveData.best_streak > 0:
+		$Streak.text = "Best Streak: " + str(SaveData.best_streak)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

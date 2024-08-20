@@ -11,10 +11,8 @@ spawnRange = Vector2(-100, 100)
 spawnCountRandomRange = Vector2(4, 7)
 
 [node name="Background" type="Sprite2D" parent="."]
-self_modulate = Color(0.231373, 0.705882, 0.12549, 1)
 texture_filter = 1
 position = Vector2(120, 80)
-scale = Vector2(0.75, 0.888889)
 texture = ExtResource("2_jafae")
 
 [node name="Cursor" parent="." instance=ExtResource("4_1ktfw")]

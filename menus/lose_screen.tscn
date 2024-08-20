@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8ae7oqo560h4"]
+[gd_scene load_steps=15 format=3 uid="uid://c8ae7oqo560h4"]
 
 [ext_resource type="Script" path="res://LoseScreen.gd" id="1_qlw3j"]
 [ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="2_cxea2"]
@@ -247,6 +247,9 @@ _data = {
 "ShowRobot": SubResource("Animation_37ljm")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_n7svu"]
+font = ExtResource("2_cxea2")
+
 [node name="LoseScreen" type="Node2D"]
 script = ExtResource("1_qlw3j")
 
@@ -307,6 +310,15 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_pipbs")
 }
+
+[node name="Streak" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+offset_left = 4.0
+offset_top = 147.0
+offset_right = 87.0
+offset_bottom = 170.0
+label_settings = SubResource("LabelSettings_n7svu")
 
 [connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
