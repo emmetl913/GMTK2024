@@ -230,9 +230,9 @@ centered = false
 
 [node name="Label4" type="Label" parent="LabelSecond"]
 texture_filter = 1
-offset_left = 142.0
+offset_left = 143.0
 offset_top = 67.0
-offset_right = 170.0
+offset_right = 171.0
 offset_bottom = 90.0
 text = "W"
 label_settings = SubResource("LabelSettings_nf2c2")

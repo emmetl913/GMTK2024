@@ -36,6 +36,7 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/wooder.png"))
 		sprites.append(load("res://assets/sprites/erf.png"))
 		sprites.append(load("res://assets/sprites/wind.png"))
+		$DisplayTimer.wait_time = 0.2
 	$PatternInit/Red.texture = sprites[0]
 	$PatternDisplay/Red.texture_normal = sprites[0]
 	$PatternInit/Blue.texture = sprites[1]
@@ -56,9 +57,8 @@ func _process(delta):
 
 func arrays_have_same_content(array1, array2):
 	if array1.size() != array2.size(): return false
-	for item in array1:
-			if !array2.has(item): return false
-			if array1.count(item) != array2.count(item): return false
+	for i in array1.size():
+		if array1[i] != array2[i]: return false
 	return true
 
 func _on_red_pressed():

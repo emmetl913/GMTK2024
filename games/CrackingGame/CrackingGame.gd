@@ -70,7 +70,7 @@ func _process(delta):
 		$EggStuff/Path2D/PathFollow2D/Sprite2D.texture = sprites[2]
 	if total_cracks > max_cracks and not has_lost:
 		has_lost = true
-		$EggStuff/Path2D/PathFollow2D/Sprite2D.visible = false
+		$EggStuff/Path2D/PathFollow2D/Sprite2D.self_modulate = Color(1,0,0)
 		$Crack_timer.stop()
 		super.onLose()
 	if max_cracks == total_cracks and not has_won:
