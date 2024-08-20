@@ -28,7 +28,6 @@ func _ready():
 	print("First cracks: ", first_cracks, "   Second cracks: ", second_cracks, "   Third cracks: ", third_cracks)
 
 func setupSprites():
-	GlobalVars.game_stage = 2
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/egg_whole.png"))
 		sprites.append(load("res://assets/sprites/egg_crackedalil.png"))
