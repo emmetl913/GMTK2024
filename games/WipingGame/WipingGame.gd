@@ -79,4 +79,5 @@ func _input(event):
 func _on_mouse_detection_timeout():
 	if curr_vel.x > 5 or curr_vel.y > 5 and not has_won:
 		total_swipes += 1
-		$rubbingSFX.play()
+		if total_swipes < swipes_to_win:
+			$rubbingSFX.play()
