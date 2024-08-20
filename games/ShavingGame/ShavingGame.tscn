@@ -10,6 +10,11 @@
 [ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="8_e5qhl"]
 [ext_resource type="Texture2D" uid="uid://cds8q1otyhfc6" path="res://assets/sprites/left_click.png" id="9_ejsj4"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_li45w"]
+font = ExtResource("8_e5qhl")
+font_color = Color(0.866667, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4d8f8"]
 size = Vector2(87.5, 50)
 
@@ -25,11 +30,6 @@ size = Vector2(131.064, 126.482)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uovx5"]
 size = Vector2(38, 58.54)
 
-[sub_resource type="LabelSettings" id="LabelSettings_li45w"]
-font = ExtResource("8_e5qhl")
-font_color = Color(0.866667, 0, 0, 1)
-outline_color = Color(0, 0, 0, 1)
-
 [node name="ShavingGame" type="Node2D"]
 script = ExtResource("1_gp8yt")
 max_right = 200.0
@@ -43,6 +43,21 @@ texture_filter = 1
 offset_right = 240.0
 offset_bottom = 159.0
 color = Color(0.607843, 0.509804, 0.623529, 1)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = 106.0
+offset_top = 134.0
+offset_right = 209.0
+offset_bottom = 157.0
+text = "to CHOP"
+label_settings = SubResource("LabelSettings_li45w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(85, 130)
+texture = ExtResource("9_ejsj4")
+centered = false
 
 [node name="Shaveables" type="Node2D" parent="."]
 position = Vector2(40.535, 75)
@@ -128,21 +143,6 @@ one_shot = true
 
 [node name="ShaveSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_pf5el")
-
-[node name="Label" type="Label" parent="."]
-texture_filter = 1
-offset_left = 106.0
-offset_top = 134.0
-offset_right = 209.0
-offset_bottom = 157.0
-text = "to CHOP"
-label_settings = SubResource("LabelSettings_li45w")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(85, 130)
-texture = ExtResource("9_ejsj4")
-centered = false
 
 [connection signal="area_entered" from="Shaveables/Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="Shaver/ShaveArea" to="." method="_on_shave_area_area_entered"]
