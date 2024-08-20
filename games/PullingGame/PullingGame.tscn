@@ -28,6 +28,7 @@ position = Vector2(124, 64)
 texture = ExtResource("2_11sv5")
 
 [node name="Cake" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
 position = Vector2(113, 77)
 scale = Vector2(0.5, 0.5)

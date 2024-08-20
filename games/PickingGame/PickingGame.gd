@@ -33,7 +33,7 @@ func _ready():
 			i.set_collision_shape(Vector2(120,136))
 			i.set_spawncollision_shape(Vector2(120,136))
 		if i.is_good:
-			i.texture = sprites[0]
+			i.texture = sprites[0] 
 			#if GlobalVars.game_stage == 2:
 				#i.scale = Vector2(1,1)
 			all_bad = false
@@ -46,10 +46,13 @@ func setupSprites():
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/strawberry.png"))
 		sprites.append(load("res://assets/sprites/strawberrybad.png"))
+		$Background.texture = load("res://assets/sprites/BushBG.png")
+		$Background.self_modulate = Color.WHITE
 	if GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/helicopter1.png"))
 		sprites.append(load("res://assets/sprites/helicopter3.png"))
-		$Background.self_modulate = Color.DARK_SEA_GREEN
+		$Background.texture = load("res://assets/sprites/cloudBG.png")
+		$Background.self_modulate = Color.WHITE
 	if GlobalVars.game_stage == 2:
 		sprites.append(load("res://assets/sprites/island2.png"))
 		sprites.append(null)

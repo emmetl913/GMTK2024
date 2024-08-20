@@ -91,7 +91,15 @@ func startGame(gameID: int):
 	if gameID != 2 and gameID != 5  and gameID != 6:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$TimerGraphic.visible = true
-	$GameTimer.wait_time = game_inst.getTimer(game_phase)
+	if !GlobalVars.is_endless:
+		$GameTimer.wait_time = game_inst.getTimer(game_phase)
+	else:
+		if gameID == 8:
+			$GameTimer.wait_time = game_inst.getTimer(game_phase)
+		elif total_wins + total_losses > 0:	
+			$GameTimer.wait_time = game_inst.getTimer(game_phase - (total_wins+total_losses)/5)
+		else:
+			$GameTimer.wait_time = game_inst.getTimer(game_phase)
 	$DirectionMessage/Label.text = game_inst.directionMessage
 
 	#Set up direction animation
@@ -158,7 +166,8 @@ func endGame():
 		win()
 	
 	#if rounds completed is a multiple of 11, show cinematic
-	if ((total_wins + total_losses) % 11 == 0):
+	
+	if ((total_wins + total_losses) % 11 == 0) and !GlobalVars.is_endless:
 		showCinematic()
 	else:
 		enter_cutscene()
@@ -172,7 +181,6 @@ func win():
 	#Changes scene to win screen
 	if !GlobalVars.is_endless:
 		SaveData.beat_story_mode = true
-		SaveData.save(0)
 	get_tree().change_scene_to_file("res://worlds/RobotBakesTheEarth.tscn")
 
 func showCinematic():
@@ -187,9 +195,9 @@ func showCinematic():
 	cinematicInst.get_node("Objective").texture_filter = 1
 	if GlobalVars.game_stage == 0:
 		cinematicInst.setObjectiveSprite(preload("res://assets/sprites/kitchenstuff.png"))
-	elif GlobalVars.game_stage == 1: 
+	elif GlobalVars.game_stage == 1:
 		cinematicInst.setObjectiveSprite(preload("res://assets/sprites/2ndflyby.png"))
-	elif GlobalVars.game_stage == 2: 
+	elif GlobalVars.game_stage == 2:
 		cinematicInst.setObjectiveSprite(preload("res://assets/sprites/3rdflyby.png"))	
 	add_child(cinematicInst, true)
 	
@@ -250,7 +258,10 @@ func _on_transition_anim_player_animation_finished(anim_name):
 		
 		#Start new game
 		if GlobalVars.is_endless:
+			GlobalVars.game_stage = randi_range(0,2)
+			SaveData.save(total_wins + total_losses)
 			startGame(randi_range(0, gameScenes.size()-1))
+			
 		elif not GlobalVars.is_endless:
 			if game_ind < gameScenes.size()-1:
 				game_ind += 1

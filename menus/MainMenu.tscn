@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://hnyitvrj83gq"]
+[gd_scene load_steps=15 format=3 uid="uid://hnyitvrj83gq"]
 
 [ext_resource type="Script" path="res://menus/MainMenu.gd" id="1_lkndu"]
 [ext_resource type="Texture2D" uid="uid://du4fqqhmsfg1f" path="res://Buttons/StoryMode.png" id="2_i81ld"]
@@ -11,9 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://b334s1qjpx7gq" path="res://Buttons/Quitbutton.png" id="6_sh78s"]
 [ext_resource type="Texture2D" uid="uid://b4ra04citd15y" path="res://Buttons/QuitbuttonHover.png" id="7_f1gjk"]
 [ext_resource type="AudioStream" uid="uid://cdmtpmso18cgh" path="res://assets/music/FlyingThroughSpace.wav" id="11_bck32"]
+[ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="12_2wr2a"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqxsr"]
 shader = ExtResource("2_kn8lr")
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3bxd"]
+font = ExtResource("12_2wr2a")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -89,6 +93,17 @@ texture_hover = ExtResource("7_f1gjk")
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_bck32")
 autoplay = true
+
+[node name="Streak" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 147.0
+offset_right = 87.0
+offset_bottom = 170.0
+text = "Best Streak: "
+label_settings = SubResource("LabelSettings_g3bxd")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Endless" to="." method="_on_endless_pressed"]
