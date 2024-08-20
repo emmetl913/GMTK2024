@@ -53,6 +53,7 @@ text = "W"
 label_settings = SubResource("LabelSettings_d4otq")
 
 [node name="S" type="Label" parent="."]
+z_index = 5
 texture_filter = 1
 offset_left = 149.0
 offset_top = 62.0

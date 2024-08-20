@@ -22,14 +22,17 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/knife.png"))
 		sprites.append(load("res://assets/sprites/strawberry.png"))
 		sprites.append(load("res://assets/sprites/strawberryhalf.png"))
+		knife_speed = 500
 	elif GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/rustyknife.png"))
 		sprites.append(load("res://assets/sprites/car.png"))
 		sprites.append(load("res://assets/sprites/carhalf.png"))
+		knife_speed = 575
 	elif GlobalVars.game_stage == 2:
 		sprites.append(load("res://assets/sprites/rustyknife.png"))
 		sprites.append(load("res://assets/sprites/mountain.png"))
 		sprites.append(load("res://assets/sprites/mountainhalf.png"))
+		knife_speed = 625
 	$Knife_Folloing/Path2D/PathFollow2D/Knife/Knife.texture = sprites[0]
 	$Fruit/Sprite2D.texture = sprites[1]
 	$Fruit/Sprite2D2.texture = sprites[2]
