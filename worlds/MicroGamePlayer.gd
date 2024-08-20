@@ -259,6 +259,4 @@ func _on_transition_anim_player_animation_finished(anim_name):
 	elif (anim_name == "Exit_Game"):
 		endGame()
 
-func _input(event):
-	if event.is_action_pressed("test"):
-		win()
+

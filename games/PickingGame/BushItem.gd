@@ -26,6 +26,15 @@ func _on_area_2d_area_exited(area):
 func isInRange():
 	return in_range
 
+func set_collision_shape(vec: Vector2):
+	var shape = RectangleShape2D.new()
+	shape.size = vec
+	$Area2D/CollisionShape2D.set_shape(shape)
+
+func set_spawncollision_shape(vec: Vector2):
+	var shape = RectangleShape2D.new()
+	shape.size = vec
+	$SpawnCollisionDetection/CollisionShape2D.set_shape(shape)
 func successState():
 	self_modulate = Color.GREEN
 	success = true
