@@ -5,7 +5,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	SaveData.load_data()
 	if SaveData.best_streak > 0:
-		$Streak.text = "Best Streak: " + str(SaveData.best_streak)
+		$Streak.text = "Best Endless Mode Streak: " + str(SaveData.best_streak)
 	$FadeIn.visible = true
 	$GameOverText.visible = false
 	$MainMenuButton.visible = false
