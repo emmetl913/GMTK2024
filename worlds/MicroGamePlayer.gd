@@ -169,6 +169,7 @@ func endGame():
 	#if rounds completed is a multiple of 11, show cinematic
 	
 	if ((total_wins + total_losses) % 11 == 0) and !GlobalVars.is_endless:
+		GlobalVars.game_stage += 1
 		showCinematic()
 	else:
 		enter_cutscene()
@@ -268,7 +269,6 @@ func _on_transition_anim_player_animation_finished(anim_name):
 				game_ind += 1
 			elif game_ind == gameScenes.size()-1:
 				print("Game stage: ", GlobalVars.game_stage)
-				GlobalVars.game_stage += 1
 				game_ind = 0
 			startGame(game_ind)
 	elif (anim_name == "Enter_Game"):
