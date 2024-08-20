@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bs1arsoaxi704"]
+[gd_scene load_steps=28 format=3 uid="uid://bs1arsoaxi704"]
 
 [ext_resource type="Script" path="res://worlds/MicroGamePlayer.gd" id="1_v88o7"]
 [ext_resource type="Texture2D" uid="uid://c4y7fwmphhywq" path="res://assets/Timer/stopwatch.png" id="2_auqqo"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://0b74jgic1yco" path="res://assets/MicroGamePlayer/transition.png" id="4_d0212"]
 [ext_resource type="Texture2D" uid="uid://bicciu8p263d1" path="res://assets/MicroGamePlayer/Lives Display/lives_display4.png" id="5_wvb5n"]
 [ext_resource type="AudioStream" uid="uid://bdb3t6k0g2pui" path="res://assets/music/funny2.wav" id="8_d656y"]
+[ext_resource type="AudioStream" uid="uid://bnh8bfwwf83j1" path="res://assets/sfx/microgamewin.wav" id="10_4k5vy"]
+[ext_resource type="AudioStream" uid="uid://b0it6c4wnkpiq" path="res://assets/sfx/microgamelose.wav" id="11_4v6jk"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uacp0"]
 font = ExtResource("3_adxpj")
@@ -359,6 +361,12 @@ z_index = 14
 texture_filter = 1
 position = Vector2(34, 14)
 texture = ExtResource("5_wvb5n")
+
+[node name="onwin" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4k5vy")
+
+[node name="onlose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4v6jk")
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
 [connection signal="timeout" from="InbetweenTimer" to="." method="_on_inbetween_timer_timeout"]
