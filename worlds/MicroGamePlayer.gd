@@ -187,6 +187,10 @@ func showCinematic():
 	cinematicInst.get_node("Objective").texture_filter = 1
 	if GlobalVars.game_stage == 0:
 		cinematicInst.setObjectiveSprite(preload("res://assets/sprites/kitchenstuff.png"))
+	elif GlobalVars.game_stage == 1: 
+		cinematicInst.setObjectiveSprite(preload("res://assets/sprites/2ndflyby.png"))
+	elif GlobalVars.game_stage == 2: 
+		cinematicInst.setObjectiveSprite(preload("res://assets/sprites/3rdflyby.png"))	
 	add_child(cinematicInst, true)
 	
 	cinematicInst.playAnimation()
