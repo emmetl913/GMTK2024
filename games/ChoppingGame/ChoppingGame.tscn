@@ -51,6 +51,7 @@ centered = false
 
 [node name="Knife_Folloing" type="Node2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)
+z_index = 1
 position = Vector2(13, 53)
 script = ExtResource("2_a15ko")
 
@@ -83,6 +84,10 @@ shape = SubResource("RectangleShape2D_lhfg8")
 debug_color = Color(0.186082, 0.588666, 0.706743, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="Fruit"]
+texture = ExtResource("3_ydq3s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Fruit"]
+z_index = 2
 texture = ExtResource("3_ydq3s")
 
 [node name="SliceSFX" type="AudioStreamPlayer" parent="."]

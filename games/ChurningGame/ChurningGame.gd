@@ -59,8 +59,9 @@ func _input(event):
 		$S.visible = not $S.visible
 		$Subject.texture = sprites[2]
 		total_churns += 1
-	elif event.is_action_pressed("W") and not $W.visible and not has_won:
+	elif event.is_action_pressed("W") and not $W.visible and not has_won and not has_lost:
 		super.onLose()
+		has_lost = true
 	if event.is_action_pressed("S") and $S.visible:
 		$Churn.position.y = churn_bottom
 		$W.visible = not $W.visible

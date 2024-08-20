@@ -13,7 +13,6 @@ func _ready():
 	$Wait.text = "Wait"
 	directionMessage = "PULL!!"
 	timers = [7, 6, 5, 4, 3, 2]
-	GlobalVars.game_stage = 2
 	setupSprites()
 	cook_time = randf_range(1, 6)
 	cooktime.wait_time = cook_time
@@ -32,7 +31,7 @@ func setupSprites():
 		grab_time = 0.26
 
 func _input(event):
-	if event.is_action_pressed("LMB") and grabwindow.time_left > 0:
+	if event.is_action_pressed("LMB") and grabwindow.time_left > 0 and not has_won:
 		super.onWin()
 		has_won = true
 

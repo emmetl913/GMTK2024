@@ -44,7 +44,6 @@ position = Vector2(117, 99)
 texture = ExtResource("3_ay02x")
 
 [node name="W" type="Label" parent="."]
-z_index = 4
 texture_filter = 1
 offset_left = 149.0
 offset_top = 21.0
@@ -54,7 +53,6 @@ text = "W"
 label_settings = SubResource("LabelSettings_d4otq")
 
 [node name="S" type="Label" parent="."]
-z_index = 4
 texture_filter = 1
 offset_left = 149.0
 offset_top = 62.0
