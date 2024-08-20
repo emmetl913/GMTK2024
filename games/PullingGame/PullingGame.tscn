@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bi5omij45ephh"]
+[gd_scene load_steps=11 format=3 uid="uid://bi5omij45ephh"]
 
 [ext_resource type="Script" path="res://games/PullingGame/PullingGame.gd" id="1_b61dt"]
 [ext_resource type="Texture2D" uid="uid://c0np4jcyfv6xu" path="res://assets/sprites/robitclosed.png" id="2_11sv5"]
@@ -12,6 +12,91 @@ font = ExtResource("4_qif0b")
 font_size = 32
 font_color = Color(0, 0.494118, 1, 1)
 outline_size = 3
+
+[sub_resource type="Animation" id="Animation_kso20"]
+resource_name = "TakeCake"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cake:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cake:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -0.698132]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cake:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xs5yg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cake:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cake:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cake:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t4vge"]
+_data = {
+"RESET": SubResource("Animation_xs5yg"),
+"TakeCake": SubResource("Animation_kso20")
+}
 
 [node name="PullingGame" type="Node2D"]
 script = ExtResource("1_b61dt")
@@ -28,11 +113,11 @@ position = Vector2(124, 64)
 texture = ExtResource("2_11sv5")
 
 [node name="Cake" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 1
-position = Vector2(113, 77)
+position = Vector2(121, 87)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_5knak")
-centered = false
 
 [node name="CookTime" type="Timer" parent="."]
 
@@ -52,6 +137,11 @@ stream = ExtResource("3_1t8p3")
 [node name="TickingSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_jbp77")
 autoplay = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_t4vge")
+}
 
 [connection signal="timeout" from="CookTime" to="." method="_on_cook_time_timeout"]
 [connection signal="timeout" from="GrabWindow" to="." method="_on_grab_window_timeout"]
