@@ -4,6 +4,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SaveData.load_data()
+	$HSlider.value = AudioServer.get_bus_volume_db(0)+50
 	$AnimationPlayerFirst.play("fade_to_normal")
 	if SaveData.beat_story_mode:
 		$ColorRect.visible = false
@@ -47,3 +48,12 @@ func _on_endless_pressed():
 
 func _on_animation_player_first_animation_finished(anim_name):
 	$FadeFirst.visible = false
+
+
+func _on_h_slider_drag_ended(value_changed):
+	if $HSlider.value == 0:
+		AudioServer.set_bus_volume_db(0, -100000000000000000)
+
+
+func _on_h_slider_value_changed(value):
+	AudioServer.set_bus_volume_db(0, ($HSlider.value - 50) *0.5)

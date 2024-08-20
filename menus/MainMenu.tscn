@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://hnyitvrj83gq"]
+[gd_scene load_steps=24 format=3 uid="uid://hnyitvrj83gq"]
 
 [ext_resource type="Script" path="res://menus/MainMenu.gd" id="1_lkndu"]
 [ext_resource type="Texture2D" uid="uid://du4fqqhmsfg1f" path="res://Buttons/StoryMode.png" id="2_i81ld"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://b4ra04citd15y" path="res://Buttons/QuitbuttonHover.png" id="7_f1gjk"]
 [ext_resource type="AudioStream" uid="uid://cdmtpmso18cgh" path="res://assets/music/FlyingThroughSpace.wav" id="11_bck32"]
 [ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="12_2wr2a"]
+[ext_resource type="Texture2D" uid="uid://ba28gejpljuoq" path="res://assets/sprites/volume.png" id="13_rqxt5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_aqxsr"]
 shader = ExtResource("2_kn8lr")
@@ -245,7 +246,28 @@ offset_bottom = 170.0
 text = "Best Streak: "
 label_settings = SubResource("LabelSettings_g3bxd")
 
+[node name="HSlider" type="HSlider" parent="."]
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 70.0
+offset_top = 132.0
+offset_right = 170.0
+offset_bottom = 148.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+texture_filter = 1
+layout_mode = 0
+offset_left = 49.0
+offset_top = 129.0
+offset_right = 89.0
+offset_bottom = 169.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_rqxt5")
+
 [node name="FadeFirst" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_right = 240.0
@@ -260,4 +282,7 @@ libraries = {
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Endless" to="." method="_on_endless_pressed"]
 [connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="changed" from="HSlider" to="." method="_on_h_slider_changed"]
+[connection signal="drag_ended" from="HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]
 [connection signal="animation_finished" from="AnimationPlayerFirst" to="." method="_on_animation_player_first_animation_finished"]
