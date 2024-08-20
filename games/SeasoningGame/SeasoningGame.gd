@@ -25,7 +25,7 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/pinkshaker.png"))
 		sprites.append(load("res://assets/sprites/brownshaker.png"))
 		$DisplayTimer.wait_time = 0.5
-	elif GlobalVars.game_stage == 1:
+	if GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/bolt1.png"))
 		sprites.append(load("res://assets/sprites/bolt2.png"))
 		sprites.append(load("res://assets/sprites/nutt.png"))

@@ -14,7 +14,6 @@ func _ready():
 	timers = [5, 4, 3, 2]
 	
 	directionMessage = "CHURN!!"
-	GlobalVars.game_stage = 2
 	setupSprites()
 	setup()
 

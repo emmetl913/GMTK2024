@@ -11,7 +11,6 @@ var total_cycles : int
 func _ready():
 	timers = [6,5,4,3,2]
 	directionMessage = "Shovel!!"
-	GlobalVars.game_stage = 2
 	setupSprites()
 	cycleslabel.text = "Shovels left: %01d" % cycles_to_win
 	cycles_to_win = randi_range(4, 6)
