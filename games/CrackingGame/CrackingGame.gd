@@ -28,6 +28,7 @@ func _ready():
 	print("First cracks: ", first_cracks, "   Second cracks: ", second_cracks, "   Third cracks: ", third_cracks)
 
 func setupSprites():
+	GlobalVars.game_stage = 2
 	if GlobalVars.game_stage == 0:
 		sprites.append(load("res://assets/sprites/egg_whole.png"))
 		sprites.append(load("res://assets/sprites/egg_crackedalil.png"))
@@ -36,7 +37,10 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/helicopter1.png"))
 		sprites.append(load("res://assets/sprites/helicopter2.png"))
 		sprites.append(load("res://assets/sprites/helicopter3.png"))
-
+	else:
+		sprites.append(load("res://assets/sprites/buildings/building1.png"))
+		sprites.append(load("res://assets/sprites/buildings/building1-2.png"))
+		sprites.append(load("res://assets/sprites/buildings/building1-3.png"))
 func _input(event):
 	if event.is_action_pressed("LMB"):
 		is_cracking = true

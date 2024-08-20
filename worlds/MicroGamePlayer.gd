@@ -184,7 +184,9 @@ func showCinematic():
 	#load cinematic
 	cinematicInst = cinematicScene.instantiate()
 	cinematicInst.setParent(self)
-	cinematicInst.setObjectiveSprite(preload("res://assets/sprites/chainsaw.png"))
+	cinematicInst.get_node("Objective").texture_filter = 1
+	if GlobalVars.game_stage == 0:
+		cinematicInst.setObjectiveSprite(preload("res://assets/sprites/kitchenstuff.png"))
 	add_child(cinematicInst, true)
 	
 	cinematicInst.playAnimation()
