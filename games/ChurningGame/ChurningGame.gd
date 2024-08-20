@@ -10,6 +10,8 @@ var has_lost : bool = false
 @onready var sprites : Array[CompressedTexture2D]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	updateMeter()
+	
 	#Setup timers
 	timers = [5, 4, 3, 2]
 	
@@ -40,6 +42,7 @@ func setupSprites():
 	$Subject.texture = sprites[2]
 
 func _input(event):
+	updateMeter()
 	if event.is_action_pressed("W") and $W.visible and not has_won:
 		$Churn.position.y = churn_top
 		$W.visible = not $W.visible
@@ -71,6 +74,14 @@ func setup():
 		$Churn.position.y = churn_top
 	$W.visible = starting_button
 	$S.visible = not starting_button
+
+func updateMeter():
+	var newMeterX = (92 * total_churns) / win_churns
+	
+	if newMeterX > 92:
+		newMeterX = 92
+	
+	$Meter/meter.size.x = newMeterX
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
