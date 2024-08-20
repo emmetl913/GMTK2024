@@ -14,6 +14,7 @@ func _ready():
 	timers = [5, 4, 3, 2]
 	
 	directionMessage = "CHURN!!"
+	GlobalVars.game_stage = 2
 	setupSprites()
 	setup()
 
@@ -33,6 +34,16 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/carcrushed.png"))
 		$Subject.visible = true
 		churn_top = 58
+		churn_bottom = 92
+		$Churn.z_index += 2
+	elif GlobalVars.game_stage == 2:
+		sprites.append(load("res://assets/sprites/carpressbottom.png"))
+		sprites.append(load("res://assets/sprites/carpresstop.png"))
+		sprites.append(load("res://assets/sprites/mountain.png"))
+		sprites.append(load("res://assets/sprites/mountainsmushed.png"))
+		$Subject.visible = true
+		$Subject.position.y = 30
+		churn_top = 0
 		churn_bottom = 92
 		$Churn.z_index += 2
 	$Basin.texture = sprites[0]

@@ -35,7 +35,8 @@ func _on_cook_time_timeout():
 	$TickingSFX.stop()
 	$Robit.texture = load("res://assets/sprites/robitopen.png")
 	$Cake.visible = true
-	$OvenTimerSFX.play()
+	if not has_won:
+		$OvenTimerSFX.play()
 	$Wait.text = "Pull!!!!"
 	grabwindow.start()
 

@@ -16,15 +16,24 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/slime.png"))
 		sprites.append(load("res://assets/sprites/rollingpin.png"))
 		sprites.append(load("res://assets/sprites/eggshells.png"))
+		sprites.append(load("res://assets/sprites/plate.png"))
 	if GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/treeclean.png"))
 		sprites.append(load("res://assets/sprites/treeclean.png"))
 		sprites.append(load("res://assets/sprites/treeclean.png"))
+		sprites.append(load("res://assets/sprites/grassyknull.png"))
+	if GlobalVars.game_stage == 2:
+		sprites.append(load("res://assets/sprites/island1.png"))
+		sprites.append(load("res://assets/sprites/island2.png"))
+		sprites.append(load("res://assets/sprites/island3.png"))
+		sprites.append(load("res://assets/sprites/ocean.png"))
+		$ColorRect.color = Color(0,0,0)
 	$Trash_Box/Trash/Sprite2D.texture = sprites[0]
 	$Trash_Box/Trash2/Sprite2D.texture = sprites[2]
 	$Trash_Box/Trash3/Sprite2D.texture = sprites[2]
 	$Trash_Box/Trash4/Sprite2D.texture = sprites[1]
 	$Trash_Box/Trash5/Sprite2D.texture = sprites[0]
+	$Plate.texture = sprites[3]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

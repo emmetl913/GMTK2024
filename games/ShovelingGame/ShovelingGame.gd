@@ -11,12 +11,12 @@ var total_cycles : int
 func _ready():
 	timers = [6,5,4,3,2]
 	directionMessage = "Shovel!!"
+	GlobalVars.game_stage = 2
 	setupSprites()
 	cycleslabel.text = "Shovels left: %01d" % cycles_to_win
 	cycles_to_win = randi_range(4, 6)
 	$Shovel.position = Vector2i(80,90)
 	$W.visible = true
-	pass # Replace with function body.
 
 func setupSprites():
 	if GlobalVars.game_stage == 0:
@@ -25,13 +25,16 @@ func setupSprites():
 	if GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/shovel.png"))
 		sprites.append(load("res://assets/sprites/gas.png"))
+	if GlobalVars.game_stage == 2:
+		sprites.append(load("res://assets/sprites/shovel.png"))
+		sprites.append(load("res://assets/sprites/beegisland.png"))
 	$Shovel.texture = sprites[0]
 	$Coal_Left.texture = sprites[1]
 	$Coal_Right.texture = sprites[1]
 
 func _input(event):
 	if event.is_action_pressed("A"):
-		if shovel_pos[1] and $A.visible:
+		if shovel_pos[1] and $A.visible and not has_won:
 			$shovelingSFX.play()
 			$W.visible = true
 			$A.visible = false
@@ -39,27 +42,29 @@ func _input(event):
 			shovel_pos[1] = false
 			total_cycles += 1
 			$Shovel.position = Vector2i(80,90)
+			$Shovel.rotate(4.71239)
 		else:
-			pass
-		$Shovel.rotate(4.71239)
-	elif event.is_action_pressed("W"):
+			super.onLose()
+	elif event.is_action_pressed("W") and not has_won:
 		if shovel_pos[0] and $W.visible:
 			$D.visible = true
 			$W.visible = false
 			shovel_pos[0] = false
 			shovel_pos[1] = true
 			$Shovel.position = Vector2i(114,50)
+			$fireSFX.play()
+			$Shovel.rotation_degrees = rad_to_deg(PI)
 		elif shovel_pos[2] and $W.visible:
 			$A.visible = true
 			$W.visible = false
 			shovel_pos[2] = false
 			shovel_pos[1] = true
 			$Shovel.position = Vector2i(114,50)
+			$fireSFX.play()
+			$Shovel.rotation_degrees = rad_to_deg(PI)
 		else:
-			pass
-		$fireSFX.play()
-		$Shovel.rotation_degrees = rad_to_deg(PI)
-	elif event.is_action_pressed("D"):
+			super.onLose()
+	elif event.is_action_pressed("D") and not has_won:
 		if shovel_pos[1] and $D.visible:
 			$shovelingSFX.play()
 			$W.visible = true
@@ -67,9 +72,9 @@ func _input(event):
 			shovel_pos[2] = true
 			shovel_pos[1] = false
 			$Shovel.position = Vector2i(152,90)
+			$Shovel.rotate(PI/2)
 		else:
-			pass
-		$Shovel.rotate(PI/2)
+			super.onLose()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

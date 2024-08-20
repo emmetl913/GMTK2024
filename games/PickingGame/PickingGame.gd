@@ -28,6 +28,8 @@ func _ready():
 	for i in bushItems:
 		if i.is_good:
 			i.texture = sprites[0]
+			if GlobalVars.game_stage == 2:
+				i.scale = Vector2(1,1)
 			all_bad = false
 		else:
 			i.texture = sprites[1]
@@ -41,6 +43,10 @@ func setupSprites():
 	if GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/helicopter1.png"))
 		sprites.append(load("res://assets/sprites/helicopter3.png"))
+	if GlobalVars.game_stage == 2:
+		sprites.append(load("res://assets/sprites/island2.png"))
+		sprites.append(null)
+		$Background.self_modulate = Color.DARK_BLUE
 
 func _input(event):
 	if event.is_action_pressed("LMB"):
