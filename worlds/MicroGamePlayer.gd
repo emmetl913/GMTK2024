@@ -205,6 +205,7 @@ func endCinematic():
 func play_end_text_animation(message: String, color: Color):
 	$EndMessage/Label.text = message
 	$EndMessage/Label.label_settings.font_color = color
+	$EndMessage/MessageAnimPlayer.stop()
 	$EndMessage/MessageAnimPlayer.play("Animation")
 	$EndMessage/MessageBuffer.start()
 
