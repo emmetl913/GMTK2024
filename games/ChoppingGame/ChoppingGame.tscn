@@ -1,13 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://de6rd5a70ycvt"]
+[gd_scene load_steps=12 format=3 uid="uid://de6rd5a70ycvt"]
 
 [ext_resource type="Script" path="res://games/ChoppingGame/ChoppingGame.gd" id="1_pc1qu"]
 [ext_resource type="Script" path="res://games/ChoppingGame/Knife_Folloing.gd" id="2_a15ko"]
+[ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="2_spjno"]
+[ext_resource type="Texture2D" uid="uid://cds8q1otyhfc6" path="res://assets/sprites/left_click.png" id="3_escrs"]
 [ext_resource type="Texture2D" uid="uid://7vxtfx2q57xo" path="res://assets/sprites/knife.png" id="3_n5vpd"]
 [ext_resource type="Texture2D" uid="uid://ci0p7le8o6yg5" path="res://icon.svg" id="3_ydq3s"]
 [ext_resource type="AudioStream" uid="uid://k7erolpsoo4m" path="res://assets/sfx/sliceSFX.mp3" id="5_vy72j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6kvgd"]
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("2_spjno")
+font_color = Color(0.866667, 0, 0, 1)
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_yvhvg"]
 _data = {
@@ -31,12 +35,19 @@ offset_right = 240.0
 offset_bottom = 160.0
 
 [node name="Label" type="Label" parent="."]
-offset_left = 72.0
-offset_top = 10.0
-offset_right = 175.0
-offset_bottom = 33.0
-text = "LMB to CHOP"
+texture_filter = 1
+offset_left = 103.0
+offset_top = 15.0
+offset_right = 206.0
+offset_bottom = 38.0
+text = "to CHOP"
 label_settings = SubResource("LabelSettings_6kvgd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(82, 11)
+texture = ExtResource("3_escrs")
+centered = false
 
 [node name="Knife_Folloing" type="Node2D" parent="."]
 self_modulate = Color(0, 0, 0, 1)
