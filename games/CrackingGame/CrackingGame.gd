@@ -41,7 +41,7 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/buildings/building1-2.png"))
 		sprites.append(load("res://assets/sprites/buildings/building1-3.png"))
 func _input(event):
-	if event.is_action_pressed("LMB"):
+	if event.is_action_pressed("LMB") and parent.getTimeLeft() > 0:
 		is_cracking = true
 		print("Start cracking")
 		total_cracks+= 1
@@ -81,4 +81,5 @@ func _process(delta):
 
 func _on_crack_timer_timeout():
 	print("Timer end")
-	super.onWin()
+	if !has_lost:
+		super.onWin()

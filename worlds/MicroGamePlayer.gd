@@ -53,6 +53,9 @@ func _process(delta):
 func updateTimer():
 	$TimerGraphic/Label.text = "%d" % (ceil($GameTimer.time_left))
 
+func getTimeLeft():
+	return $GameTimer.time_left
+
 func loadScenes():
 	gameScenes.append(preload("res://games/ShavingGame/ShavingGame.tscn"))
 	audio.append(preload("res://assets/sfx/shave.wav"))
