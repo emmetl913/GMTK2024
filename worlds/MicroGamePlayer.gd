@@ -132,6 +132,7 @@ func winGame():
 	recentGameWon = true
 	
 	play_end_text_animation("WIN!", Color(0, 0.64, 0.13))
+	$onwin.play()
 	$MessageTimer.start()
 
 func loseGame():
@@ -141,7 +142,7 @@ func loseGame():
 	lives -= 1
 	update_lives()
 	recentGameWon = false
-	
+	$onlose.play()
 	play_end_text_animation("LOSE!", Color(1, 0, 0))
 	$MessageTimer.start()
 

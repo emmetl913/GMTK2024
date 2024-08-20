@@ -32,6 +32,7 @@ func setupSprites():
 
 func _input(event):
 	if event.is_action_pressed("LMB") and grabwindow.time_left > 0 and not has_won:
+		$AnimationPlayer.play("TakeCake")
 		super.onWin()
 		has_won = true
 
