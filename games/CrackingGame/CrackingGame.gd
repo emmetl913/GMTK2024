@@ -81,5 +81,5 @@ func _process(delta):
 
 func _on_crack_timer_timeout():
 	print("Timer end")
-	if !has_lost:
+	if !has_lost and parent.getTimeLeft() > 0:
 		super.onWin()
