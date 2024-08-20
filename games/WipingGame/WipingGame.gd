@@ -35,7 +35,12 @@ func setupSprites():
 		$Plate.position.y -= 4
 		$Plate.position.x += 3
 	if GlobalVars.game_stage == 2:
-		pass
+		sprites.append(load("res://assets/sprites/road.png"))
+		sprites.append(load("res://assets/sprites/wholecity1.png"))
+		sprites.append(load("res://assets/sprites/wholecity2.png"))
+		sprites.append(load("res://assets/sprites/wholecity3.png"))
+		sprites.append(load("res://assets/sprites/wholecity4.png"))
+		sprites.append(load("res://assets/sprites/wholecity5.png"))
 	$Plate.texture = sprites[0]
 
 func getPlateDirtiness():
