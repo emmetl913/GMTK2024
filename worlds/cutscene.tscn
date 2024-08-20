@@ -126,6 +126,20 @@ texture_filter = 1
 position = Vector2(120, -160)
 texture = ExtResource("1_1dxeq")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1198.0
+offset_right = 240.0
+offset_bottom = -448.0
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="Buffer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
