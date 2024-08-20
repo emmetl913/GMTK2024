@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://7kkvev5036ny"]
+[gd_scene load_steps=9 format=3 uid="uid://7kkvev5036ny"]
 
 [ext_resource type="Script" path="res://games/IcingGame/IcingGame.gd" id="1_vc0qf"]
 [ext_resource type="PackedScene" uid="uid://kf1q8ln3swdb" path="res://games/IcingGame/Patterns/S_Pattern.tscn" id="2_4p275"]
+[ext_resource type="Texture2D" uid="uid://ps4x40kq6e76" path="res://assets/sprites/cake_top.png" id="2_hfkyv"]
 [ext_resource type="PackedScene" uid="uid://6tpodpx3ai1a" path="res://games/IcingGame/Patterns/N_Pattern.tscn" id="3_6w53s"]
+[ext_resource type="Texture2D" uid="uid://ct7j6723mf6lf" path="res://assets/sprites/road-0.png" id="3_d3toy"]
 [ext_resource type="Texture2D" uid="uid://dpv45fkc2aka5" path="res://assets/sprites/icing_pipe.png" id="4_m4gvy"]
 [ext_resource type="Texture2D" uid="uid://ch747ufimwy2r" path="res://assets/sprites/treeclean.png" id="5_j3ihs"]
 
@@ -17,12 +19,26 @@ offset_right = 240.0
 offset_bottom = 160.0
 color = Color(0.451029, 0.6215, 0.346212, 1)
 
+[node name="Cake" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(48, 7)
+texture = ExtResource("2_hfkyv")
+centered = false
+
+[node name="Road" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(118, 76)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_d3toy")
+
 [node name="SPattern" parent="." instance=ExtResource("2_4p275")]
 visible = false
+self_modulate = Color(1, 1, 1, 0.572549)
 position = Vector2(120, 77)
 
 [node name="NPattern" parent="." instance=ExtResource("3_6w53s")]
 visible = false
+self_modulate = Color(1, 1, 1, 0.458824)
 position = Vector2(114, 72)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["cursor"]]
@@ -41,6 +57,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Trees" type="Node2D" parent="."]
+visible = false
 
 [node name="Tree" type="Sprite2D" parent="Trees"]
 position = Vector2(28, 26)

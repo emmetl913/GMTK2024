@@ -24,6 +24,8 @@ var cutsceneInst
 #bool true=win, false=loss
 var recentGameWon
 
+#@onready var music = preload("res://assets/music/funny2.wav")
+
 #Fields for Lives
 var lives : int
 @export var livesDisplaySprites : Array[Texture2D]
@@ -177,7 +179,7 @@ func showCinematic():
 	$LivesDisplay.visible = false
 	$Transition.visible = false
 	
-	print("cinematic time")
+	$Music.stop()
 	
 	#load cinematic
 	cinematicInst = cinematicScene.instantiate()
@@ -193,6 +195,9 @@ func endCinematic():
 	
 	if is_instance_valid(cinematicInst):
 		cinematicInst.queue_free()
+	
+	$Music.play()
+	
 	enter_cutscene()
 
 func play_end_text_animation(message: String, color: Color):

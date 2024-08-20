@@ -10,6 +10,8 @@ func _ready():
 	$MainMenuButton.visible = false
 	
 	$AnimatedSprite2D.play("Booom")
+	
+	$AudioSteams/Music.play()
 
 func _on_animated_sprite_2d_animation_finished():
 	if !dont_repeat and !menu_mode: 

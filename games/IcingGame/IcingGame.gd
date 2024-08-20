@@ -17,14 +17,20 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/icing_pipe.png"))
 		sprites.append(load("res://assets/sprites/icingspot.png"))
 		$Trees.visible = false
+		$Cake.visible = true
+		$Road.visible = false
 	elif GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/payntbuqet.png"))
 		sprites.append(load("res://assets/sprites/payntspot.png"))
 		$Trees.visible = false
+		$Cake.visible = false
+		$Road.visible = true
 	elif GlobalVars.game_stage == 2:
 		sprites.append(load("res://assets/sprites/fireBOOM.png"))
 		sprites.append(load("res://assets/sprites/treeonFYA.png"))
 		$Trees.visible = true
+		$Cake.visible = false
+		$Road.visible = false
 	$CharacterBody2D/Sprite2D.texture = sprites[0]
 	$SPattern.setTextures(sprites[1])
 	$NPattern.setTextures(sprites[1])
