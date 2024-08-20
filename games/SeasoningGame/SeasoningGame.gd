@@ -36,6 +36,7 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/wooder.png"))
 		sprites.append(load("res://assets/sprites/erf.png"))
 		sprites.append(load("res://assets/sprites/wind.png"))
+		$DisplayTimer.wait_time = 0.2
 	$PatternInit/Red.texture = sprites[0]
 	$PatternDisplay/Red.texture_normal = sprites[0]
 	$PatternInit/Blue.texture = sprites[1]
