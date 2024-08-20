@@ -1,23 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://o7p2flp7fgen"]
+[gd_scene load_steps=5 format=3 uid="uid://o7p2flp7fgen"]
 
 [ext_resource type="Script" path="res://games/ChurningGame/ChurningGame.gd" id="1_lqwom"]
 [ext_resource type="Texture2D" uid="uid://48gffiswk2hw" path="res://assets/sprites/car.png" id="2_18sje"]
 [ext_resource type="AudioStream" uid="uid://dhl7jje60ing1" path="res://assets/sfx/churningsfx.wav" id="2_lsy3r"]
 [ext_resource type="Texture2D" uid="uid://dev3evhstt5k5" path="res://assets/sprites/carpressbottom.png" id="3_ay02x"]
-[ext_resource type="FontFile" uid="uid://dy03qa2n13w83" path="res://fonts/GrapeSoda.ttf" id="4_7kbfh"]
-[ext_resource type="Texture2D" uid="uid://dj6np1q78xs8v" path="res://assets/sprites/meter.png" id="6_26bj1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_d4otq"]
-font = ExtResource("4_7kbfh")
-font_size = 32
-font_color = Color(1, 0.211765, 0.219608, 1)
-outline_size = 4
-
-[sub_resource type="LabelSettings" id="LabelSettings_ho4u7"]
-font = ExtResource("4_7kbfh")
-font_size = 32
-font_color = Color(0.235294, 0.00784314, 0.796078, 1)
-outline_size = 4
 
 [node name="ChurningGame" type="Node2D"]
 script = ExtResource("1_lqwom")
@@ -45,39 +31,19 @@ texture = ExtResource("3_ay02x")
 
 [node name="W" type="Label" parent="."]
 z_index = 4
-texture_filter = 1
 offset_left = 149.0
 offset_top = 21.0
 offset_right = 189.0
 offset_bottom = 44.0
-text = "W"
-label_settings = SubResource("LabelSettings_d4otq")
+text = "\"W\""
 
 [node name="S" type="Label" parent="."]
 z_index = 4
-texture_filter = 1
 offset_left = 149.0
 offset_top = 62.0
 offset_right = 189.0
 offset_bottom = 85.0
-text = "S"
-label_settings = SubResource("LabelSettings_ho4u7")
+text = "\"S\""
 
 [node name="ChurnSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_lsy3r")
-
-[node name="Meter" type="Node2D" parent="."]
-position = Vector2(69, 136)
-
-[node name="frame" type="Sprite2D" parent="Meter"]
-texture_filter = 1
-texture = ExtResource("6_26bj1")
-centered = false
-
-[node name="meter" type="ColorRect" parent="Meter"]
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 64.0
-offset_bottom = 16.0
-color = Color(1, 1, 0.231373, 1)
-metadata/_edit_use_anchors_ = true

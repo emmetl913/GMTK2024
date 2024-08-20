@@ -25,12 +25,17 @@ func setupSprites():
 		sprites.append(load("res://assets/sprites/pinkshaker.png"))
 		sprites.append(load("res://assets/sprites/brownshaker.png"))
 		$DisplayTimer.wait_time = 0.5
-	if GlobalVars.game_stage == 1:
+	elif GlobalVars.game_stage == 1:
 		sprites.append(load("res://assets/sprites/bolt1.png"))
 		sprites.append(load("res://assets/sprites/bolt2.png"))
 		sprites.append(load("res://assets/sprites/nutt.png"))
 		sprites.append(load("res://assets/sprites/worsher.png"))
 		$DisplayTimer.wait_time = 0.3
+	elif GlobalVars.game_stage == 2:
+		sprites.append(load("res://assets/sprites/fire.png"))
+		sprites.append(load("res://assets/sprites/wooder.png"))
+		sprites.append(load("res://assets/sprites/erf.png"))
+		sprites.append(load("res://assets/sprites/wind.png"))
 	$PatternInit/Red.texture = sprites[0]
 	$PatternDisplay/Red.texture_normal = sprites[0]
 	$PatternInit/Blue.texture = sprites[1]
